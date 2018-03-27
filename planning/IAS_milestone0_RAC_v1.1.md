@@ -32,6 +32,6 @@
 ## Tasks: Laqin Fan
 
 ### Task 1: UI Sketches
-- Description: xxx (Task Description)
-- How to Evaluate: xxx (Instructions)
-- Outcome of Task: xxx (Description; filled in at end of iteration)
+- Description: Draw up the UI sketches for the pages in RentACar. In each UI sketch, it shows the basic page elements, such as the buttons, tabs, filter lists.  
+- How to Evaluate: The UI sketches folder can be seen in [UI Sketches](https://githubcom/memphis-cs-projects/comp7012-Rent-a-Car/tree/master/planning/Project_Artifacts/UI_Sketches), it should be clear to understand each page UI sketches in our web app, RentACar. 
+- Outcome of Task: I used Google Drawing to finish drawing the UI sketches for each page in our RentACar, and shared the google link to my team members, revising the UI designs based on their comments. 
