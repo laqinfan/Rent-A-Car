@@ -56,9 +56,9 @@
 - How to Evaluate: In  the Profile Page (see UI Sketch #xx), click new button that will bring up new profile form where renters can put their information . click edit button that will bring an edit profile form where renters can edit their information.
 - Outcome of Task: xxx (Description; filled in at end of iteration)
 
-Task 4: Add Paypal Information
+### Task 4: Add Paypal Information
 - Description: To add paypal information I need the paypal model (see class diagram) base controller, new/edit form (see UI sketches for Profile Page)
-- How to Evaluate: see UI Sketch for Profile Page click the create new button that will bring up  new paypal form where the user can add their paypal information and if any user does not have any account then create new account link  will redirect to "https://www.paypal.com/in/webapps/mpp/account-selection"official paypal page to signup  . If a user clicks edit button it will redirect to edit paypal form and the user can edit your paypol information.
+- How to Evaluate: see UI Sketch for Profile Page click the create new button that will bring up  new paypal form where the user can add their paypal information and if any user does not have any account then create new account link  will redirect to [official PayPal signup](https://www.paypal.com/in/webapps/mpp/account-selection). If a user clicks edit button it will redirect to edit paypal form and the user can edit their PayPal information.
 - Outcome of Task: xxx
 
 ## Tasks: Sheldon Ebron
@@ -77,7 +77,7 @@ Task 4: Add Paypal Information
 
 ### Task 2: Approve/agree to Rental Contract
 - Description: edit Contract controller, approve.html.erb
-- How to Evaluate:After generating an contract, the contract would be put into the database. In the contract form (see UI Sketch for contract form), there are buttons: edit/negotiate/void/approve. clicking Edit button can edit the contract, clicking negociate button will show the chatting message, clicking void button means this contract is canceled, clicking approve button means approve and get a deal.
+- How to Evaluate: After generating a contract, the contract would be put into the database. In the contract form (see UI Sketch for contract form), there are buttons: edit/negotiate/void/approve. clicking Edit button can edit the contract, clicking negociate button will show the chatting message, clicking void button means this contract is canceled, clicking approve button means approve and get a deal.
 - Outcome of Task: N/A
 
 ### Task 3: Pay for Rental as a renter
@@ -87,5 +87,5 @@ Task 4: Add Paypal Information
 
 ### Task 4: Receive Payment for Rental as a vendor
 - Description: Transaction model linked to a contract where the debit and credits to PayPal accounts are stored. Create a class to do the calculation in models.
-- How to Evaluate:Navigate to the contract page, and choose one contract. After renter and vendor approve the contract, our RentACar would deduct the renting fee based on the final price and transfer it to vendor by paypal.
+- How to Evaluate: Navigate to the contract page, and choose one contract. After renter and vendor approve the contract, our RentACar would deduct the renting fee based on the final price and transfer it to vendor by paypal.
 - Outcome of Task: N/A
