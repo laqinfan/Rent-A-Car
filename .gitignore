@@ -21,4 +21,7 @@
 /yarn-error.log
 
 .byebug_history
-
+.DS_Store
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
