@@ -19,27 +19,23 @@
 
 ### Task 1: Sitemap
 - Description: Visual or textually organized model of a Web site's content.
-<<<<<<< HEAD
 - How to Evaluate: The sitemap (see Sitemap_v1.1.pptx](https://github.com/memphis-cs-projects/comp7012-Rent-a-car/blob/master/planning/Project_Artifacts/SiteMap/Sitemap_v1.1.pptx) should be clear and easy to understand  whole website view. 
-=======
 - How to Evaluate: The sitemap (see [Sitemap_v1.1.pptx](https://github.com/memphis-cs-projects/comp7012-Rent-a-Car/blob/master/planning/Project_Artifacts/SiteMap/Sitemap_v1.1.pptx))should be clear and easy to understand  whole website view.
->>>>>>> e125e661730ac129b8b51e50c8904427bcda975a
+
 - Outcome of Task: Sitemap is used during the planning of a Web site .I made the sitemap using powerpoint that refers to that pages of the website that redirects to another page or refers to a new/ edit form so that the this visual representation gives a clear idea of the website.
 
 
 ## Tasks: Sheldon Ebron
-​
+
 ### Task 1: Class Diagram
 - Description: I created a class diagram that will intuitively correlate with the user stories.
 - How to Evaluate: The class diagram document (see [RentACar_ClassDiagram_v1.1.jpg](https://github.com/memphis-cs-projects/comp7012-Rent-a-Car/blob/master/planning/Project_Artifacts/ClassDiagrams/RentACar_ClassDiagram_v1.1.jpg)) should be clear and easy to understand while following the MVC class diagram format.
 - Outcome of Task: I created the class diagram originally using powerpoint, and following a Rent-A-Car group discussion Katie Bridson suggested that I use yuml which is a way to generate a class diagram programmatically. This made the diagram cleaner and also will allow for the diagram to quickly scale up in the future, if needed.
-<<<<<<< HEAD
-=======
 
->>>>>>> e125e661730ac129b8b51e50c8904427bcda975a
+
 ## Tasks: Laqin Fan
 
-### Task 1: UI Sketches
-- Description: xxx (Task Description)
-- How to Evaluate: xxx (Instructions)
-- Outcome of Task: xxx (Description; filled in at end of iteration)
+Task 1: UI Sketches
+-Description: Draw up the UI sketches for the pages in RentACar. In each UI sketch, it shows the basic page elements, such as the buttons, tabs, filter lists.
+-How to Evaluate: The UI sketches folder can be seen in UI Sketches, it should be clear to understand each page UI sketches in our web app, RentACar.
+-Outcome of Task: I used Google Drawing to finish drawing the UI sketches for each page in our RentACar, and shared the google link to my team members, revising the UI designs based on their comments.
