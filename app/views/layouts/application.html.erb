@@ -9,6 +9,21 @@
   </head>
 
   <body>
-    <%= yield %>
+    <% if flash[:notice] %>
+      <p style= "background-color: #ADFF2F">
+         <%= flash[:notice] %>
+      </p>
+    <% end %>
+
+
+  <% if flash[:alert] %>
+      <p style= "background-color: #FF000">
+         <%= flash[:alert] %>
+      </p>
+  <% end %>
+ 
+   
+  <%= yield %>
+  
   </body>
 </html>
