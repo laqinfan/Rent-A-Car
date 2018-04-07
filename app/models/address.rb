@@ -1,5 +1,21 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id         :integer          not null, primary key
+#  street1    :string
+#  street2    :string
+#  city       :string
+#  state      :string
+#  zipcode    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 #kbridson
 class Address < ApplicationRecord
+    has_many :cars
+
     validates :street1, length: { maximum: 30 }, uniqueness: true, presence: true
     validates :street2, length: { maximum: 30 }, allow_blank: true
     validates :city, presence: true
