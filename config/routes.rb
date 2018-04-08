@@ -14,8 +14,8 @@ patch 'users/:id',to: 'users#update'
 delete 'users/:id', to: 'users#destroy'
 
 get 'pages/home', to: 'pages#home', as: 'pages_home'
-get 'xxxx',to: 'pages#xxxx', as: 'pages_login'
-get 'xxxx', to: 'pages#xxxx', as: 'pages_register'
+get 'login',to: 'pages#login', as: 'pages_login'
+get 'register', to: 'pages#register', as: 'pages_register'
 get 'bob', to:'pages#bob', as: 'pages_bob'
 get 'alice', to: 'pages#alice', as: 'pages_alice'
 
