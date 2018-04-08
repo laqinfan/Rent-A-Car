@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # get 'pages/home', to: 'pages#home', as: 'pages_home'
+
+  # root to: 'pages#home'
   
-  resources :cars
+  resources :users do
+    resources :cars
+  end
+  
   devise_for :users
 resources :logins
 resources :registers
@@ -15,6 +22,7 @@ patch 'users/:id',to: 'users#update'
 delete 'users/:id', to: 'users#destroy'
 
 get 'pages/home', to: 'pages#home', as: 'pages_home'
+
 get 'xxxx',to: 'pages#xxxx', as: 'pages_login'
 get 'xxxx', to: 'pages#xxxx', as: 'pages_register'
 get 'bob', to:'pages#bob', as: 'pages_bob'
@@ -25,3 +33,4 @@ root to: 'pages#home'
 
 
 end
+
