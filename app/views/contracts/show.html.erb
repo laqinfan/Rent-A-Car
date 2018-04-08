@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @contract.start_date %>
+</p>
+
+<p>
+  <strong>Return date:</strong>
+  <%= @contract.return_date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @contract.price %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @contract.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @contract.total %>
+</p>
+
+<div>
+<%= link_to 'Edit', edit_contract_path(@contract) %> |
+<%= link_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %>
+<button type="button"> Negotiate </button>
+<button type="button"> Approve</button>
+<br>
+</div>
+<br>
+<%= link_to 'Back', contracts_path %>
