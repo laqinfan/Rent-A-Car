@@ -2,7 +2,7 @@ require 'date'
 
 class Contract < ApplicationRecord
 
-  belongs_to :profile
+  #belongs_to :profile
   
   validates :start_date, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}, presence: true
   validates :return_date, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}, presence: true
@@ -15,7 +15,7 @@ class Contract < ApplicationRecord
       startdate = Date.parse(self.start_date)
       enddate = Date.parse(self.return_date)
       begin 
-        if (enddate - startdate) > 0
+        if (enddate - startdate) >= 0
           self.subtotal = (enddate - startdate).to_i*self.price
           self.total = self.subtotal*(1.03).round(2)
         else
