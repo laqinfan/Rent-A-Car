@@ -14,7 +14,6 @@
 #  price_per_day   :decimal(10, 2)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
-#  address_id      :integer
 #  user_id         :integer
 #
 
