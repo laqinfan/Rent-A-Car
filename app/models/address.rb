@@ -14,7 +14,8 @@
 
 #kbridson
 class Address < ApplicationRecord
-    has_many :cars
+    has_many :locations
+    has_many :cars, through: :locations, source: :addressable, source_type: 'Car'
 
     validates :street1, length: { maximum: 30 }, uniqueness: true, presence: true
     validates :street2, length: { maximum: 30 }, allow_blank: true

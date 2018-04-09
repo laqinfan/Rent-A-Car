@@ -30,7 +30,6 @@ one:
   mileage: 56000
   number_of_seats: 4
   price_per_day: 59.99
-  pickup_location: one
   owner: one
 
 two:
@@ -43,7 +42,6 @@ two:
   mileage: 75000
   number_of_seats: 4
   price_per_day: 69.99
-  pickup_location: two
   owner: two
 
 three:
@@ -56,5 +54,4 @@ three:
   mileage: 25000
   number_of_seats: 4
   price_per_day: 89.99
-  pickup_location: one
   owner: two

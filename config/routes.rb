@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   # root to: 'pages#home'
   
-  resources :users do
-    resources :cars
-  end
+  #resources :users
+  resources :cars
   
   devise_for :users
 resources :logins

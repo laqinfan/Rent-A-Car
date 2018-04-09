@@ -17,7 +17,7 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create car" do
     assert_difference('Car.count') do
-      post cars_url, params: { car: { category: @car.category, color: @car.color, description: @car.description, make: @car.make, mileage: @car.mileage, model: @car.model, number_of_seats: @car.number_of_seats, price_per_day: @car.price_per_day, year: @car.year, user_id: @car.owner.id, address_id: @car.pickup_location.id } }
+      post cars_url, params: { car: { category: @car.category, color: @car.color, description: @car.description, make: @car.make, mileage: @car.mileage, model: @car.model, number_of_seats: @car.number_of_seats, price_per_day: @car.price_per_day, year: @car.year, user_id: @car.owner.id } }
       puts assigns(:car).errors.full_messages
     end
 
@@ -35,7 +35,7 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update car" do
-    patch car_url(@car), params: { car: { category: @car.category, color: @car.color, description: @car.description, make: @car.make, mileage: @car.mileage, model: @car.model, number_of_seats: @car.number_of_seats, price_per_day: @car.price_per_day, year: @car.year, user_id: @car.owner.id, address_id: @car.pickup_location.id } }
+    patch car_url(@car), params: { car: { category: @car.category, color: @car.color, description: @car.description, make: @car.make, mileage: @car.mileage, model: @car.model, number_of_seats: @car.number_of_seats, price_per_day: @car.price_per_day, year: @car.year, user_id: @car.owner.id } }
     puts assigns(:car).errors.full_messages
     assert_redirected_to car_url(@car)
   end

@@ -22,7 +22,9 @@ class Car < ApplicationRecord
     before_save :round_price
 
     belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
-    belongs_to :pickup_location, class_name: 'Address', foreign_key: 'address_id'
+    has_many :locations, as: :addressable
+    has_many :addresses, through: :locations
+    accepts_nested_attributes_for :locations
 
     VEHICLE_CATEGORIES = ["SUV", "Truck", "Sedan", "Van", "Coupe", "Wagon", "Convertible", "Sports Car", "Diesal", "Crossover", "Luxury Car", "Hybrid/Electric", "Other"]
     
