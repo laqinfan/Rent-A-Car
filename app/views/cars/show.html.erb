@@ -45,7 +45,15 @@
   <%= @car.price_per_day %>
 </p>
 
-<%= render @car.addresses %>
+<h2>Pickup Locations </h2>
+<% @car.locations.each do |location| %>
+  <%= render location.address %>
+  <p>
+    <strong>Status:</strong>
+    <%= location.status %>
+  </p>
+  <br>
+<% end %>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>

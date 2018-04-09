@@ -38,7 +38,8 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category, id: :car_category %>
+    <!--<%= form.text_field :category, id: :car_category %>-->
+    <%= form.select :category, options_for_select(Car::VEHICLE_CATEGORIES, car.category) %>
   </div>
 
   <div class="field">
@@ -55,6 +56,40 @@
     <%= form.label :price_per_day %>
     <%= form.text_field :price_per_day, id: :car_price_per_day %>
   </div>
+
+  <%= form.fields_for :locations do |location_form| %>
+    <p>
+      <%= location_form.label :status, "Status" %>
+      <%= location_form.text_field :status %>
+    </p>
+
+    <%= location_form.fields_for :address do |address_form| %>
+      <p>
+        <%= address_form.label :street1, "Street Line 1" %>
+        <%= address_form.text_field :street1 %>
+      </p>
+      
+      <p>
+        <%= address_form.label :street2, "Street Line 2" %>
+        <%= address_form.text_field :street2 %>
+      </p>
+
+      <p>
+        <%= address_form.label :city, "City" %>
+        <%= address_form.text_field :city %>
+      </p>
+
+      <p>
+        <%= address_form.label :state, "State" %>
+        <%= address_form.text_field :state %>
+      </p>
+
+      <p>
+        <%= address_form.label :zipcode, "Zipcode" %>
+        <%= address_form.text_field :zipcode %>
+      </p>
+    <% end %>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

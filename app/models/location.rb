@@ -12,8 +12,9 @@
 #
 
 class Location < ApplicationRecord
-    belongs_to :addressable, polymorphic: true
+    belongs_to :addressable, polymorphic: true, optional:true
     belongs_to :address
+    accepts_nested_attributes_for :address
 
     LOCATION_STATUSES = ["current", "saved"]
 

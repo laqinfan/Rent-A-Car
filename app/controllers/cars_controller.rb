@@ -22,11 +22,15 @@ class CarsController < ApplicationController
 
   def details
     @car = Car.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to browse_vehicles_url, alert: "Car not found."
   end
 
   # GET /cars/new
   def new
     @car = current_user.cars.new
+    @locations = @car.locations.build
+    @address = @locations.build_address
     #@car = Car.new
   end
 
@@ -80,10 +84,14 @@ class CarsController < ApplicationController
     def set_car
       #@car = Car.find(params[:id])
       @car = current_user.cars.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        redirect_to cars_url, alert: "Car not found."
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def car_params
-      params.require(:car).permit(:make, :model, :year, :color, :description, :category, :mileage, :number_of_seats, :price_per_day, :user_id, location_ids: [])
+      #params.require(:car).permit(:make, :model, :year, :color, :description, :category, :mileage, :number_of_seats, :price_per_day, :user_id, location_ids: [])
+      params.require(:car).permit(:make, :model, :year, :color, :description, :category, :mileage,
+       :number_of_seats, :price_per_day, :user_id, locations_attributes: [:id, :status, address_attributes: [:id, :street1, :street2, :city, :state, :zipcode]])
     end
 end
