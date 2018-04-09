@@ -2,11 +2,20 @@ require 'test_helper'
 
 class CarsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    # @user = users(:one)
+    # sign_in_as(@user)
+    sign_in users(:one)
     @car = cars(:one)
+    #sign_in_for(@car)
   end
 
   test "should get index" do
     get cars_url
+    assert_response :success
+  end
+
+  test "should get browse" do
+    get browse_vehicles_url
     assert_response :success
   end
 
@@ -26,6 +35,11 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
 
   test "should show car" do
     get car_url(@car)
+    assert_response :success
+  end
+
+  test "should show car details" do
+    get car_details_url(@car)
     assert_response :success
   end
 
