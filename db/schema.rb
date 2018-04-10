@@ -32,6 +32,16 @@ ActiveRecord::Schema.define(version: 20180410021513) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "addresses", force: :cascade do |t|
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

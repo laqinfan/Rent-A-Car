@@ -1,0 +1,16 @@
+#kbridson
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  street1: 1567 Meadow Hill Drive
+  street2: 
+  city: Cordova
+  state: TN
+  zipcode: 38016
+
+two:
+  street1: 3782 Boxcar Lane
+  street2: PO Box 3145
+  city: Memphis
+  state: TN
+  zipcode: 38016
