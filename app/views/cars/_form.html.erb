@@ -57,13 +57,18 @@
     <%= form.text_field :price_per_day, id: :car_price_per_day %>
   </div>
 
+  
   <%= form.fields_for :locations do |location_form| %>
+    <%= render 'locations/location_fields', f: location_form %>
+    
+    <% if false %>
     <p>
       <%= location_form.label :status, "Status" %>
       <%= location_form.text_field :status %>
     </p>
 
     <%= location_form.fields_for :address do |address_form| %>
+      <%= render 'address_fields', address_form %>
       <p>
         <%= address_form.label :street1, "Street Line 1" %>
         <%= address_form.text_field :street1 %>
@@ -89,7 +94,13 @@
         <%= address_form.text_field :zipcode %>
       </p>
     <% end %>
+
+    <% end %>
   <% end %>
+  
+  <div class="links">
+    <%= link_to_add_association 'Add Pickup Location', form, :locations, partial: 'locations/location_fields', render_options: { wrapper: 'inline' } %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
