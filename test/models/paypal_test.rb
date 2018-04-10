@@ -17,7 +17,7 @@ class PaypalTest < ActiveSupport::TestCase
   test "Paypal id is logical " do
     one = paypals(:one)
     one.paypal_id = 98982
-    assert one.save!
+    assert one.valid?
    end
   
    test "Paypal id is not reasonable" do

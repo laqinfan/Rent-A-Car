@@ -21,6 +21,6 @@ class Profile < ApplicationRecord
   validates :middle_name, allow_blank: true, length: { maximum: 10 }
   validates :backgroundcheck_status, inclusion: { in: ['checked', 'processing', 'unchecked'] }, presence: true
   validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Not a valid 10-digit telephone number" },  presence: true
-  validates :social_security, numericality: { only_integer: true, less_than_or_equal_to: 999999999,greater_than_or_equal_to: 100000000 }, presence: true
+  validates :social_security, numericality: { only_integer: true, less_than_or_equal_to: 999999999, greater_than_or_equal_to: 100000000 }, presence: true
 
 end

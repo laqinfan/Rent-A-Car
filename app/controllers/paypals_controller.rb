@@ -57,7 +57,7 @@ class PaypalsController < ApplicationController
                      paypal_username: params[:paypal][:paypal_username],
                      paypal_account_routing_number: params[:paypal][:paypal_account_routing_number])
          
-            flash[:notice] = "Paypal updated successfully"
+           flash[:notice] = "Paypal updated successfully"
             redirect_to paypals_url
         else
             flash.now[:alert] = "Paypal could not be updated"
@@ -65,5 +65,7 @@ class PaypalsController < ApplicationController
         end
         
     end
+
+   
 
 end
