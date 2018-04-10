@@ -50,3 +50,5 @@ Profile.create!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy
 
 #Paypal.create!(paypal_id: 90887, paypal_username: 'Suioytr2', paypal_account_routing_number: 88982822)
 Paypal.create!(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
+contract1 = Contract.create(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract2 = Contract.create(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')

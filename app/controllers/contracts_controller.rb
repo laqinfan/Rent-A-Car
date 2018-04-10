@@ -61,6 +61,18 @@ class ContractsController < ApplicationController
     end
   end
 
+  def update_status
+    @contract = Contract.find(params[:id])
+    @contract.status = 'Executed'
+
+    respond_to do |format|
+      if @contract.save
+        format.html { redirect_to @contract, notice: 'Contract was successfully executed.' }
+        format.json { render :show, status: :created, location: @contract }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contract
@@ -69,6 +81,6 @@ class ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contract_params
-      params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total)
+      params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status)
     end
 end

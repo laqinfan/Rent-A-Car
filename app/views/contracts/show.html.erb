@@ -25,19 +25,24 @@
   <%= @contract.total %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @contract.status %>
+</p>
+
+<p>
 <div>
-<%= link_to 'Edit', edit_contract_path(@contract) %> |
-<%= link_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %>
-<script type="text/javascript">
-    function approveDeal() {
-        alert("Order is placed successfully! Thanks");
-        window.location.replace("http://localhost:3000/contracts");
-    }
-</script>
-<button type="button"> Negotiate </button>
-<input type="button" id="approveDeal" onclick="approveDeal()" value="Approve"/>
+<div style="float: left; width: auto;"><%= link_to_if 'Update', edit_contract_path(@contract)%></div>&nbsp
+<div style="float: left; width: auto;"><%= button_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %></div>&nbsp
+<div style="float: left; width: auto;"><button type="button"> Negotiate </button></div>&nbsp
+<div style="float: left; width: auto;">
+  <%= form_for @contract do |f| %>
+    <%= f.hidden_field :status, :value=>"Executed"%>
+    <%= f.submit "Approve" %>
+  <% end %>
+</div>
+</p>
 
 <br>
 </div>
-<br>
 <%= link_to 'Back', contracts_path %>

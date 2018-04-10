@@ -9,6 +9,7 @@
     <th>&nbsp &nbsp Start date</th>
     <th> &nbsp &nbsp Return date</th>
     <th>&nbsp &nbsp Price/Day</th>
+    <th>&nbsp &nbsp Status</th>
 
     </tr>
   </thead>
@@ -20,11 +21,16 @@
       <td>&nbsp &nbsp <%= contract.start_date %></td>
       <td>&nbsp &nbsp <%= contract.return_date %></td>
       <td>&nbsp &nbsp <%= contract.price %></td>
+      <td><%= contract.status %></td>
       <td style="visibility:hidden; ><%= contract.subtotal %></td>
       <td style="visibility:hidden; > <%= contract.total %></td>
+      
+
       <td><%= link_to 'Show', contract %></td>
+      <!--
       <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
       <td><%= link_to 'Delete', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      -->
       </tr>
     <% end %>
   </tbody>
