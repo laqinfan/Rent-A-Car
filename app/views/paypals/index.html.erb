@@ -1,0 +1,55 @@
+<h1> Your Paypal Account List</h1>
+<ul>
+
+<img src=<%= image_path('payment.jpg')%> width="700px" width="700px" align="right">
+
+ </ul>
+
+
+
+<table>
+  
+<tr>
+<th> Paypal Id </th>
+<th> Username </th>
+<th> Account Routing Number </th> <br />
+<th></th>
+
+</tr>
+
+<% @paypals.each do |paypal| %>
+<tr>
+
+<td><%= paypal.paypal_id %></td>
+<td><%= paypal.paypal_username %></td>
+<td><%= paypal.paypal_account_routing_number %></td>
+
+<td> 
+ <%= link_to 'Show', paypal_path(paypal.id) %>
+ <%= link_to 'Edit', edit_paypal_path(paypal) %>
+
+ 
+
+
+</td>
+
+</tr>
+
+
+<% end %>
+</table>
+
+<h3>Already have a Paypal Account ?</h1>
+<p>
+ Login :<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
+</p>
+
+
+
+<p>
+<%= link_to 'New Paypal', new_paypal_path %> 
+
+</p>
+
+
+

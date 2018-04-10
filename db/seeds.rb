@@ -15,7 +15,6 @@ place6 = Address.create!(street1: "1789 Avenue B", street2: "", city: "Memphis",
 place7 = Address.create!(street1: "1456 MyStreet St", street2: "", city: "Cordova", state: "TN", zipcode: 38016)
 place8 = Address.create!(street1: "3459 Carson Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38065)
 
-
 user1 = User.create!(email: "test1@test.com", password: "password")
 user2 = User.create!(email: "test2@test.com", password: "password")
 user3 = User.create!(email: "test3@test.com", password: "password")
@@ -45,3 +44,9 @@ car4.save!
 car5 = user1.cars.create!(make: "BMW", model: "X5", year: 2017, color: "black", description: "This is a very nice car!", category: "Luxury Car", mileage: 34000, number_of_seats: 4, price_per_day: 75.99)
 car5.locations.create!(address: place7, status: "current")
 car5.save!
+
+#Profile.create!(drivers_license: '123456789', first_name: 'Salina', last_name: 'Dutta', middle_name: 'Kumari', backgroundcheck_status: 'checked', phone: '901-875-5522', social_security: 675551122)
+Profile.create!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
+
+#Paypal.create!(paypal_id: 90887, paypal_username: 'Suioytr2', paypal_account_routing_number: 88982822)
+Paypal.create!(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
