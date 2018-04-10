@@ -1,0 +1,99 @@
+<h1> Your Profile </h1>
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+<li><%=link_to" Paypal", paypals_path %> </li>
+
+</ul>
+
+<table>
+  
+<tr>
+<th> Drivers License </th>
+<th> First Name</th>
+<th> Last Name </th> <br />
+<th> Middle Name</th>
+<th> Backgroundcheck Status</th>
+<th> Phone</th>
+<th> Social Security</th>
+<th></th>
+
+</tr>
+
+<% @profiles.each do |profile| %>
+<tr>
+
+<td><%= profile.drivers_license %></td>
+<td><%= profile.first_name %></td>
+<td><%= profile.last_name %></td>
+<td><%= profile.middle_name %></td>
+<td><%= profile.backgroundcheck_status %></td>
+<td><%= profile.phone %></td>
+<td><%= profile.social_security %></td>
+<td> 
+ <%= link_to 'Show', profile_path(profile.id) %>
+ <%= link_to 'Edit', edit_profile_path(profile) %>
+
+ 
+
+
+</td>
+
+</tr>
+
+
+<% end %>
+</table>
+
+<p>
+<h3> You have not created a profile, create one new? </h3>
+<%= link_to 'New Profile', new_profile_path %> | 
+
+</p> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

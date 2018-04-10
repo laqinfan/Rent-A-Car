@@ -1,0 +1,46 @@
+<h1>New Profile</h1>
+
+<% if @profile.errors.any? %>
+    
+     <div style="background-color: #FF0011">
+
+    <p>Fix the following error(s):</p>
+        <ul>
+        <% @profile.errors.full_messages.each do |msg|%>
+            <li>
+                <%= msg %>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+<%= form_for @profile do |p| %>
+    
+    Drivers License :<br>
+    <%=p.text_field :drivers_license%>
+    <br>
+    First Name : <br>
+    <%=p.text_field :first_name%>
+    <br>
+    Last Name : <br>
+    <%=p.text_field :last_name%>
+    <br>
+    Middle Name :<br>
+    <%=p.text_field :middle_name%>
+    <br>
+    Backgroundcheck Status : <br>
+    <%=p.text_field :backgroundcheck_status%>
+    <br>
+    Phone <br>
+    <%=p.text_field :phone%>
+    <br>
+    Social Security : <br>
+    <%=p.text_field :social_security%>
+    <br>
+    <%= p.submit "Create Profile"%>
+<% end %>
+
+<p>
+<%= link_to 'Back', profiles_path %>
+
+</p>

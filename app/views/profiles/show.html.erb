@@ -1,0 +1,39 @@
+<p> 
+<b>Drivers License :</b>
+<%= @profile.drivers_license %>
+</p>
+
+<p>
+<b> First Name :</b>
+<%= @profile.first_name%>
+</p>
+
+ <p>
+ <b> Last Name : </b>
+ <%= @profile.last_name%>
+</p>
+ 
+ <p>
+ <b> Middle Name : </b>
+ <%= @profile.middle_name%>
+</p>
+
+<p>
+ <b> Backgroundcheck Status : </b>
+ <%= @profile.backgroundcheck_status%>
+</p>
+
+<p>
+ <b> Phone : </b>
+ <%= @profile.phone%>
+</p>
+
+<p>
+ <b> Social Security : </b>
+ <%= @profile.social_security%>
+</p>
+
+<p>
+   <%= link_to 'Edit', edit_profile_path(@profile) %> |  <%= link_to 'Back', profiles_path %>
+</p>
+

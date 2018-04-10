@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403035807) do
+ActiveRecord::Schema.define(version: 20180410021513) do
+
+  create_table "paypals", force: :cascade do |t|
+    t.integer "paypal_id"
+    t.string "paypal_username"
+    t.integer "paypal_account_routing_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "drivers_license"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "middle_name"
+    t.string "backgroundcheck_status"
+    t.string "phone"
+    t.integer "social_security"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "addresses", force: :cascade do |t|
     t.string "street1"
