@@ -10,6 +10,8 @@
     <th> &nbsp &nbsp Return date</th>
     <th>&nbsp &nbsp Price/Day</th>
     <th>&nbsp &nbsp Status</th>
+    <th>&nbsp &nbsp Subtotal</th>
+    <th>&nbsp &nbsp Total</th>
 
     </tr>
   </thead>
@@ -22,13 +24,13 @@
       <td>&nbsp &nbsp <%= contract.return_date %></td>
       <td>&nbsp &nbsp <%= contract.price %></td>
       <td><%= contract.status %></td>
-      <td style="visibility:hidden; ><%= contract.subtotal %></td>
-      <td style="visibility:hidden; > <%= contract.total %></td>
+      <td><%= contract.subtotal %></td>
+      <td> <%= contract.total %></td>
       
 
       <td><%= link_to 'Show', contract %></td>
       <!--
-      <td><%= link_to 'Edit', edit_contract_path(contract) %></td>
+      <td><%= link_to 'Update', edit_contract_path(contract) %></td>
       <td><%= link_to 'Delete', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       -->
       </tr>
@@ -37,5 +39,9 @@
 </table>
 
 <br>
+<%= link_to'Home', pages_home_path %>
 
+<!--
 <%= link_to 'New Contract', new_contract_path, {:style=>'color:#0000ff;'} %>
+
+-->

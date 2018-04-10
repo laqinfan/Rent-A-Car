@@ -1,3 +1,24 @@
+# == Schema Information
+#
+# Table name: contracts
+#
+#  id          :integer          not null, primary key
+#  start_date  :string
+#  return_date :string
+#  price       :float
+#  subtotal    :float
+#  total       :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  status      :string
+#  string      :string
+#  car_id      :integer
+#
+# Indexes
+#
+#  index_contracts_on_car_id  (car_id)
+#
+
 require 'test_helper'
 
 class ContractTest < ActiveSupport::TestCase

@@ -32,7 +32,7 @@
 
 <p>
 <div>
-<div style="float: left; width: auto;"><%= link_to_if 'Update', edit_contract_path(@contract)%></div>&nbsp
+<div style="float: left; width: auto;"><%= link_to 'Update', edit_contract_path(@contract)%></div>&nbsp
 <div style="float: left; width: auto;"><%= button_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %></div>&nbsp
 <div style="float: left; width: auto;"><button type="button"> Negotiate </button></div>&nbsp
 <div style="float: left; width: auto;">
