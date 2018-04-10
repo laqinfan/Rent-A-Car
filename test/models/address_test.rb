@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: addresses
+#
+#  id         :integer          not null, primary key
+#  street1    :string
+#  street2    :string
+#  city       :string
+#  state      :string
+#  zipcode    :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 #kbridson
 
 require 'test_helper'
