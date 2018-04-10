@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 20180410160144) do
     t.integer "user_id"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
-ActiveRecord::Schema.define(version: 20180408045542) do
 
   create_table "contracts", force: :cascade do |t|
     t.string "start_date"

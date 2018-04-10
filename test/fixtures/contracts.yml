@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: contracts
+#
+#  id          :integer          not null, primary key
+#  start_date  :string
+#  return_date :string
+#  price       :float
+#  subtotal    :float
+#  total       :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  status      :string
+#  string      :string
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
