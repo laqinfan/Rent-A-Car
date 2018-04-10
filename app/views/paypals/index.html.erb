@@ -1,0 +1,22 @@
+<% @paypals.each do |paypal| %>
+
+
+ <td> 
+<%= link_to 'Edit', edit_paypal_path(paypal) %>
+
+
+
+
+ </td>
+
+
+<% end %>
+
+<p>
+<%= link_to 'New Paypal', new_paypal_path %> 
+
+</p>
+
+
+
+

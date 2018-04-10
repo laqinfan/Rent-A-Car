@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: profiles
+#
+#  id                     :integer          not null, primary key
+#  drivers_license        :string
+#  first_name             :string
+#  last_name              :string
+#  middle_name            :string
+#  backgroundcheck_status :string
+#  phone                  :string
+#  social_security        :integer
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  drivers_license: 231987222
+  first_name: Alina
+  last_name: Bhakat
+  middle_name: Kumari
+  backgroundcheck_status: processing
+  phone: 901-876-5522
+  social_security: 768543222
+
+two:
+  drivers_license: 677672272
+  first_name: Asha
+  last_name: Alani
+  middle_name: Linauy
+  backgroundcheck_status: checked
+  phone: 901-675-7722
+  social_security: 987655572
