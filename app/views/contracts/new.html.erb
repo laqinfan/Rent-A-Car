@@ -1,0 +1,32 @@
+<h1> Rental Period </h1>
+
+
+<%= form_for @contract do |f| %>
+    <p>
+    Start Date <br> 
+    <%= f.date_field :start_date, min: Date.today %>
+    </p>
+
+    <p>
+    Return Date <br>
+    <%= f.date_field:return_date, min: Date.today %>
+    </p>
+
+    <p>
+    Price <br>
+    <%= f.text_field :price %>
+    </p>
+
+    <p>
+    <%= f.hidden_field :status, :value=>"pending"%>
+    <%= f.submit "Create Contract" %>
+    </p>
+    
+<% end %>
+
+
+<!--
+<%= render 'form', contract:@contract %>
+-->
+
+<%= link_to 'Back', contracts_path %>

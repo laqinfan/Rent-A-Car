@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @contract.start_date %>
+</p>
+
+<p>
+  <strong>Return date:</strong>
+  <%= @contract.return_date %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @contract.price %>
+</p>
+
+<p>
+  <strong>Subtotal:</strong>
+  <%= @contract.subtotal %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @contract.total %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @contract.status %>
+</p>
+
+<p>
+<div>
+<div style="float: left; width: auto;"><%= link_to 'Update', edit_contract_path(@contract)%></div>&nbsp
+<div style="float: left; width: auto;"><%= button_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %></div>&nbsp
+<div style="float: left; width: auto;"><button type="button"> Negotiate </button></div>&nbsp
+<div style="float: left; width: auto;">
+  <%= form_for @contract do |f| %>
+    <%= f.hidden_field :status, :value=>"Executed"%>
+    <%= f.submit "Approve" %>
+  <% end %>
+</div>
+</p>
+
+<br>
+</div>
+<%= link_to 'Back', contracts_path %>

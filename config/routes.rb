@@ -30,10 +30,10 @@
 # 
 
 Rails.application.routes.draw do
+  resources :contracts
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # get 'pages/home', to: 'pages#home', as: 'pages_home'
+  get 'pages/home', to: 'pages#home', as: 'pages_home'
 
-  root to: 'pages#home'
   
   resources :cars
   
@@ -58,7 +58,27 @@ Rails.application.routes.draw do
   put 'paypals/:id', to: 'paypals#update'
   patch 'paypals/:id', to: 'paypals#update'
 
+  root to: 'pages#home'
+  
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # resource :contracts do
+  #   member do
+  #     post :update_status
+  #   end
+  # end
 
+
+  # devise_for :users
+  # resources :logins
+  # resources :registers
+
+  # get 'users', to: 'users#index', as: 'users'
+  # get 'users/new',to: 'users#new', as: 'new_author'
+  # post 'users', to: 'users#create'
+  # get 'users/:id', to: 'users#show', as: 'user'
+  # get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
+  # put 'users/:id', to: 'users#update'
+  # patch 'users/:id',to: 'users#update'
+  # delete 'users/:id', to: 'users#destroy'
 
 end
