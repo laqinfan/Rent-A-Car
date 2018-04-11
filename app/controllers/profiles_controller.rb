@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-
+    before_action :authenticate_user!
      def index
 
         @profiles = Profile.all
@@ -39,13 +39,13 @@ class ProfilesController < ApplicationController
         end
      end
 
-     def myprofile 
-        if user_signed_in?
-            @profile = current_user.profile
-       else
-            @profile = nil
-       end
-    end
+    #  def myprofile 
+    #     if user_signed_in?
+    #         @profile = current_user.profile
+    #    else
+    #         @profile = nil
+    #    end
+    # end
 
      def edit
 
