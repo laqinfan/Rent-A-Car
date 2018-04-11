@@ -11,6 +11,8 @@
 #
 
 class Paypal < ApplicationRecord
+  has_many :contracts
+
   validates :paypal_id, presence: true,  numericality: {only_integer: true, less_than_or_equal_to: 99999, greater_than_or_equal_to: 10000}, uniqueness: true
   validates :paypal_username, format: { with: /\A[a-zA-Z0-9]+\Z/ },presence: true, uniqueness: true
   validates :paypal_account_routing_number, numericality: {only_integer: true, less_than_or_equal_to: 99999999, greater_than_or_equal_to: 10000000},presence: true

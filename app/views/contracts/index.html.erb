@@ -11,6 +11,7 @@
     <th> &nbsp &nbsp Return date</th>
     <th>&nbsp &nbsp Price/Day</th>
     <th>&nbsp &nbsp Owner Email</th>
+    <th>&nbsp &nbsp Paypal Username</th>
     <th>&nbsp &nbsp Status</th>
     <th>&nbsp &nbsp Subtotal</th>
     <th>&nbsp &nbsp Total</th>
@@ -27,9 +28,10 @@
       <td>&nbsp &nbsp <%= contract.return_date %></td>
       <td>&nbsp &nbsp <%= contract.price %></td>
       <td>&nbsp &nbsp <%= contract.car.owner.email %></td>
-      <td><%= contract.status %></td>
-      <td><%= contract.subtotal %></td>
-      <td> <%= contract.total %></td>
+      <td>&nbsp &nbsp <%= contract.paypal.paypal_username %></td>
+      <td>&nbsp &nbsp <%= contract.status %></td>
+      <td>&nbsp &nbsp <%= contract.subtotal %></td>
+      <td>&nbsp &nbsp <%= contract.total %></td>
       
 
       <td>&nbsp<%= link_to 'Show', contract %></td>

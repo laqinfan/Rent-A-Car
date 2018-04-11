@@ -49,12 +49,30 @@ car5.save!
 Profile.create!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
 
 #Paypal.create!(paypal_id: 90887, paypal_username: 'Suioytr2', paypal_account_routing_number: 88982822)
-Paypal.create!(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
+paypal1 = Paypal.new(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
 
+car6 = user1.cars.new(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car7 = user1.cars.new(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
 
-# contract1 = Contract.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract1 = Contract.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract2 = Contract.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
 
-contract1 = car1.contracts.create!(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract1.paypal = paypal1
+contract2.paypal = paypal1
+
+contract1.car = car6
+contract2.car = car7
+
+paypal1.save!
+car6.save!
+car7.save!
+
 contract1.save!
-contract2 = car3.contracts.create!(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
 contract2.save!
+
+# contract1 = car1.contracts.create!(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+# contract1.paypal = paypal1
+# contract1.save!
+# contract2 = car3.contracts.create!(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
+# contract2.paypal = paypal1
+# contract2.save!
