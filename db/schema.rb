@@ -38,6 +38,20 @@ ActiveRecord::Schema.define(version: 20180411023406) do
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
+  create_table "contracts", force: :cascade do |t|
+    t.string "start_date"
+    t.string "return_date"
+    t.float "price"
+    t.float "subtotal"
+    t.float "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status"
+    t.string "string"
+    t.integer "car_id"
+    t.index ["car_id"], name: "index_contracts_on_car_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "status"
     t.integer "address_id"

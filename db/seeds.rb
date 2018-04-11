@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#place1 = Address.create!(street1: "1567 Front St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
-#place2 = Address.create!(street1: "5678 Bored Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
-#place3 = Address.create!(street1: "1234 Fleet St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
-#place4 = Address.create!(street1: "6543 Carsick Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
-#place5 = Address.create!(street1: "4567 Magnolia Place", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
-#place6 = Address.create!(street1: "1789 Avenue B", street2: "", city: "Memphis", state: "SC", zipcode: 38120)
-#place7 = Address.create!(street1: "1456 MyStreet St", street2: "", city: "Cordova", state: "TN", zipcode: 38016)
-#place8 = Address.create!(street1: "3459 Carson Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38065)
+#place1 = Address.create!( street1: "1568 Front St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place2 = Address.create!(street1: "5678 Bored Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place3 = Address.create!(street1: "1234 Fleet St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place4 = Address.create!(street1: "6543 Carsick Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place5 = Address.create!(street1: "4567 Magnolia Place", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place6 = Address.create!(street1: "1789 Avenue B", street2: "", city: "Memphis", state: "SC", zipcode: 38120)
+place7 = Address.create!(street1: "1456 MyStreet St", street2: "", city: "Cordova", state: "TN", zipcode: 38016)
+place8 = Address.create!(street1: "3459 Carson Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38065)
 
 
 user1 = User.create!(email: "test1@test.com", password: "password")
@@ -23,13 +23,13 @@ user4 = User.create!(email: "test4@test.com", password: "password")
 user5 = User.create!(email: "test5@test.com", password: "password")
 
 car1 = user1.cars.create!(make: "Toyota", model: "Camry", year: 2017, color: "white", description: "Hello", category: "Sedan", mileage: 34500, number_of_seats: 4, price_per_day: 19.567)
-car1.locations.create!(address: place1, status: "saved")
+car1.locations.create!(address: place5, status: "saved")
 car1.locations.create!(address: place2, status: "saved")
 car1.locations.create!(address: place8, status: "current")
 car1.save!
 
 car2 = user1.cars.create!(make: "Ford", model: "Taurus", year: 2014, color: "grey", description: "Hello", category: "Sedan", mileage: 34567, number_of_seats: 4, price_per_day: 21.99)
-car2.locations.create!(address: place1, status: "saved")
+car2.locations.create!(address: place5, status: "saved")
 car2.locations.create!(address: place4, status: "current")
 car2.save!
 
@@ -46,12 +46,35 @@ car5 = user1.cars.create!(make: "BMW", model: "X5", year: 2017, color: "black", 
 car5.locations.create!(address: place7, status: "current")
 car5.save!
 
+
+contract1 = Contract.create(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract2 = Contract.create(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
+
 profile1 = user1.profiles.create!(drivers_license: '123456789', first_name: 'Salina', last_name: 'Dutta', middle_name: 'Kumari', backgroundcheck_status: 'checked', phone: '901-875-5522', social_security: 675551122)
 profile1.save!
 profile2 = user1.profiles.create!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
 profile2.save!
-paypal1 = user1.paypals.create!(paypal_id: 90887, paypal_username: 'Suioytr2', paypal_account_routing_number: 88982822)
-paypal1.contracts.create!()
-paypal1.contracts.create!()
-paypal1.save!
 
+#paypal1 = user1.paypals.create!(paypal_id: 90887, paypal_username: 'Suioytr2', paypal_account_routing_number: 88982822)
+#paypal1.save!
+
+#paypal1 = Paypal.new(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
+
+car6 = user1.cars.new(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car7 = user1.cars.new(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+
+contract1 = Contract.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
+contract2 = Contract.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
+
+contract1.paypal = paypal1
+contract2.paypal = paypal1
+
+contract1.car = car6
+contract2.car = car7
+
+paypal1.save!
+car6.save!
+car7.save!
+
+contract1.save!
+contract2.save!

@@ -30,13 +30,22 @@ class ProfilesController < ApplicationController
 
  
      def show
+        
         begin
-            @profile = Profile.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
+            @profile = current_user.profile
+           cue ActiveRecord::RecordNotFound
             flash[:alert] = "Profile could not be found"
             redirect_to profiles_url and return
         end
      end
+
+     def myprofile 
+        if user_signed_in?
+            @profile = current_user.profile
+       else
+            @profile = nil
+       end
+    end
 
      def edit
 

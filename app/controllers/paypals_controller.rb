@@ -1,5 +1,5 @@
 class PaypalsController < ApplicationController
-
+  
     def index
 
         @paypals = Paypal.all
