@@ -13,12 +13,14 @@
 #  status      :string
 #  string      :string
 #  car_id      :integer
+
 #  paypal_id   :integer
 #
 # Indexes
 #
 #  index_contracts_on_car_id     (car_id)
 #  index_contracts_on_paypal_id  (paypal_id)
+
 #
 
 require 'test_helper'
