@@ -15,6 +15,9 @@
 #
 
 class Profile < ApplicationRecord
+
+  belongs_to :user, class_name: 'User', foreign_key: 'user_id', optional: true
+
   validates :drivers_license, length: { is: 9 },  uniqueness: true,  presence: true
   validates :first_name, length: { maximum: 20 }, presence: true
   validates :last_name, length: { maximum: 20 }, presence: true

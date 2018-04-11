@@ -10,6 +10,7 @@ resources :registers
 
 
 
+
 get 'profiles', to: 'profiles#index', as: 'profiles'
 get 'profiles/new', to: 'profiles#new', as: 'new_profile'
 post 'profiles', to: 'profiles#create'
