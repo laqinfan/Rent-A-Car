@@ -1,9 +1,10 @@
+
 <h1> Rental Period </h1>
 
 
 <%= form_for @contract do |f| %>
     <p>
-    Start Date <br> 
+    Start Date<br> 
     <%= f.date_field :start_date, min: Date.today %>
     </p>
 
@@ -13,16 +14,28 @@
     </p>
 
     <p>
-    Price <br>
+    Price/Day <br>
     <%= f.text_field :price %>
     </p>
 
     <p>
     <%= f.hidden_field :status, :value=>"pending"%>
-    <%= f.submit "Create Contract" %>
+    <%= f.hidden_field :car_id, :value=> 3 %>
+    <%= f.submit "Create Contract", contract:@contract %>
     </p>
     
+
+    <p>
+    <%= f.hidden_field :subtotal %>
+    </p>
+
+    <p>
+    <%= f.hidden_field :total %>
+    </p>
+
 <% end %>
+
+
 
 
 <!--

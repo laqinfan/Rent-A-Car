@@ -12,12 +12,18 @@
 #  updated_at  :datetime         not null
 #  status      :string
 #  string      :string
+#  car_id      :integer
+#
+# Indexes
+#
+#  index_contracts_on_car_id  (car_id)
 #
 
 require 'date'
 
 class Contract < ApplicationRecord
 
+  belongs_to :car
   #belongs_to :profile
   
   validates :start_date, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}, presence: true

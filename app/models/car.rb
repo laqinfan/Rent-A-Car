@@ -25,6 +25,9 @@ class Car < ApplicationRecord
     before_save :round_price
 
     belongs_to :owner, class_name: 'User', foreign_key: 'user_id'
+
+    has_many :contracts
+    
     has_many :locations, as: :addressable
     has_many :addresses, through: :locations
     accepts_nested_attributes_for :locations

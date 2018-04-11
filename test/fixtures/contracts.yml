@@ -12,6 +12,11 @@
 #  updated_at  :datetime         not null
 #  status      :string
 #  string      :string
+#  car_id      :integer
+#
+# Indexes
+#
+#  index_contracts_on_car_id  (car_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
