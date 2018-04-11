@@ -1,0 +1,60 @@
+# == Schema Information
+#
+# Table name: cars
+#
+#  id              :integer          not null, primary key
+#  make            :string
+#  model           :string
+#  year            :integer
+#  color           :string
+#  description     :string
+#  category        :string
+#  mileage         :string
+#  number_of_seats :integer
+#  price_per_day   :decimal(10, 2)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  user_id         :integer
+#
+# Indexes
+#
+#  index_cars_on_user_id  (user_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: Toyota
+  model: Corolla
+  year: 2015
+  color: white
+  description: This is the best car and you should rent it!
+  category: Sedan
+  mileage: 56000
+  number_of_seats: 4
+  price_per_day: 59.99
+  owner: one
+
+two:
+  make: Toyota
+  model: Prius
+  year: 2017
+  color: cobalt
+  description: This is a very fuel efficient car and it handles great!
+  category: Hybrid/Electric
+  mileage: 75000
+  number_of_seats: 4
+  price_per_day: 69.99
+  owner: two
+
+three:
+  make: Ford
+  model: Mustang
+  year: 2017
+  color: black
+  description: This is a very beautiful car!
+  category: Sports Car
+  mileage: 25000
+  number_of_seats: 4
+  price_per_day: 89.99
+  owner: two

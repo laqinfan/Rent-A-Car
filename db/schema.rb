@@ -10,7 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180410021513) do
+ActiveRecord::Schema.define(version: 20180411023406) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street1"
+    t.string "street2"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "cars", force: :cascade do |t|
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.string "color"
+    t.string "description"
+    t.string "category"
+    t.string "mileage"
+    t.integer "number_of_seats"
+    t.decimal "price_per_day", precision: 10, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "status"
+    t.integer "address_id"
+    t.string "addressable_type"
+    t.integer "addressable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_locations_on_address_id"
+    t.index ["addressable_type", "addressable_id"], name: "index_locations_on_addressable_type_and_addressable_id"
+  end
 
   create_table "paypals", force: :cascade do |t|
     t.integer "paypal_id"
@@ -18,6 +55,8 @@ ActiveRecord::Schema.define(version: 20180410021513) do
     t.integer "paypal_account_routing_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_paypals_on_user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -30,6 +69,8 @@ ActiveRecord::Schema.define(version: 20180410021513) do
     t.integer "social_security"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

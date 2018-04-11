@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cars</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Color</th>
+      <th>Description</th>
+      <th>Category</th>
+      <th>Mileage</th>
+      <th>Number of seats</th>
+      <th>Price per day</th>
+      <th>Owner</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.make %></td>
+        <td><%= car.model %></td>
+        <td><%= car.year %></td>
+        <td><%= car.color %></td>
+        <td><%= car.description %></td>
+        <td><%= car.category %></td>
+        <td><%= car.mileage %></td>
+        <td><%= car.number_of_seats %></td>
+        <td><%= car.price_per_day %></td>
+        <td><%= car.owner.email %></td>
+        <td><%= link_to 'Details', car_details_path(car) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

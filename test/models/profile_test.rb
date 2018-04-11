@@ -12,6 +12,11 @@
 #  social_security        :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  user_id                :integer
+#
+# Indexes
+#
+#  index_profiles_on_user_id  (user_id)
 #
 
 require 'test_helper'
