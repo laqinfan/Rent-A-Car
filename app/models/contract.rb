@@ -13,17 +13,21 @@
 #  status      :string
 #  string      :string
 #  car_id      :integer
+#  paypal_id   :integer
 #
 # Indexes
 #
-#  index_contracts_on_car_id  (car_id)
+#  index_contracts_on_car_id     (car_id)
+#  index_contracts_on_paypal_id  (paypal_id)
 #
 
 require 'date'
 
 class Contract < ApplicationRecord
 
-  belongs_to :paypal , class_name: 'Paypal', foreign_key: 'paypal_id'
+  belongs_to :car
+  belongs_to :paypal
+  
   validates :start_date, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}, presence: true
   validates :return_date, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}, presence: true
   validates :price, numericality: { greater_than_or_equal_to:0.0}, presence: true
