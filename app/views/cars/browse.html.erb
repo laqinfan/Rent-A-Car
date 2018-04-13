@@ -2,38 +2,46 @@
 
 <h1>Cars</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Year</th>
-      <th>Color</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Mileage</th>
-      <th>Number of seats</th>
-      <th>Price per day</th>
-      <th>Owner</th>
-      <th colspan="1"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @cars.each do |car| %>
-      <tr>
-        <td><%= car.make %></td>
-        <td><%= car.model %></td>
-        <td><%= car.year %></td>
-        <td><%= car.color %></td>
-        <td><%= car.description %></td>
-        <td><%= car.category %></td>
-        <td><%= car.mileage %></td>
-        <td><%= car.number_of_seats %></td>
-        <td><%= car.price_per_day %></td>
-        <td><%= car.owner.email %></td>
-        <td><%= link_to 'Details', car_details_path(car) %></td>
-      </tr>
+<div class="container">
+  <div class="row">
+    <%= form_with url: browse_vehicles_path, method: :get do |f| %>
+      <div class="my_filter form-group form-check col-sm">
+        <h5>By Color</h5>
+        <ul style="list-style: none;">
+        <% @colors.each do |color| %>
+          <li>
+          <%= f.check_box :by_color, { multiple: true }, color, false %>
+          <%= f.label color, class: "checkbox inline" %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="my_filter form-group form-check col-sm">
+        <h5>By Vehicle Types</h5>
+        <ul style="list-style: none;">
+        <% @categories.each do |category| %>
+          <li>
+          <%= f.check_box :by_category, { multiple: true }, category, false %>
+          <%= f.label category, class: "checkbox inline" %>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+      <div class="form-group col-sm">
+        <div class="by_category">
+          <%= f.label :by_make, class: "select inline" %>
+          <%= f.select :by_make, @makes, include_blank: true %>
+        </div>
+        <div class="by_zipcode">
+          <%= f.label :by_pickup_location_zipcode, class: "textbox inline" %>
+          <%= f.text_field :by_pickup_location_zipcode %>
+        </div>
+      </div>
+      <%= f.submit %>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<div id="browse_container">
+  <%= render 'browse', cars: @cars %>
+</div>
