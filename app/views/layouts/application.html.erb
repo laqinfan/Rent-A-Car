@@ -1,41 +1,79 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Comp7012Project</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Comp7012Project</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag href="https://bootswatch.com/4/minty/bootstrap.css" %>
+  <%= stylesheet_link_tag href="https://bootswatch.com/4/minty/bootstrap.min.css" %>
+</head>
 
-  <body>
+<body>
 
-    <p align="right">
-    <%= link_to 'Home', root_path %> |
-    <% if user_signed_in? %>
-      <%= link_to current_user.email, edit_user_registration_path %> |
-      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to 'Sign In', new_user_session_path %> | 
-      <%= link_to 'Sign Up', new_user_registration_path %>
-    <% end %>
-    </p>
+  <div class="bs-component">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="#">Rent A Car</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarColor01">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+            <%= link_to 'Home', root_path, { class: "nav-link"} %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(browse_vehicles_path) %>">
+            <%= link_to 'Browse Vehicles', browse_vehicles_path, { class: "nav-link"} %>
+          </li>
+          <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
+              <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
+              <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
+            </div>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+            <%= link_to current_user.email, edit_user_registration_path, { class: "nav-link"} %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(destroy_user_session_path) %>">
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
+          <% else %>
+          <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+            <%= link_to 'Sign In', new_user_session_path, { class: "nav-link"} %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(new_user_registration_path) %>">
+            <%= link_to 'Sign Up', new_user_registration_path, { class: "nav-link"} %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <div class="bs-component">
     <% if flash[:notice] %>
-      <p style= "background-color: #ADFF2F", align="center">
-         <%= flash[:notice] %>
-      </p>
+      <div class="alert alert-success text-center" role="alert">
+        <%= flash[:notice] %>
+      </div>
     <% end %>
 
+    <% if flash[:alert] %>
+      <div class="alert alert-danger text-center" role="alert">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+  </div>
 
-  <% if flash[:alert] %>
-      <p style= "background-color: #FF000", align="center">
-         <%= flash[:alert] %>
-      </p>
-  <% end %>
- 
-   
-  <%= yield %>
+  <div class="bs-component" style="padding-top: 50px">
+    <%= yield %>
+  </div>
   
   </body>
 </html>
