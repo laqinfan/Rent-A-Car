@@ -2,23 +2,25 @@
 #
 # Table name: contracts
 #
-#  id          :integer          not null, primary key
-#  start_date  :string
-#  return_date :string
-#  price       :float
-#  subtotal    :float
-#  total       :float
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  status      :string
-#  string      :string
-#  car_id      :integer
-#  paypal_id   :integer
+#  id               :integer          not null, primary key
+#  start_date       :string
+#  return_date      :string
+#  price            :decimal(, )
+#  subtotal         :decimal(, )
+#  total            :decimal(, )
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  status           :string
+#  string           :string
+#  car_id           :integer
+#  owner_paypal_id  :integer
+#  renter_paypal_id :integer
 #
 # Indexes
 #
-#  index_contracts_on_car_id     (car_id)
-#  index_contracts_on_paypal_id  (paypal_id)
+#  index_contracts_on_car_id            (car_id)
+#  index_contracts_on_owner_paypal_id   (owner_paypal_id)
+#  index_contracts_on_renter_paypal_id  (renter_paypal_id)
 #
 
 #  paypal_id   :integer
@@ -33,15 +35,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  start_date: MyString
-  return_date: MyString
-  price: 1.5
-  subtotal: 1.5
-  total: 1.5
+  start_date: "1999-11-11"
+  return_date: "1999-11-14"
+  price: 10.50
+  subtotal: 10.50
+  total: 10.50
+  car: one
+  owner_paypal: one
+  renter_paypal: three
 
 two:
-  start_date: MyString
-  return_date: MyString
-  price: 1.5
-  subtotal: 1.5
-  total: 1.5
+  start_date: "2017-11-11"
+  return_date: "2017-11-15"
+  price: 10.50
+  subtotal: 10.50
+  total: 10.50
+  car: two
+  owner_paypal: one
+  renter_paypal: three

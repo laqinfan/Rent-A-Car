@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ContractsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:one)
     @contract = contracts(:one)
   end
 
@@ -17,10 +18,11 @@ class ContractsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create contract" do
     assert_difference('Contract.count') do
-      post contracts_url, params: { contract: { price: @contract.price, return_date: @contract.return_date, start_date: @contract.start_date, subtotal: @contract.subtotal, total: @contract.total } }
+      post contracts_url, params: { contract: { price: @contract.price, return_date: @contract.return_date, start_date: @contract.start_date, subtotal: @contract.subtotal, total: @contract.total, car_id: @contract.car.id, owner_paypal_id: @contract.owner_paypal.id, renter_paypal_id: @contract.renter_paypal.id } }
+      puts assigns(:contract).errors.full_messages
     end
 
-    assert_redirected_to contract_url(Contract.last)
+    assert_redirected_to browse_vehicles_url
   end
 
   test "should show contract" do
@@ -34,7 +36,7 @@ class ContractsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update contract" do
-    patch contract_url(@contract), params: { contract: { price: @contract.price, return_date: @contract.return_date, start_date: @contract.start_date, subtotal: @contract.subtotal, total: @contract.total } }
+    patch contract_url(@contract), params: { contract: { price: @contract.price, return_date: @contract.return_date, start_date: @contract.start_date, subtotal: @contract.subtotal, total: @contract.total, car_id: @contract.car.id, owner_paypal_id: @contract.owner_paypal.id, renter_paypal_id: @contract.renter_paypal.id } }
     assert_redirected_to contract_url(@contract)
   end
 

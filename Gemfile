@@ -63,4 +63,3 @@ gem 'annotate'
 gem 'rails-controller-testing'
 gem 'devise'
 gem 'cocoon'
-

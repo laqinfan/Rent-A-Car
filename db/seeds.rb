@@ -15,7 +15,6 @@ place6 = Address.create!(street1: "1789 Avenue B", street2: "", city: "Memphis",
 place7 = Address.create!(street1: "1456 MyStreet St", street2: "", city: "Cordova", state: "TN", zipcode: 38016)
 place8 = Address.create!(street1: "3459 Carson Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38065)
 
-
 user1 = User.create!(email: "test1@test.com", password: "password")
 user2 = User.create!(email: "test2@test.com", password: "password")
 user3 = User.create!(email: "test3@test.com", password: "password")
@@ -46,35 +45,30 @@ car5 = user1.cars.create!(make: "BMW", model: "X5", year: 2017, color: "black", 
 car5.locations.create!(address: place7, status: "current")
 car5.save!
 
+profile1 = user1.create_profile!(drivers_license: '123456789', first_name: 'Salina', last_name: 'Dutta', middle_name: 'Kumari', backgroundcheck_status: 'checked', phone: '901-875-5522', social_security: 675551122)
+profile2 = user2.create_profile!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
 
+paypal1 = user1.paypals.create!(paypal_id: 92202, paypal_username: 'test1paypal', paypal_account_routing_number: 12020022)
+paypal1 = user2.paypals.create!(paypal_id: 78954, paypal_username: 'test2paypal', paypal_account_routing_number: 14567022)
 
-profile1 = user1.profiles.new(drivers_license: '123456789', first_name: 'Salina', last_name: 'Dutta', middle_name: 'Kumari', backgroundcheck_status: 'checked', phone: '901-875-5522', social_security: 675551122)
-profile2 = user1.profiles.new(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
-
-profile1.save!
-profile2.save!
-
-
-paypal1 = user1.paypals.new(paypal_id: 92202, paypal_username: 'Sduytr5', paypal_account_routing_number: 12020022)
-
-car6 = user1.cars.new(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
-car7 = user1.cars.new(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
-
-contract1 = Contract.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
-contract2 = Contract.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
-
-contract1.paypal = paypal1
-contract2.paypal = paypal1
-
-contract1.car = car6
-contract2.car = car7
-
-paypal1.save!
+car6 = user1.cars.create!(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car6.locations.create!(address: place7, status: "current")
 car6.save!
+
+car7 = user1.cars.create!(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car7.locations.create!(address: place7, status: "current")
 car7.save!
 
+contract1 = car6.contracts.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: 'pending')
+contract1.owner_paypal = contract1.car.owner.paypals.first
+contract1.renter_paypal = user2.paypals.first
 contract1.save!
+
+contract2 = car7.contracts.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: 'pending')
+contract2.owner_paypal = contract2.car.owner.paypals.first
+contract2.renter_paypal = user2.paypals.first
 contract2.save!
+
 
 # contract1 = car1.contracts.create!(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
 # contract1.paypal = paypal1

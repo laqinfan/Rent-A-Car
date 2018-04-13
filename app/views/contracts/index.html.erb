@@ -6,15 +6,15 @@
 <table>
   <thead>
     <tr bgcolor="#c1cdcd">
-    <th>  Contract # </th>
-    <th>&nbsp &nbsp Start date</th>
-    <th> &nbsp &nbsp Return date</th>
-    <th>&nbsp &nbsp Price/Day</th>
-    <th>&nbsp &nbsp Owner Email</th>
-    <th>&nbsp &nbsp Paypal Username</th>
-    <th>&nbsp &nbsp Status</th>
-    <th>&nbsp &nbsp Subtotal</th>
-    <th>&nbsp &nbsp Total</th>
+    <th>Contract # </th>
+    <th>Start date</th>
+    <th>Return date</th>
+    <th>Price/Day</th>
+    <th>Owner Email</th>
+    <th>Renter Paypal Username</th>
+    <th>Status</th>
+    <th>Subtotal</th>
+    <th>Total</th>
 
     <th colspan="3"></th>
 
@@ -26,18 +26,18 @@
     <% @contracts.each do |contract| %>
       <tr bgcolor="#e0eeee" >
       <td><%= link_to contract.id, contract %></td>
-      <td>&nbsp &nbsp <%= contract.start_date %></td>
-      <td>&nbsp &nbsp <%= contract.return_date %></td>
-      <td>&nbsp &nbsp <%= contract.price %></td>
-      <td>&nbsp &nbsp <%= contract.car.owner.email %></td>
-      <td>&nbsp &nbsp <%= contract.paypal.paypal_username %></td>
-      <td>&nbsp &nbsp <%= contract.status %></td>
-      <td>&nbsp &nbsp <%= contract.subtotal %></td>
-      <td>&nbsp &nbsp <%= contract.total %></td>
+      <td><%= contract.start_date %></td>
+      <td><%= contract.return_date %></td>
+      <td><%= contract.price %></td>
+      <td><%= contract.car.owner.email %></td>
+      <td><%= contract.renter_paypal.paypal_username %></td>
+      <td><%= contract.status %></td>
+      <td><%= contract.subtotal %></td>
+      <td><%= contract.total %></td>
 
       
 
-      <td>&nbsp<%= link_to 'Show', contract %></td>
+      <td><%= link_to 'Show', contract %></td>
       <!--
       <td><%= link_to 'Update', edit_contract_path(contract) %></td>
       <td><%= link_to 'Delete', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -48,7 +48,7 @@
 </table>
 
 <br>
-<%= link_to'Home', pages_home_path %>
+<%= link_to'Home', root_path %>
 
 <!--
 <%= link_to 'New Contract', new_contract_path, {:style=>'color:#0000ff;'} %>

@@ -31,7 +31,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
          
     
-    has_many :profiles
+    has_one :profile
     has_many :paypals
     has_many :cars
 

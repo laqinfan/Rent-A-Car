@@ -41,17 +41,19 @@ ActiveRecord::Schema.define(version: 20180411045202) do
   create_table "contracts", force: :cascade do |t|
     t.string "start_date"
     t.string "return_date"
-    t.float "price"
-    t.float "subtotal"
-    t.float "total"
+    t.decimal "price"
+    t.decimal "subtotal"
+    t.decimal "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "status"
     t.string "string"
     t.integer "car_id"
-    t.integer "paypal_id"
+    t.integer "owner_paypal_id"
+    t.integer "renter_paypal_id"
     t.index ["car_id"], name: "index_contracts_on_car_id"
-    t.index ["paypal_id"], name: "index_contracts_on_paypal_id"
+    t.index ["owner_paypal_id"], name: "index_contracts_on_owner_paypal_id"
+    t.index ["renter_paypal_id"], name: "index_contracts_on_renter_paypal_id"
   end
 
   create_table "locations", force: :cascade do |t|
