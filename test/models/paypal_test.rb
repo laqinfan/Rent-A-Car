@@ -22,13 +22,13 @@ class PaypalTest < ActiveSupport::TestCase
   test "Paypal id is logical " do
     one = paypals(:one)
     one.paypal_id = 98982
-    assert one.valid?
+    assert one.valid?, one.errors.full_messages.inspect
    end
   
    test "Paypal id is not reasonable" do
     one = paypals(:one)
     one.paypal_id = 125255555555555555555555555555555555555555555555555555555555557777777777777777777999999999999999999999999999999999999999999999999999999999999
-   assert_not one.valid?
+    assert_not one.valid?
    end
 
    
@@ -48,7 +48,7 @@ class PaypalTest < ActiveSupport::TestCase
    test "Paypal username is correct " do
     one = paypals(:one)
     one.paypal_username = 'Sdutta5'
-    assert one.valid?
+    assert one.valid?, one.errors.full_messages.inspect
    end
   
    test "Paypal username is not right" do
@@ -78,14 +78,14 @@ class PaypalTest < ActiveSupport::TestCase
 
   test "Paypal account routing number makes sense " do
     one = paypals(:one)
-    one.paypal_account_routing_number = 98982222
-    assert one.valid?
+    one.paypal_account_routing_number = 88882222
+    assert one.valid?, one.errors.full_messages.inspect
    end
 
    
    test "Paypal account routing number is not in format" do
     one = paypals(:one)
-    one.paypal_account_routing_number = 125255555555555555555555555555555555555555555555555555555555557777777777777777777999999999999999999999999999999999999999999999999999999999999
+    one.paypal_account_routing_number = 125255555555555555555555599999999999999999
    assert_not one.valid?
    end
   

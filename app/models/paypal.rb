@@ -17,8 +17,10 @@
 
 class Paypal < ApplicationRecord
   belongs_to :user, class_name: 'User', foreign_key: 'user_id'
-  has_many :contracts 
+  has_many :owner_contracts, class_name: 'Contract', foreign_key: 'owner_paypal_id'
+  has_many :renter_contracts, class_name: 'Contract', foreign_key: 'renter_paypal_id'
 
+  scope :by_user, -> (user) { where(user: user)}
 
   validates :paypal_id, presence: true,  numericality: {only_integer: true, less_than_or_equal_to: 99999, greater_than_or_equal_to: 10000}, uniqueness: true
   validates :paypal_username, format: { with: /\A[a-zA-Z0-9]+\Z/ },presence: true, uniqueness: true

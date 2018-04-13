@@ -20,15 +20,16 @@ body {font-size:16px;}
     <h2 class="w3-padding-64"><b>Rent A Car</b></h2>
   </div>
   <div class="w3-bar-block">
-  <% if user_signed_in? %>
-  <p>Account</p>
-  <li> <%= link_to 'My Profiles',  myprofile_profile_path %></li> 
-  <li> <%= link_to 'My Vehicles', cars_path%></li>
-  <li>  <%= link_to 'My Contracts', contracts_path%></li> 
-  <li> <%= link_to 'Browse Vehicles', browse_vehicles_path%></li>  
+    <% if user_signed_in? %>
+    <h3>Account</h3>
+    <ul>
+      <li><%= link_to 'My Profile',  my_profile_path %></li> 
+      <li><%= link_to 'My Vehicles', cars_path %></li>
+      <li><%= link_to 'My Contracts', contracts_path %></li> 
+    </ul>
+    <h3><%= link_to 'Browse Vehicles', browse_vehicles_path %></h3>  
   <% end %>
-
-  </div>
+</div>
 </nav>
 
 <!-- Top menu on small screens -->

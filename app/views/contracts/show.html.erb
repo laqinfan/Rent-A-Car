@@ -35,19 +35,15 @@
   <%= @contract.status %>
 </p>
 
-<p>
 <div>
-<div style="float: left; width: auto;"><%= link_to 'Update', edit_contract_path(@contract)%></div>&nbsp
-<div style="float: left; width: auto;"><%= button_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %></div>&nbsp
-<div style="float: left; width: auto;"><button type="button"> Negotiate </button></div>&nbsp
-<div style="float: left; width: auto;">
-  <%= form_for @contract do |f| %>
-    <%= f.hidden_field :status, :value=>"Executed"%>
-    <%= f.submit "Approve" %>
+  <%= link_to 'Update', edit_contract_path(@contract)%> | 
+  <%= link_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %> | 
+  <button type="button"> Negotiate </button> | 
+  <%= link_to 'Back', contracts_path %>
+  <% if @contract_owner == current_user %>
+    <%= form_for @contract do |f| %>
+      <%= f.hidden_field :status, value: "executed" %>
+      <%= f.submit "Approve" %>
+    <% end %>
   <% end %>
 </div>
-</p>
-
-<br>
-</div>
-<%= link_to 'Back', contracts_path %>
