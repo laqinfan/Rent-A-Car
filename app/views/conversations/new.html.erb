@@ -1,0 +1,41 @@
+
+
+<style>
+
+     h1 {
+         text-align: center;
+     }
+</style>
+
+
+<div class = "conversation-window">
+
+<h1>Create a new convesation<%= @user.email %></h1>
+
+<%= form_for @conversation do |f| %>
+
+        <p>
+            <b>Party Leader</b><br>
+            <%= f.collection_select(:user1_id, User.all, :id, :email)%>
+        </p>
+
+        <p>
+            <b>Party Member</b><br>
+            <%= f.collection_select(:user2_id, User.all, :id, :email)%>
+        </p>
+
+
+
+
+
+        <p>
+            <%= f.submit "Add new alcohol" %>
+        </p>
+
+    <% end %>
+
+<p>
+    <%=link_to "Back", conversations_home_path %>
+</p>
+
+</div>

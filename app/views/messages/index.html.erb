@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table >
+    <tr>
+        <th> <b>Name of User who sent the message </b> </th>
+        <th> <b>The message</b> </th>
+        <th>  </th>
+    </tr>
+
+
+    <% @messages.each do |message|  %>
+      <br><br>
+
+        <br><br>
+        <tr>
+             <td><%= message.message %></th>
+
+            <td><%= message.message %></th>
+
+        </tr>
+
+    <% end %>
+
+
+</table>

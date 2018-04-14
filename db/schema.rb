@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180403035807) do
+ActiveRecord::Schema.define(version: 20180412221610) do
+
+  create_table "communications", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "message_id"
+    t.integer "sender_id"
+    t.integer "reciever_id"
+    t.integer "conversation_id"
+    t.index ["conversation_id"], name: "index_communications_on_conversation_id"
+    t.index ["message_id"], name: "index_communications_on_message_id"
+    t.index ["reciever_id"], name: "index_communications_on_reciever_id"
+    t.index ["sender_id"], name: "index_communications_on_sender_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user1_id"
+    t.integer "user2_id"
+    t.index ["user1_id"], name: "index_conversations_on_user1_id"
+    t.index ["user2_id"], name: "index_conversations_on_user2_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "user_name"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

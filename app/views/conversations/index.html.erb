@@ -1,0 +1,68 @@
+<!--
+    Coded by: Sheldon Ebron
+    Email: sebron@memphis.edu
+-->
+
+
+
+
+
+
+
+ <style>
+ html  {
+     background: #cccccc;
+ }
+
+ h1 {
+     text-align: center;
+ }
+
+
+
+ </style>
+
+<div class = "conversation-window">
+
+
+ <h1><%= @user.email %>'s Conversations</h1>
+<center>
+ <table>
+         <tr>
+             <th> <b>In contact will</b> </th>
+             <th></th>
+         </tr>
+
+         <% if @conversations.empty?%>
+
+         <% else %>
+               <% @conversations.each do |conversation|  %>
+               <tr>
+                   <td>
+                   <% if conversation.user1.email == @user.email %>
+                   <%= link_to conversation.user2.email, conversation_path(conversation) %>
+
+                   <%elsif conversation.user2.email == @user.email %>
+                   <%= link_to conversation.user1.email, conversation_path(conversation) %>
+
+
+               </td>
+
+                     <%end%>
+                <%end%>
+
+           </tr>
+
+         <%end%>
+
+
+
+
+ </table>
+
+</center>
+<br><br>
+ <%= link_to "Create a New Conversation", new_conversation_path %>
+
+
+</div>
