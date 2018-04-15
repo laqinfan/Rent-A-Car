@@ -1,8 +1,10 @@
 <div class="nested-fields">
-  <p>
-    <%= f.label :status, "Status" %>
-    <%= f.text_field :status %>
-  </p>
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">
+      <%= f.label :status, "Status" %>
+      <%= f.text_field :status, class: "form-control" %>
+    </div>
+  </div>
 
   <% if not f.object.address.present? %>
     <% f.object.build_address %>

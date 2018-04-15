@@ -1,6 +1,15 @@
-<h1>Editing Car</h1>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+        <h2 class="text-center">Update a Car</h2>
 
-<%= render 'form', car: @car %>
+        <%= render 'form', car: @car %>
 
-<%= link_to 'Show', @car %> |
-<%= link_to 'Back', cars_path %>
+        <div class="links text-center">
+            <%= link_to 'Show', @car %> |
+            <%= link_to 'Remove Car', @car, method: :delete, data: { confirm: 'Are you sure you want to permanently remove this vehicle?' } %> |
+            <%= link_to 'Back', cars_path %>
+        </div>
+    </div>
+  </div>
+</div>

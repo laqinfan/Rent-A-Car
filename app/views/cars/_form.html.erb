@@ -1,3 +1,4 @@
+
 <%= form_with(model: car, local: true) do |form| %>
   <% if car.errors.any? %>
     <div id="error_explanation">
@@ -11,98 +12,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :make %>
-    <%= form.text_field :make, id: :car_make %>
+  <div class="container my-4">
+    <h3>Details</h3>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :color %>
+        <%= form.text_field :color, id: :car_color, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-6">
+        <%= form.label :category %>
+        <%= form.select :category, options_for_select(Car::VEHICLE_CATEGORIES, car.category), {}, { class: "form-control" } %>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-5">
+        <%= form.label :make %>
+        <%= form.text_field :make, id: :car_make, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-5">
+        <%= form.label :model %>
+        <%= form.text_field :model, id: :car_model, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-2">
+        <%= form.label :year %>
+        <%= form.number_field :year, id: :car_year, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= form.label :description %>
+      <%= form.text_area :description, id: :car_description, rows: 3, class: "form-control" %>
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <%= form.label :mileage %>
+        <%= form.text_field :mileage, id: :car_mileage, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.label :number_of_seats %>
+        <%= form.number_field :number_of_seats, id: :car_number_of_seats, class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4">
+        <%= form.label :price_per_day %>
+        <%= form.text_field :price_per_day, id: :car_price_per_day, class: "form-control" %>
+      </div>
+    </div>
   </div>
+  <div class="container my-4">
+    <h3>Pickup Locations</h3>
 
-  <div class="field">
-    <%= form.label :model %>
-    <%= form.text_field :model, id: :car_model %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year, id: :car_year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :color %>
-    <%= form.text_field :color, id: :car_color %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :car_description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :category %>
-    <!--<%= form.text_field :category, id: :car_category %>-->
-    <%= form.select :category, options_for_select(Car::VEHICLE_CATEGORIES, car.category) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :mileage %>
-    <%= form.text_field :mileage, id: :car_mileage %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number_of_seats %>
-    <%= form.number_field :number_of_seats, id: :car_number_of_seats %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price_per_day %>
-    <%= form.text_field :price_per_day, id: :car_price_per_day %>
-  </div>
-
-  
-  <%= form.fields_for :locations do |location_form| %>
-    <%= render 'locations/location_fields', f: location_form %>
+    <%= form.fields_for :locations do |location_form| %>
+      <%= render 'locations/location_fields', f: location_form %>
+    <% end %>
     
-    <% if false %>
-    <p>
-      <%= location_form.label :status, "Status" %>
-      <%= location_form.text_field :status %>
-    </p>
-
-    <%= location_form.fields_for :address do |address_form| %>
-      <%= render 'address_fields', address_form %>
-      <p>
-        <%= address_form.label :street1, "Street Line 1" %>
-        <%= address_form.text_field :street1 %>
-      </p>
-      
-      <p>
-        <%= address_form.label :street2, "Street Line 2" %>
-        <%= address_form.text_field :street2 %>
-      </p>
-
-      <p>
-        <%= address_form.label :city, "City" %>
-        <%= address_form.text_field :city %>
-      </p>
-
-      <p>
-        <%= address_form.label :state, "State" %>
-        <%= address_form.text_field :state %>
-      </p>
-
-      <p>
-        <%= address_form.label :zipcode, "Zipcode" %>
-        <%= address_form.text_field :zipcode %>
-      </p>
-    <% end %>
-
-    <% end %>
-  <% end %>
-  
-  <div class="links">
-    <%= link_to_add_association 'Add Pickup Location', form, :locations, partial: 'locations/location_fields', render_options: { wrapper: 'inline' } %>
+    <div class="links">
+      <%= link_to_add_association 'Add Pickup Location', form, :locations, partial: 'locations/location_fields', render_options: { wrapper: 'inline' } %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="container col-md-4 col-offset-md-4">
+    <div class="actions">
+      <%= form.submit class: "btn btn-primary btn-block" %>
+    </div>
   </div>
 <% end %>

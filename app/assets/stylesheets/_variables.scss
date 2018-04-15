@@ -29,7 +29,8 @@ $teal:    #20c997 !default;
 $cyan:    #6CC3D5 !default;
 
 $primary:       #78C2AD !default;
-$secondary:     #F3969A !default;
+$secondary:     #BC9965 !default;
+//$secondary:     #F3969A !default;
 $success:       $green !default;
 $info:          $cyan !default;
 $warning:       $yellow !default;
@@ -53,6 +54,7 @@ $border-radius-sm:            .3rem !default;
 
 $headings-font-family:        "Montserrat", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif !default;
 $headings-color:              $gray-700 !default;
+$font-family-sans-serif:      "Ubuntu", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !default;
 
 // Tables
 
