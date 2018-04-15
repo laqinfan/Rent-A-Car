@@ -42,16 +42,20 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  get 'profiles', to: 'profiles#index', as: 'profiles'
-  get 'profiles/myprofile', to: 'profiles#myprofile', as: 'myprofile_profile'
+  #get 'profiles', to: 'profiles#index', as: 'profiles'
+  get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'
   get 'profiles/new', to: 'profiles#new', as: 'new_profile'
   post 'profiles', to: 'profiles#create'
   get 'profiles/:id', to: 'profiles#show', as: 'profile'
+  #get 'profiles/:id', to: 'profiles#show', as: 'profile'
+  #get 'profiles/:id', to: 'users#show', as: 'profile'
   get 'profiles/:id/edit', to: 'profiles#edit', as: 'edit_profile'
   put 'profiles/:id', to: 'profiles#update'
   patch 'profiles/:id', to: 'profiles#update'
 
-  get 'paypals', to: 'paypals#index', as: 'paypals'
+  #get 'paypals', to: 'paypals#index', as: 'paypals'
+  get 'paypals/mypaypal', to: 'paypals#mypaypal', as: 'my_paypal'
+
   get 'paypals/new', to: 'paypals#new', as: 'new_paypal'
   post 'paypals', to: 'paypals#create'
   get 'paypals/:id', to: 'paypals#show', as: 'paypal'

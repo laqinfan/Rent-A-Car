@@ -1,10 +1,16 @@
 class ProfilesController < ApplicationController
+    before_action :authenticate_user!, except: [:index]
+    before_action :set_profile, only: [:show, :edit, :update]
+
+
 
      def index
-
-        @profiles = Profile.all
         
-     end
+        @profiles = Profile.all  
+       
+    end
+        
+     
 
      def new
         @profile = Profile.new
@@ -28,24 +34,70 @@ class ProfilesController < ApplicationController
         end
     end
 
- 
-     def show
-        
-        begin
-            @profile = current_user.profile
-           cue ActiveRecord::RecordNotFound
-            flash[:alert] = "Profile could not be found"
-            redirect_to profiles_url and return
-        end
-     end
+        def show
+            
+            
+           if id == current_user.id
 
-     def myprofile 
-        if user_signed_in?
-            @profile = current_user.profile
-       else
-            @profile = nil
-       end
-    end
+               @profile = Profile.find(params[:id])  
+            
+           else
+               print " 404 Not Found!"
+         
+            #render 'profiles/show.html.erb'
+          end
+          
+          
+
+        end
+
+         def myprofile
+            print "1***************************************************"
+
+            if user_signed_in?
+                print "2***************************************************"
+                @profile = current_user.profile
+                # if current_user.profile
+                #   @profile = current_user.profile
+                # else
+                #     raise ActionController::RoutingError.new('Not Found')
+
+                #end
+            else
+                print "3***************************************************"
+                redirect_to '/' 
+
+            end
+            print current_user
+            print "4***************************************************"
+
+        end
+    
+    
+
+
+
+        #def show_user
+           #@profile =  Profile.where(["user_id = :u",{u: params[:user_id]}).first
+    
+        #end
+     #def show
+        
+        #begin
+           # @profile = current_user.profile
+           #cue ActiveRecord::RecordNotFound
+            #flash[:alert] = "Profile could not be found"
+            #redirect_to profiles_url and return
+        #end
+     #end
+
+     #def myprofile 
+        #if user_signed_in?
+            ##@profile = current_user.profile
+       #else
+            #@profile = nil
+       #end
+    #end
 
      def edit
 
@@ -81,6 +133,13 @@ class ProfilesController < ApplicationController
             render :edit
         end
         
+    end
+
+    private
+    
+    def set_profile
+        @profile = Profile.find(params[:id])
+
     end
 
 end

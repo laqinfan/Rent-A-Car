@@ -1,52 +1,85 @@
+<% if current_user %>
+  <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
 
-<% if @profile.present? %>
-   <p> 
-   <b>Drivers License :</b>
-   <%= @profile.drivers_license %>
-   </p>
+ <% end %>    
 
-   <p>
-   <b> First Name :</b>
-   <%= @profile.first_name%>
-   </p>
 
-   <p>
-   <b> Last Name : </b>
-   <%= @profile.last_name%>
-   </p>
- 
-   <p>
-   <b> Middle Name : </b>
-   <%= @profile.middle_name%>
-   </p>
+<h1> Profiles </h1>
 
-  <p>
-  <b> Backgroundcheck Status : </b>
-  <%= @profile.backgroundcheck_status%>
-  </p>
+<% if current_user.profile %> 
 
- <p>
- <b> Phone : </b>
- <%= @profile.phone%>
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
+
+
+</ul>
+<p> 
+<b> Drivers License :</b>
+<%= current_user.profile.drivers_license %>
+</p>
+
+<p>
+<b> First Name :</b>
+<%= current_user.profile.first_name%>
 </p>
 
  <p>
- <b> Social Security : </b>
- <%= @profile.social_security%>
- </p>
-
+ <b> Last Name : </b>
+ <%= current_user.profile.last_name%>
+</p>
+ 
  <p>
-   <%= link_to 'Edit', edit_profile_path(@profile) %> |  <%= link_to 'Back', pages_path %>
- </p>
+ <b> Middle Name : </b>
+ <%= current_user.profile.middle_name%>
+</p>
+
+<p>
+ <b> Backgroundcheck Status : </b>
+ <%= current_user.profile.backgroundcheck_status%>
+</p>
+
+<p>
+ <b> Phone : </b>
+ <%= current_user.profile.phone%>
+</p>
+
+<p>
+ <b> Social Security : </b>
+ <%= current_user.profile.social_security%>
+</p>
+
+
+
+<p>
+   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
+</p>
+
 <% else %>
 
-  <p>
-   <h3> You have not created a profile, create one new? </h3>
-   <%= link_to 'New Profile', new_profile_path %> 
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
 
-  </p> 
 
+</ul>
+
+
+<p>
+<h3> You have not created a profile, create one new? </h3>
+<%= link_to 'New Profile', new_profile_path %> 
+
+</p> 
 <% end %>
+
+
+
+
+
+
+
+
+
 
 
 

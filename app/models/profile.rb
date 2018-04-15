@@ -19,9 +19,10 @@
 #  index_profiles_on_user_id  (user_id)
 #
 
+
 class Profile < ApplicationRecord
 
-  belongs_to :user, class_name: 'User', foreign_key: 'user_id', optional: true
+  belongs_to :user, optional: true
 
   validates :drivers_license, length: { is: 9 },  uniqueness: true,  presence: true
   validates :first_name, length: { maximum: 20 }, presence: true

@@ -1,5 +1,7 @@
 class PaypalsController < ApplicationController
-  
+    before_action :authenticate_user! 
+    before_action :set_paypal, only: [:show, :edit, :update]
+
     def index
 
         @paypals = Paypal.all
@@ -26,13 +28,35 @@ class PaypalsController < ApplicationController
 
  
      def show
-        begin
-            @paypal = Paypal.find(params[:id])
-        rescue ActiveRecord::RecordNotFound
-            flash[:alert] = "Paypal could not be found"
-            redirect_to paypals_url and return
-        end
+        
+        @paypal = Paypal.find(params[:id])
+       
      end
+
+
+
+     def mypaypal
+        print "1***************************************************"
+
+        if user_signed_in?
+            print "2***************************************************"
+            @paypal = current_user.paypal
+            # if current_user.profile
+            #   @profile = current_user.profile
+            # else
+            #     raise ActionController::RoutingError.new('Not Found')
+
+            #end
+        else
+            print "3***************************************************"
+            redirect_to '/' 
+
+        end
+        print current_user
+        print "4***************************************************"
+
+    end
+
 
      def edit
 
@@ -64,6 +88,13 @@ class PaypalsController < ApplicationController
             render :edit
         end
         
+    end
+    
+    private
+    
+    def set_paypal
+        @paypal = Paypal.find(params[:id])
+
     end
 
    

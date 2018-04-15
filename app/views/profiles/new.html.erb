@@ -1,3 +1,9 @@
+
+<% if current_user %>
+<h2> Current LoggedIn  : <%= current_user.email %> </h2>
+
+<% end %>    
+
 <h1>New Profile</h1>
 
 <% if @profile.errors.any? %>

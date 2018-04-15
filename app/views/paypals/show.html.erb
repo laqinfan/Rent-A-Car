@@ -1,3 +1,8 @@
+<% if current_user %>
+  <h2> Current LoggedIn  : <%= current_user.email %> </h2>
+
+ <% end %>    
+
 <p> 
 <b>Paypal Id :</b>
 <%= @paypal.paypal_id %>
