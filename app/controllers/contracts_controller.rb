@@ -1,4 +1,5 @@
 class ContractsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
 
   # GET /contracts
@@ -7,9 +8,15 @@ class ContractsController < ApplicationController
     @contracts = Contract.all
   end
 
+  def mycontracts
+    @owner_contracts = Contract.by_owner(current_user)
+    @renter_contracts = Contract.by_renter(current_user)
+  end
+
   # GET /contracts/1
   # GET /contracts/1.json
   def show
+    @contract_owner = @contract.owner_paypal.user
   end
 
   # GET /contracts/new
@@ -83,6 +90,6 @@ class ContractsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contract_params
-      params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status, :car_id, :paypal_id)
+      params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status, :car_id, :owner_paypal_id, :renter_paypal_id)
     end
 end

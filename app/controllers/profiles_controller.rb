@@ -36,20 +36,15 @@ class ProfilesController < ApplicationController
 
         def show
             
-            
-           if id == current_user.id
+            @profile = Profile.find(params[:id])
 
-               @profile = Profile.find(params[:id])  
-            
-           else
-               print " 404 Not Found!"
-         
+                  
             #render 'profiles/show.html.erb'
           end
           
           
 
-        end
+        
 
          def myprofile
             print "1***************************************************"

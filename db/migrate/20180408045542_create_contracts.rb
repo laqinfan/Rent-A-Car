@@ -3,9 +3,9 @@ class CreateContracts < ActiveRecord::Migration[5.1]
     create_table :contracts do |t|
       t.string :start_date
       t.string :return_date
-      t.float :price
-      t.float :subtotal
-      t.float :total
+      t.decimal :price
+      t.decimal :subtotal
+      t.decimal :total
 
       t.timestamps
     end

@@ -19,6 +19,7 @@ class Paypal < ApplicationRecord
   belongs_to :user, optional: true
   has_many :contracts 
 
+  scope :by_user, -> (user) { where(user: user)}
 
   validates :paypal_id, presence: true,  numericality: {only_integer: true, less_than_or_equal_to: 99999, greater_than_or_equal_to: 10000}, uniqueness: true
   validates :paypal_username, format: { with: /\A[a-zA-Z0-9]+\Z/ },presence: true, uniqueness: true

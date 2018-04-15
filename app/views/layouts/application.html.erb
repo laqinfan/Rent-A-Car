@@ -9,15 +9,26 @@
   </head>
 
   <body>
+
+    <p align="right">
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, edit_user_registration_path %>, 
+      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'Sign In', new_user_session_path %> | 
+      <%= link_to 'Sign Up', new_user_registration_path %>
+    <% end %>
+    </p>
+
     <% if flash[:notice] %>
-      <p style= "background-color: #ADFF2F">
+      <p style= "background-color: #ADFF2F", align="center">
          <%= flash[:notice] %>
       </p>
     <% end %>
 
 
   <% if flash[:alert] %>
-      <p style= "background-color: #FF000">
+      <p style= "background-color: #FF000", align="center">
          <%= flash[:alert] %>
       </p>
   <% end %>
