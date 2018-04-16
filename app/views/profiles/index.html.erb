@@ -1,57 +1,71 @@
+ 
+<% if current_user %>
+  <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
+
+ <% end %>    
+
+
+<h1> Profiles </h1>
+
+<% if current_user.profile.present? %> 
+
 <ul>
 <img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
 <li><%=link_to" Paypal", paypals_path %> </li>
 
 </ul>
-<h1> Your Profile </h1>
+<p> 
+<b> Drivers License :</b>
+<%= current_user.profile.drivers_license %>
+</p>
 
-<table>
-  
-<tr>
-<th> Drivers License </th>
-<th> First Name</th>
-<th> Last Name </th> <br />
-<th> Middle Name</th>
-<th> Backgroundcheck Status</th>
-<th> Phone</th>
-<th> Social Security</th>
-<th></th>
+<p>
+<b> First Name :</b>
+<%= current_user.profile.first_name%>
+</p>
 
-</tr>
-
-<% @profiles.each do |profile| %>
-<tr>
-
-<td><%= profile.drivers_license %></td>
-<td><%= profile.first_name %></td>
-<td><%= profile.last_name %></td>
-<td><%= profile.middle_name %></td>
-<td><%= profile.backgroundcheck_status %></td>
-<td><%= profile.phone %></td>
-<td><%= profile.social_security %></td>
-<td> 
- <%= link_to 'Show', profile_path(profile.id) %>
- <%= link_to 'Edit', edit_profile_path(profile) %>
-
+ <p>
+ <b> Last Name : </b>
+ <%= current_user.profile.last_name%>
+</p>
  
+ <p>
+ <b> Middle Name : </b>
+ <%= current_user.profile.middle_name%>
+</p>
+
+<p>
+ <b> Backgroundcheck Status : </b>
+ <%= current_user.profile.backgroundcheck_status%>
+</p>
+
+<p>
+ <b> Phone : </b>
+ <%= current_user.profile.phone%>
+</p>
+
+<p>
+ <b> Social Security : </b>
+ <%= current_user.profile.social_security%>
+</p>
 
 
-</td>
 
-</tr>
+<p>
+   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
+</p>
 
+<% else %>
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+<li><%=link_to" Paypal", paypals_path %> </li>
 
-<% end %>
-</table>
+</ul>
+
 
 <p>
 <h3> You have not created a profile, create one new? </h3>
 <%= link_to 'New Profile', new_profile_path %> | 
 
 </p> 
-
-
-
-
-
-
+<% end %>

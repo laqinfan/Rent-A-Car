@@ -35,51 +35,33 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   devise_for :users
-  
+
   resources :contracts
   resources :cars
   
   get '/browse-vehicles', to: 'cars#browse', as: 'browse_vehicles'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
-  
-  get 'profiles', to: 'profiles#index', as: 'profiles'
+
+  #get 'profiles', to: 'profiles#index', as: 'profiles'
   get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'
   get 'profiles/new', to: 'profiles#new', as: 'new_profile'
   post 'profiles', to: 'profiles#create'
   get 'profiles/:id', to: 'profiles#show', as: 'profile'
+  #get 'profiles/:id', to: 'profiles#show', as: 'profile'
+  #get 'profiles/:id', to: 'users#show', as: 'profile'
   get 'profiles/:id/edit', to: 'profiles#edit', as: 'edit_profile'
   put 'profiles/:id', to: 'profiles#update'
   patch 'profiles/:id', to: 'profiles#update'
 
-  get 'paypals', to: 'paypals#index', as: 'paypals'
+  #get 'paypals', to: 'paypals#index', as: 'paypals'
+  get 'paypals/mypaypal', to: 'paypals#mypaypal', as: 'my_paypal'
+
   get 'paypals/new', to: 'paypals#new', as: 'new_paypal'
   post 'paypals', to: 'paypals#create'
   get 'paypals/:id', to: 'paypals#show', as: 'paypal'
   get 'paypals/:id/edit', to: 'paypals#edit', as: 'edit_paypal'
   put 'paypals/:id', to: 'paypals#update'
   patch 'paypals/:id', to: 'paypals#update'
-
-  
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # resource :contracts do
-  #   member do
-  #     post :update_status
-  #   end
-  # end
-
-
-  # devise_for :users
-  # resources :logins
-  # resources :registers
-
-  # get 'users', to: 'users#index', as: 'users'
-  # get 'users/new',to: 'users#new', as: 'new_author'
-  # post 'users', to: 'users#create'
-  # get 'users/:id', to: 'users#show', as: 'user'
-  # get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
-  # put 'users/:id', to: 'users#update'
-  # patch 'users/:id',to: 'users#update'
-  # delete 'users/:id', to: 'users#destroy'
 
 end

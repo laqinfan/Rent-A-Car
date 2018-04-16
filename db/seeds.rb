@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#place1 = Address.create!( street1: "1568 Front St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
+place1 = Address.create!(street1: "1568 Front St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
 place2 = Address.create!(street1: "5678 Bored Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
 place3 = Address.create!(street1: "1234 Fleet St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
 place4 = Address.create!(street1: "6543 Carsick Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
@@ -48,8 +48,8 @@ car5.save!
 profile1 = user1.create_profile!(drivers_license: '123456789', first_name: 'Salina', last_name: 'Dutta', middle_name: 'Kumari', backgroundcheck_status: 'checked', phone: '901-875-5522', social_security: 675551122)
 profile2 = user2.create_profile!(drivers_license: '875622212', first_name: 'Anu', last_name: 'Roy', middle_name: 'Kumar', backgroundcheck_status: 'unchecked', phone: '901-255-2525', social_security: 122220222)
 
-paypal1 = user1.paypals.create!(paypal_id: 92202, paypal_username: 'test1paypal', paypal_account_routing_number: 12020022)
-paypal1 = user2.paypals.create!(paypal_id: 78954, paypal_username: 'test2paypal', paypal_account_routing_number: 14567022)
+paypal1 = user1.create_paypal!(paypal_id: 92202, paypal_username: 'test1paypal', paypal_account_routing_number: 12020022)
+paypal1 = user2.create_paypal!(paypal_id: 78954, paypal_username: 'test2paypal', paypal_account_routing_number: 14567022)
 
 car6 = user1.cars.create!(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
 car6.locations.create!(address: place7, status: "current")
@@ -60,19 +60,11 @@ car7.locations.create!(address: place7, status: "current")
 car7.save!
 
 contract1 = car6.contracts.new(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: 'pending')
-contract1.owner_paypal = contract1.car.owner.paypals.first
-contract1.renter_paypal = user2.paypals.first
+contract1.owner_paypal = contract1.car.owner.paypal
+contract1.renter_paypal = user2.paypal
 contract1.save!
 
 contract2 = car7.contracts.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: 'pending')
-contract2.owner_paypal = contract2.car.owner.paypals.first
-contract2.renter_paypal = user2.paypals.first
+contract2.owner_paypal = contract2.car.owner.paypal
+contract2.renter_paypal = user2.paypal
 contract2.save!
-
-
-# contract1 = car1.contracts.create!(start_date: '2018-04-01', return_date:'2018-04-03', price: '20', subtotal: '60', total: '61', status: '')
-# contract1.paypal = paypal1
-# contract1.save!
-# contract2 = car3.contracts.create!(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: '')
-# contract2.paypal = paypal1
-# contract2.save!

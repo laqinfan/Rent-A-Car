@@ -1,0 +1,58 @@
+<% if current_user %>
+  <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
+
+ <% end %>    
+
+
+<h1> My Paypal </h1>
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+
+
+</ul>
+
+
+<% if current_user.paypal %> 
+
+<p> 
+<b>Paypal Id :</b>
+<%= current_user.paypal.paypal_id %>
+</p>
+
+<p>
+<b> Username :</b>
+<%= current_user.paypal.paypal_username%>
+</p>
+
+ <p>
+ <b> Account Routing Number : </b>
+ <%= current_user.paypal.paypal_account_routing_number%>
+</p>
+
+
+</p>
+ 
+<h3>Already have a Paypal Account ?</h1>
+<p>
+ Login :<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
+</p>
+
+<% else %>
+
+<ul>
+<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
+
+
+</ul>
+
+
+ 
+
+<p>
+<h3> You have not created a paypal, create one new? </h3>
+<%= link_to 'New Paypal', new_paypal_path %> 
+
+</p> 
+<% end %>
+
+
