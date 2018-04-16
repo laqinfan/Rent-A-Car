@@ -1,0 +1,49 @@
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <%= link_to 'Add Conversation', new_conversation_path%>
+  <% if Conversation.all.empty?%>
+
+  <% else %>
+       <% Conversation.all.each do |conversation|  %>
+            <%if conversation.user1.email == @user.email %>
+            <%= link_to conversation.user2.email, conversation_path(conversation) %>
+
+                 <%elsif conversation.user2.email == @user.email %>
+                 <%= link_to conversation.user1.email, conversation_path(conversation) %>
+
+
+            <%end%>
+       <%end%>
+<%end%>
+</div>
+
+
+
+
+
+<h1><span style="font-size:25px;cursor:pointer" onclick="openNav()">&#9776; </span>
+     <center>Private Messaging </center>
+</h1>
+
+
+
+
+<script>
+     function openNav() {
+         document.getElementById("mySidenav").style.width = "250px";
+     }
+
+     function closeNav() {
+         document.getElementById("mySidenav").style.width = "0";
+     }
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<% Conversation.all.each do |conversation|  %>
+
+
+
+<% end %>

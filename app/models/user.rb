@@ -23,18 +23,24 @@
 #
 
 
-class User < ApplicationRecord
-  
 
+
+class User < ApplicationRecord
+ has_many :communications, class_name: 'Communication', foreign_key: 'sender_id', inverse_of: 'sender'
+ has_many :communications, class_name: 'Communication', foreign_key: 'reciever_id', inverse_of: 'reciever'
+
+
+ has_many :conversations, class_name: 'Conversation', foreign_key: 'user1_id', inverse_of: 'user1'
+ has_many :conversations, class_name: 'Conversation', foreign_key: 'user2_id', inverse_of: 'user2'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-         
-    
+
+
     has_one :profile, dependent: :destroy
     has_one :paypal, dependent: :destroy
     has_many :cars
 
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
+
 end

@@ -1,0 +1,37 @@
+<body>
+
+<style>
+     html  {
+         background: gray;
+     }
+
+     h1 {
+         text-align: center;
+     }
+     </style>
+
+<h1>Create a new convesation with <%= @user.email %></h1>
+
+<%= form_for @message do |f| %>
+
+        <p>
+            Message
+            <br>
+            <%= f.text_field :message %>
+
+        </p>
+
+
+
+
+        <p>
+            <%= f.submit "Add message to the body" %>
+        </p>
+
+    <% end %>
+
+<p>
+    <%=link_to "Back", new_communication_path %>
+</p>
+
+</body>

@@ -1,0 +1,107 @@
+// Place all the styles related to the Communications controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//This is all the bouble display css
+
+/* container */
+.container {
+  padding: 5% 5%;
+}
+
+/* CSS talk bubble */
+
+.border{
+  border: 8px solid #666;
+}
+
+.round{
+  border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+    }
+.tri-right.right-in:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+     left: auto;
+	right: -20px;
+     top: 38px;
+	bottom: auto;
+	border: 12px solid;
+	border-color: lightyellow transparent transparent lightyellow;
+}
+
+
+.tri-right.right-top:after{
+	content: ' ';
+	position: absolute;
+	width: 0;
+	height: 0;
+  left: auto;
+	right: -20px;
+  top: 0px;
+	bottom: auto;
+	border: 20px solid;
+	border-color: lightyellow transparent transparent transparent;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+	text-align: center;
+  line-height: 1.5em;
+}
+
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}
+
+
+.recieved{
+    background: rgba(0,0,0,0.8);
+    margin: 0 auto;
+    margin-left: 140px;
+    margin-top: 140px;
+    margin-bottom: 140px;
+}
+
+.talk-bubble {
+	margin: 10px;
+     display: inline-block;
+     position: auto;
+	height: auto;
+	background-color: lightblue;
+}
+
+.speech-bubble {
+     background-color: #f4911c;
+     border: 3px solid #662f8c;
+     border-radius: 5px;
+     width: 500px;
+     text-align: center;
+     padding: 20px;
+     position: center;
+     margin: 0 0 40px;
+ }
+ .speech-bubble:before {
+     border-color: #662f8c transparent transparent transparent;
+     border-width: 8px 8px 0px 8px;
+     border-style: dotted;
+     position: absolute;
+     left: 9px;
+     bottom: -8px;
+     content:'';
+ }
+ .speech-bubble:after {
+     border-color: #f4911c transparent;
+     border-style: dotted;
+     border-width: 7px 7px 0px;
+     bottom: -7px;
+     content:'';
+     position: absolute;
+     left: 10px;
+ }

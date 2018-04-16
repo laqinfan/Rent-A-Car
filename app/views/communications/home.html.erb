@@ -1,0 +1,10 @@
+<h1><%= @current_user.email %>'s Private Messaging Commmunications</h1>
+
+
+<% @communication.each do |communication|  %>
+     <% if communication.sender.id != @current_user.id  %>
+     <option value = <%= communication.sender.email %> ><%= communication.sender.email %></option>
+     <option value = <%= communication.reciever.email %> ><%= communication.reciever.email %></option>
+     <%end%>
+
+<%end%>
