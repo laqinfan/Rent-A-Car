@@ -1,11 +1,11 @@
 class ProfilesController < ApplicationController
-    before_action :authenticate_user!
-    def index
+    before_action :authenticate_user!, except: [:index]
+    before_action :set_profile, only: [:show, :edit, :update]
 
-        @profiles = Profile.all
-        
+    def index        
+        @profiles = Profile.all  
     end
-
+    
     def new
         @profile = Profile.new
         # render 'profiles/new.html.erb'
@@ -20,26 +20,20 @@ class ProfilesController < ApplicationController
             phone: params[:profile][:phone],
             social_security: params[:profile][:social_security])
         if @profile.save
-            flash[:notice] = "Profile saved successfully"
-            redirect_to profiles_url
+        flash[:notice] = "Profile saved successfully"
+        redirect_to profiles_url
         else
             flash.now[:alert] = "Profile save failed!!!!!"
             render :new
         end
     end
 
-
     def show
-        
-        begin
-            @profile = current_user.profile
-        rescue ActiveRecord::RecordNotFound
-            flash[:alert] = "Profile could not be found"
-            redirect_to profiles_url and return
-        end
+        #@profile = Profile.find(params[:id])
+        #render 'profiles/show.html.erb'
     end
-
-    def myprofile 
+    
+    def myprofile
         if user_signed_in?
             @profile = current_user.profile
         else
@@ -48,18 +42,15 @@ class ProfilesController < ApplicationController
     end
 
     def edit
-
         begin
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             flash[:alert] = "Profile could not be found"
             redirect_to profiles_url and return
         end
-
     end
 
     def update
-
         begin
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
@@ -74,13 +65,22 @@ class ProfilesController < ApplicationController
             phone: params[:profile][:phone],
             social_security: params[:profile][:social_security])
     
-        flash[:notice] = "Profile updated successfully"
-        redirect_to profiles_url 
+            flash[:notice] = "Profile updated successfully"
+            redirect_to profiles_url 
         else
             flash.now[:alert] = "Profile could not be updated"
             render :edit
         end
-        
+    end
+
+    private
+    
+    def set_profile
+        begin
+            @profile = Profile.find(params[:id])
+        rescue ActiveRecord::RecordNotFound
+            redirect_to paypals_url, alert: "Profile not found."
+        end
     end
 
 end

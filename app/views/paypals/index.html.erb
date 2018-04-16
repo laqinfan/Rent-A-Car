@@ -1,4 +1,14 @@
+
+<% if current_user %>
+<h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
+
+<% end %>    
+
+
+
 <h1> Your Paypal Account List</h1>
+
+
 <ul>
 
 <img src=<%= image_path('payment.jpg')%> width="700px" width="700px" align="right">
@@ -7,43 +17,34 @@
 
 
 
-<table>
-  
-<tr>
-<th> Paypal Id </th>
-<th> Username </th>
-<th> Account Routing Number </th>
- <br />
-<th></th>
+ <p> 
+ <b> Paypal Id :</b>
+ <%= current_user.paypal.paypal_id %>
+ </p>
+ 
+ <p>
+ <b> Username :</b>
+ <%= current_user.paypal.paypal_username %>
+ </p>
+ 
+  <p>
+  <b> Paypal Account Routing Number : </b>
+  <%= current_user.paypal.paypal_account_routing_number%>
+ </p>
 
-</tr>
-
-<% @paypals.each do |paypal| %>
-<tr>
-
-<td><%= paypal.paypal_id %></td>
-<td><%= paypal.paypal_username %></td>
-<td><%= paypal.paypal_account_routing_number %></td>
-
-<td> 
- <%= link_to 'Show', paypal_path(paypal.id) %>
- <%= link_to 'Edit', edit_paypal_path(paypal) %>
 
  
+  
+ <p>
+    <%= link_to 'Edit', edit_paypal_path(@paypal) %> |  <%= link_to'Home', pages_home_path %>
 
-
-</td>
-
-</tr>
-
-
-<% end %>
-</table>
-
+ </p>
+ 
 <h3>Already have a Paypal Account ?</h1>
 <p>
  Login :<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
 </p>
+
 
 
 
