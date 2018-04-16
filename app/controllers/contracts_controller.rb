@@ -21,7 +21,10 @@ class ContractsController < ApplicationController
 
   # GET /contracts/new
   def new
-    @contract = Contract.new
+    @car = Car.find(params[:id])
+    @contract = @car.contracts.new
+    @renter_paypal = current_user.paypal
+    @owner_paypal = @car.owner.paypal
   end
 
   # GET /contracts/1/edit

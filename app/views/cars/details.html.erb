@@ -52,5 +52,5 @@
   <% end %>
 <% end %>
 
-<%= link_to 'Generate Contract', new_contract_path, {:style=>'color:#0000ff;'} %>|
+<%= link_to 'Generate Contract', new_contract_path(id: @car) %> |
 <%= link_to 'Back', browse_vehicles_path %>

@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :car_id, value: @car.id %>
+  <%= form.hidden_field :owner_paypal_id, value: @owner_paypal.id %>
+  <%= form.hidden_field :renter_paypal_id, value: @renter_paypal.id %>
+  <%= form.hidden_field :status, value: "pending" %>
+
+
   <div class="field">
     <%= form.label :start_date %>
     <%= form.text_field :start_date, id: :contract_start_date %>
