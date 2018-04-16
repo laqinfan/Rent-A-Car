@@ -30,8 +30,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
          
     
-    has_one :profile , dependent: :destroy
-    has_one :paypal , dependent: :destroy
+    has_one :profile, dependent: :destroy
+    has_one :paypal, dependent: :destroy
     has_many :cars
 
     devise :database_authenticatable, :registerable,

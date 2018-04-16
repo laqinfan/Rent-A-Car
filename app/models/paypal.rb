@@ -16,8 +16,9 @@
 #
 
 class Paypal < ApplicationRecord
-  belongs_to :user, optional: true
-  has_many :contracts 
+  belongs_to :user
+  has_many :owner_contracts, class_name: 'Contract', foreign_key: 'owner_paypal_id'
+  has_many :renter_contracts, class_name: 'Contract', foreign_key: 'renter_paypal_id'
 
   scope :by_user, -> (user) { where(user: user)}
 
