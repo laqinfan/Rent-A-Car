@@ -3,49 +3,51 @@
     <div class="col-md-10">
       <h2 class="text-center">Browse Vehicles</h2>
 
-<div class="container">
-  <div class="row">
-    <%= form_with url: browse_vehicles_path, method: :get do |f| %>
-      <div class="my_filter form-group form-check col-sm">
-        <h5>By Color</h5>
-        <ul style="list-style: none;">
-        <% @colors.each do |color| %>
-          <li>
-          <%= f.check_box :by_color, { multiple: true }, color, false %>
-          <%= f.label color, class: "checkbox inline" %>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-      <div class="my_filter form-group form-check col-sm">
-        <h5>By Vehicle Types</h5>
-        <ul style="list-style: none;">
-        <% @categories.each do |category| %>
-          <li>
-          <%= f.check_box :by_category, { multiple: true }, category, false %>
-          <%= f.label category, class: "checkbox inline" %>
-          </li>
-        <% end %>
-        </ul>
-      </div>
-      <div class="form-group col-sm">
-        <div class="by_category">
-          <%= f.label :by_make, class: "select inline" %>
-          <%= f.select :by_make, @makes, include_blank: true %>
+      <div class="container col-md-6 my-4">
+        <div class="row justify-content-center border border-primary rounded p-3">
+          <%= form_with url: browse_vehicles_path, method: :get do |f| %>
+            <div class="form-row">
+              <div class="my_filter form-check col-md-3">
+                <h5>By Color</h5>
+                <ul style="list-style: none; margin-left: -38px;">
+                <% @colors.each do |color| %>
+                  <li>
+                  <%= f.check_box :by_color, { multiple: true }, color, false %>
+                  <%= f.label color, class: "checkbox inline" %>
+                  </li>
+                <% end %>
+                </ul>
+              </div>
+              <div class="my_filter form-check col-md-5">
+                <h5>By Vehicle Types</h5>
+                <ul style="list-style: none; margin-left: -38px;">
+                <% @categories.each do |category| %>
+                  <li>
+                  <%= f.check_box :by_category, { multiple: true }, category, false %>
+                  <%= f.label category, class: "checkbox inline" %>
+                  </li>
+                <% end %>
+                </ul>
+              </div>
+              <div class="form-group col-md-4">
+                <div class="by_category">
+                  <%= f.label :by_make, class: "select inline" %>
+                  <%= f.select :by_make, @makes, { include_blank: true }, { class: "form-control" }  %>
+                </div>
+                <div class="by_zipcode mt-2">
+                  <%= f.label "By zipcode", class: "textbox inline" %>
+                  <%= f.text_field :by_pickup_location_zipcode, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+            <%= f.submit "Filter", class: "btn btn-primary btn-block" %>
+          <% end %>
         </div>
-        <div class="by_zipcode">
-          <%= f.label :by_pickup_location_zipcode, class: "textbox inline" %>
-          <%= f.text_field :by_pickup_location_zipcode %>
-        </div>
       </div>
-      <%= f.submit %>
-    <% end %>
-  </div>
-</div>
 
-<div id="browse_container">
-  <%= render 'browse', cars: @cars %>
-</div>
+      <div id="browse_container">
+        <%= render 'browse', cars: @cars %>
+      </div>
 
     </div>
   </div>
