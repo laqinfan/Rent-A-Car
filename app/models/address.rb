@@ -23,6 +23,8 @@ class Address < ApplicationRecord
     validates :state, length: { is: 2 }, presence: true
     validates :zipcode, length: { is: 5 }, presence: true
 
+    scope :by_zipcode, -> (zipcode) { where(zipcode: zipcode)}
+
     def state=(val)
         write_attribute :state, val.upcase
     end

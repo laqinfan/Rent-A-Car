@@ -36,12 +36,12 @@ car3 = user2.cars.create!(make: "Dodge", model: "Charger", year: 2014, color: "b
 car3.locations.create!(address: place3, status: "current")
 car3.save!
 
-car4 = user1.cars.create!(make: "Subaru", model: "Outback", year: 2015, color: "red", description: "This car is great!", category: "SUV", mileage: 56700, number_of_seats: 4, price_per_day: 34.99)
+car4 = user3.cars.create!(make: "Subaru", model: "Outback", year: 2015, color: "red", description: "This car is great!", category: "SUV", mileage: 56700, number_of_seats: 4, price_per_day: 34.99)
 car4.locations.create!(address: place6, status: "current")
 car4.locations.create!(address: place5, status: "saved")
 car4.save!
 
-car5 = user1.cars.create!(make: "BMW", model: "X5", year: 2017, color: "black", description: "This is a very nice car!", category: "Luxury Car", mileage: 34000, number_of_seats: 4, price_per_day: 75.99)
+car5 = user3.cars.create!(make: "BMW", model: "X5", year: 2017, color: "black", description: "This is a very nice car!", category: "Luxury Car", mileage: 34000, number_of_seats: 4, price_per_day: 75.99)
 car5.locations.create!(address: place7, status: "current")
 car5.save!
 
@@ -51,11 +51,11 @@ profile2 = user2.create_profile!(drivers_license: '875622212', first_name: 'Anu'
 paypal1 = user1.create_paypal!(paypal_id: 92202, paypal_username: 'test1paypal', paypal_account_routing_number: 12020022)
 paypal1 = user2.create_paypal!(paypal_id: 78954, paypal_username: 'test2paypal', paypal_account_routing_number: 14567022)
 
-car6 = user1.cars.create!(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car6 = user1.cars.create!(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "Hello", category: "Sports Car", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
 car6.locations.create!(address: place7, status: "current")
 car6.save!
 
-car7 = user1.cars.create!(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "SUV", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
+car7 = user1.cars.create!(make: "Mazda", model: "CX-9", year: 2018, color: "Black", description: "Hello", category: "Sports Car", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
 car7.locations.create!(address: place7, status: "current")
 car7.save!
 

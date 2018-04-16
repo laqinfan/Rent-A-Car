@@ -1,66 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:12px;}
-.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.9;cursor:pointer}
-.w3-half img:hover{opacity:1}
-</style>
-
-<body>
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-pale-green w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:350px;font-weight:bold;" id="mySidebar"><br>
-  <div class="w3-container">
-    <h2 class="w3-padding-64"><b>Rent A Car</b></h2>
-    <% if current_user %>
-<h2><b>Login:<%= current_user.email %></b> </h2>
-     <% end %>
+<div class="container">
+  <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
+      padding-bottom: 20%;">
+    <div class="overlay"></div>
+    <div class="container text-center text-light">
+      <h1 class="display-3 mb-1 text-light">Rent A Car</h1>
+      <p class="lead" style="font-size: 18pt;">Choose a car for rent by other people in your area <br> or list your car with our service.</p>
+    </div>
   </div>
-  <div class="w3-bar-block">
-  <h3>Account</h3>
-
-
-    <li><%= link_to 'My Profile',  my_profile_path %></li> 
-    <li><%= link_to 'My Vehicles', cars_path%></li>
-    <li><%= link_to 'My Contracts', my_contracts_path%></li> 
-    <li><%= link_to 'Browse Vehicles', browse_vehicles_path%></li>
-
-    <% if user_signed_in? %>
-    <%= link_to "Home", root_path%>
-    <%= link_to "Sign Out", destroy_user_session_path, method: :delete%><br>
-    <% else %>
-    <a href='/users/sign_in'>Sign in</a>
-
-    <% end %>
-  
-
-
-  </div>
-</nav>
-
-<!-- Top menu on small screens -->
-<header>
-  <a  class="w3-margin-right"></a>
-  <span>Rent A Car</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <img src=<%= image_path('rent_a_car.png')%> width="350px" align="center">
-  </div>
-
-</body>
-</html>
+</div>

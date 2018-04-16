@@ -10,6 +10,32 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+ @import "_variables";
+ @import "_bootswatch";
+ @import "bootstrap";
+ $secondary:     #BC9965 !default;
+
+#error_explanation {
+  color: #FF7851;
+  margin: 20px 0px;
+  padding: 15px 15px 0px 15px;
+  border: 1px solid #FF7851;
+  border-radius: 5px;
+  h2 {
+      font-size: 14pt;
+  }
+  ul {
+    color: #FF7851;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .is-invalid;
+  display: inline;
+  .form-control {
+    border-color: #FF7851;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
+  }
+}

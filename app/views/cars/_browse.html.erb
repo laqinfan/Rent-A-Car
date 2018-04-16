@@ -1,0 +1,16 @@
+
+      <div class="container">
+        <div class="row justify-content-center">
+          <% @cars.each do |car| %>
+            <div class="card col-xs-6 col-sm-4 col-md-3 mb-3 px-1" style="min-width: 170px;">
+              <img class="card-img-top" src=<%= image_path('car_profile.jpg')%> alt="Car image placeholder">
+              <div class="card-body text-center">
+                <h5 class="card-title"><%= link_to car.make_model, car_details_path(car) %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%= car.year %></h6>
+                <p class="card-text"><%= car.color %>, <%= car.pickup_addresses.first.zipcode %>, $<%= car.price_per_day %>/day</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+

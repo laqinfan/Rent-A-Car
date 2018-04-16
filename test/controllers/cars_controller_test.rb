@@ -14,10 +14,10 @@ class CarsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get browse" do
-    get browse_vehicles_url
-    assert_response :success
-  end
+  # test "should get browse" do
+  #   get browse_vehicles_url
+  #   assert_response :success
+  # end
 
   test "should get new" do
     get new_car_url

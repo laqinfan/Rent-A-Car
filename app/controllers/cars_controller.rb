@@ -1,6 +1,7 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!, except: [:browse, :details]
   before_action :set_car, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
   #before_action :authenticate_user!, only: [:index, :new, :edit, :create, :update, :destroy]
 
   # GET /cars
@@ -11,7 +12,17 @@ class CarsController < ApplicationController
   end
 
   def browse
-    @cars = Car.all
+    #@cars = Car.includes(:pickup_addresses).all
+
+    @colors = Car.distinct.pluck(:color)
+    @categories = Car.distinct.pluck(:category)
+    @makes = Car.distinct.pluck(:make)
+    @cars = Car.includes(:pickup_addresses).filter(params.slice(:by_color, :by_category, :by_make, :by_pickup_location_zipcode))
+    
+    # respond_to do |format| 
+    #   format.html { render :browse }
+    #   format.js { render :browse }
+    # end
   end
 
   # GET /cars/1

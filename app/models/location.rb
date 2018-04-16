@@ -24,4 +24,7 @@ class Location < ApplicationRecord
     LOCATION_STATUSES = ["current", "saved"]
 
     validates :status, inclusion: { in: LOCATION_STATUSES }
+
+    scope :current_locations, -> { where(status: 'current') }
+    
 end

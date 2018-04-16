@@ -29,6 +29,7 @@ one:
   backgroundcheck_status: processing
   phone: 901-876-5522
   social_security: 768543222
+  user: one
 
 two:
   drivers_license: 677672272
@@ -38,3 +39,4 @@ two:
   backgroundcheck_status: checked
   phone: 901-675-7722
   social_security: 987655572
+  user: two
