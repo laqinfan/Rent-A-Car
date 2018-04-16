@@ -1,0 +1,37 @@
+<h1> Editing Paypal</h1>
+
+<% if @paypal.errors.any? %>
+    <div style="background-color: #FF0011">
+    <p>Fix the following error(s):</p>
+        <ul>
+        <%@paypal.errors.full_messages.each do |msg|%>
+            <li>
+                <%= msg %>
+            </li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @paypal do |pa| %>
+    
+    Pyapal Id <br>
+    <%=pa.text_field :paypal_id%>
+    <br>
+     Username <br>
+    <%=pa.text_field :paypal_username%>
+    <br>
+    Account Routing Number <br>
+    <%=pa.text_field :paypal_account_routing_number%>
+    <br>
+    
+    
+    <%= pa.submit "Update Paypal"%>
+<% end %>
+
+<p>
+
+<%= link_to 'Show', paypal_path(@paypal) %> | 
+<%= link_to 'Back', my_paypal_path %>
+</p>
+

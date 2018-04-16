@@ -48,6 +48,10 @@ GEM
       execjs
     bcrypt (3.1.11)
     bindex (0.5.0)
+    bootstrap (4.0.0)
+      autoprefixer-rails (>= 6.0.3)
+      popper_js (>= 1.12.9, < 2)
+      sass (>= 3.5.2)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -62,6 +66,7 @@ GEM
       xpath (>= 2.0, < 4.0)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
+    cocoon (1.2.11)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -112,8 +117,9 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
-    public_suffix (3.0.1)
-    puma (3.11.2)
+    popper_js (1.12.9)
+    public_suffix (3.0.2)
+    puma (3.11.3)
     rack (2.0.4)
     rack-test (0.8.2)
       rack (>= 1.0, < 3)
@@ -129,6 +135,10 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.4)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.2)
+      actionpack (~> 5.x, >= 5.0.1)
+      actionview (~> 5.x, >= 5.0.1)
+      activesupport (~> 5.x)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -204,9 +214,11 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  bootstrap
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (~> 2.13)
+  cocoon
   coffee-rails (~> 4.2)
   devise
   jbuilder (~> 2.5)
@@ -215,6 +227,7 @@ DEPENDENCIES
   materialize-sass
   puma (~> 3.7)
   rails (~> 5.1.4)
+  rails-controller-testing
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

@@ -34,6 +34,13 @@ class User < ApplicationRecord
  has_many :conversations, class_name: 'Conversation', foreign_key: 'user2_id', inverse_of: 'user2'
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+
+
+    has_one :profile, dependent: :destroy
+    has_one :paypal, dependent: :destroy
+    has_many :cars
+
+    devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
 end

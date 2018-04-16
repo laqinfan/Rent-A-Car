@@ -1,0 +1,122 @@
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2 class="text-center">Contracts for My Vehicles</h2>
+
+      <% if !@owner_contracts.empty? %>
+
+      <table>
+        <thead>
+          <tr bgcolor="#c1cdcd">
+          <th>Contract # </th>
+          <th>Start date</th>
+          <th>Return date</th>
+          <th>Price/Day</th>
+          <th>Owner Email</th>
+          <th>Owner Paypal Username</th>
+          <th>Renter Paypal Username</th>
+          <th>Status</th>
+          <th>Subtotal</th>
+          <th>Total</th>
+
+          <th colspan="3"></th>
+
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @owner_contracts.each do |contract| %>
+            <tr bgcolor="#e0eeee" >
+            <td><%= link_to contract.id, contract %></td>
+            <td><%= contract.start_date %></td>
+            <td><%= contract.return_date %></td>
+            <td><%= contract.price %></td>
+            <td><%= contract.car.owner.email %></td>
+            <td><%= contract.owner_paypal.paypal_username %></td>
+            <td><%= contract.renter_paypal.paypal_username %></td>
+            <td><%= contract.status %></td>
+            <td><%= contract.subtotal %></td>
+            <td><%= contract.total %></td>
+
+            
+
+            <td><%= link_to 'Show', contract %></td>
+            <!--
+            <td><%= link_to 'Update', edit_contract_path(contract) %></td>
+            <td><%= link_to 'Delete', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            -->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <% else %>
+
+      <p>You have no contracts for your cars.</p>
+
+      <% end %>
+
+      <h2 class="text-center">My Rental Contracts</h2>
+
+      <% if !@renter_contracts.empty? %>
+
+      <table>
+        <thead>
+          <tr bgcolor="#c1cdcd">
+          <th>Contract # </th>
+          <th>Start date</th>
+          <th>Return date</th>
+          <th>Price/Day</th>
+          <th>Owner Email</th>
+          <th>Owner Paypal Username</th>
+          <th>Renter Paypal Username</th>
+          <th>Status</th>
+          <th>Subtotal</th>
+          <th>Total</th>
+
+          <th colspan="3"></th>
+
+
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @renter_contracts.each do |contract| %>
+            <tr bgcolor="#e0eeee" >
+            <td><%= link_to contract.id, contract %></td>
+            <td><%= contract.start_date %></td>
+            <td><%= contract.return_date %></td>
+            <td><%= contract.price %></td>
+            <td><%= contract.car.owner.email %></td>
+            <td><%= contract.owner_paypal.paypal_username %></td>
+            <td><%= contract.renter_paypal.paypal_username %></td>
+            <td><%= contract.status %></td>
+            <td><%= contract.subtotal %></td>
+            <td><%= contract.total %></td>
+
+            
+
+            <td><%= link_to 'Show', contract %></td>
+            <!--
+            <td><%= link_to 'Update', edit_contract_path(contract) %></td>
+            <td><%= link_to 'Delete', contract, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            -->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <% else %>
+
+      <p class="text-center">You have no rental contracts.</p>
+
+      <% end %>
+
+      <div class="links text-center">
+        <%= link_to'Home', root_path %>
+      </div>
+
+    </div>
+  </div>
+</div>

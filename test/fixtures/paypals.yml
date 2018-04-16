@@ -1,0 +1,37 @@
+# == Schema Information
+#
+# Table name: paypals
+#
+#  id                            :integer          not null, primary key
+#  paypal_id                     :integer
+#  paypal_username               :string
+#  paypal_account_routing_number :integer
+#  created_at                    :datetime         not null
+#  updated_at                    :datetime         not null
+#  user_id                       :integer
+#
+# Indexes
+#
+#  index_paypals_on_user_id  (user_id)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paypal_id: 89882
+  paypal_username: Sdutta2
+  paypal_account_routing_number: 88988898
+  user: one
+  
+
+two:
+  paypal_id: 82222
+  paypal_username: Sutrew2
+  paypal_account_routing_number: 98767777
+  user: two
+
+three:
+  paypal_id: 65789
+  paypal_username: test2paypal
+  paypal_account_routing_number: 98768765
+  user: three

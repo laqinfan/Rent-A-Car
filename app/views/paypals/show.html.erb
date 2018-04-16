@@ -1,0 +1,23 @@
+<% if current_user %>
+  <h2> Current LoggedIn  : <%= current_user.email %> </h2>
+
+ <% end %>    
+
+<p> 
+<b>Paypal Id :</b>
+<%= @paypal.paypal_id %>
+</p>
+
+<p>
+<b> Username :</b>
+<%= @paypal.paypal_username%>
+</p>
+
+ <p>
+ <b> Account Routing Number : </b>
+ <%= @paypal.paypal_account_routing_number%>
+</p>
+ 
+<p>
+   <%= link_to 'Edit', edit_paypal_path(@paypal) %> |  <%= link_to 'Back', paypals_path %>
+</p>

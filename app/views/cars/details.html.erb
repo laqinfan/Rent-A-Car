@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Make:</strong>
+  <%= @car.make %>
+</p>
+
+<p>
+  <strong>Model:</strong>
+  <%= @car.model %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @car.year %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @car.color %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @car.description %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @car.category %>
+</p>
+
+<p>
+  <strong>Mileage:</strong>
+  <%= @car.mileage %>
+</p>
+
+<p>
+  <strong>Number of seats:</strong>
+  <%= @car.number_of_seats %>
+</p>
+
+<p>
+  <strong>Price per day:</strong>
+  <%= @car.price_per_day %>
+</p>
+
+<h2>Pickup Location</h2>
+<% @car.locations.each do |location| %>
+  <% if location.status == "current"%>
+    <%= render location.address %><br><br>
+  <% end %>
+<% end %>
+
+<%= link_to 'Generate Contract', new_contract_path(id: @car) %> |
+<%= link_to 'Back', browse_vehicles_path %>

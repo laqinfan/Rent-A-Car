@@ -1,0 +1,18 @@
+<div class="nested-fields">
+  <div class="form-row justify-content-center">
+    <div class="form-group col-md-4">
+      <%= f.label :status, "Status" %>
+      <%= f.text_field :status, class: "form-control" %>
+    </div>
+  </div>
+
+  <% if not f.object.address.present? %>
+    <% f.object.build_address %>
+  <% end%>
+  
+  <%= f.fields_for :address do |address_form| %>
+    <%= render 'addresses/address_fields', f: address_form %>
+  <% end %>
+  
+  <%= link_to_remove_association "Remove Pickup Location", f %>
+</div>

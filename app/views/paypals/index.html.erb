@@ -1,0 +1,57 @@
+
+<% if current_user %>
+<h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
+
+<% end %>    
+
+
+
+<h1> Your Paypal Account List</h1>
+
+
+<ul>
+
+<img src=<%= image_path('payment.jpg')%> width="700px" width="700px" align="right">
+
+ </ul>
+
+
+
+ <p> 
+ <b> Paypal Id :</b>
+ <%= current_user.paypal.paypal_id %>
+ </p>
+ 
+ <p>
+ <b> Username :</b>
+ <%= current_user.paypal.paypal_username %>
+ </p>
+ 
+  <p>
+  <b> Paypal Account Routing Number : </b>
+  <%= current_user.paypal.paypal_account_routing_number%>
+ </p>
+
+
+ 
+  
+ <p>
+    <%= link_to 'Edit', edit_paypal_path(@paypal) %> |  <%= link_to'Home', pages_home_path %>
+
+ </p>
+ 
+<h3>Already have a Paypal Account ?</h1>
+<p>
+ Login :<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
+</p>
+
+
+
+
+<p>
+<%= link_to 'New Paypal', new_paypal_path %> 
+
+</p>
+
+
+
