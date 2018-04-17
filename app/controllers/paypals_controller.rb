@@ -40,7 +40,7 @@ class PaypalsController < ApplicationController
             @paypal = Paypal.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             flash[:alert] = "Paypal could not be found"
-            redirect_to paypals_url and return
+            redirect_to my_paypal_url and return
         end
     end
 
@@ -49,13 +49,13 @@ class PaypalsController < ApplicationController
             @paypal = Paypal.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             flash[:alert] = "Paypal could not be found"
-            redirect_to paypals_url and return
+            redirect_to my_paypal_url and return
         end
         if @paypal.update(paypal_id: params[:paypal][:paypal_id],
                     paypal_username: params[:paypal][:paypal_username],
                     paypal_account_routing_number: params[:paypal][:paypal_account_routing_number])
             flash[:notice] = "Paypal updated successfully"
-            redirect_to paypals_url
+            redirect_to my_paypal_url
         else
             flash.now[:alert] = "Paypal could not be updated"
             render :edit
