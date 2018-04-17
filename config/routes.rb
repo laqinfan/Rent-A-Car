@@ -120,7 +120,7 @@ delete 'users/:id', to: 'users#destroy'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
 
-  #get 'profiles', to: 'profiles#index', as: 'profiles'
+  get 'profiles', to: 'profiles#index', as: 'profiles'
   get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'
   get 'profiles/new', to: 'profiles#new', as: 'new_profile'
   post 'profiles', to: 'profiles#create'
@@ -131,7 +131,7 @@ delete 'users/:id', to: 'users#destroy'
   put 'profiles/:id', to: 'profiles#update'
   patch 'profiles/:id', to: 'profiles#update'
 
-  #get 'paypals', to: 'paypals#index', as: 'paypals'
+  get 'paypals', to: 'paypals#index', as: 'paypals'
   get 'paypals/mypaypal', to: 'paypals#mypaypal', as: 'my_paypal'
 
   get 'paypals/new', to: 'paypals#new', as: 'new_paypal'

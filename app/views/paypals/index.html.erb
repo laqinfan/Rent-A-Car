@@ -36,22 +36,15 @@
  
   
  <p>
-    <%= link_to 'Edit', edit_paypal_path(@paypal) %> |  <%= link_to'Home', pages_home_path %>
-
+    <%= link_to 'Edit', edit_paypal_path(current_user.paypal) %> 
  </p>
  
-<h3>Already have a Paypal Account ?</h1>
-<p>
- Login :<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
-</p>
 
 
 
 
-<p>
-<%= link_to 'New Paypal', new_paypal_path %> 
 
-</p>
+
 
 
 
