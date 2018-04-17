@@ -9,7 +9,7 @@
   - Dependencies: None
   - Estimate: 3 hours (½ day)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Senjuti
 
 - US Login
@@ -17,7 +17,7 @@
   - Dependencies: None
   - Estimate: 3 hours (½ day)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Senjuti
 
 - US Add Renter Profile Information
@@ -25,7 +25,7 @@
   - Dependencies: Register, Upload an Image
   - Estimate: 12 hours (2 days)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Senjuti
 
 - US Add PayPal Information
@@ -33,7 +33,7 @@
   - Dependencies: Register
   - Estimate: 8 hours (1½ days)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Katie
 
 - US Add a Car
@@ -41,7 +41,7 @@
   - Dependencies: Register, Upload an Image
   - Estimate: 12 hours (2 days)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Laqin Fan
 
 - US Upload an Image
@@ -68,7 +68,7 @@
   - Dependencies: Add a Car
   - Estimate: 4 hours (½ day)
   - Priority: 3
-  - Status: Not started
+  - Status: Removed (Combined into Filter Car Results)
   - Author: Laqin Fan
 
 - US Filter Car Results
@@ -76,7 +76,7 @@
   - Dependencies: Add a Car, Search for a Car
   - Estimate: 4 hours (½ day)
   - Priority: 3
-  - Status: Not started
+  - Status: Completed
   - Author: Katie
 
 - US Show Car Availability as Calendar
@@ -92,7 +92,7 @@
   - Dependencies: Register
   - Estimate: 24 hours (4 days)
   - Priority: 5
-  - Status: Not started
+  - Status: In Progress
   - Author: Katie
 
 
@@ -103,7 +103,7 @@
   - Dependencies: Register, Add a car
   - Estimate: 12 hours (2 days)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Katie
 
 - US Approve/agree to Rental Contract
@@ -111,7 +111,7 @@
   - Dependencies: Register, Create a Rental Contract
   - Estimate: 8 hours (1½ days)
   - Priority: 1
-  - Status: Not started
+  - Status: Completed
   - Author: Katie
 
 - US Pay for Rental
@@ -119,7 +119,7 @@
   - Dependencies: Approve/agree a Rental Contract, Add PayPal information
   - Estimate: 2 hour (½ day)
   - Priority: 1
-  - Status: Not started
+  - Status: In progress
   - Author: Sheldon
 
 - US Receive Payment for Rental
@@ -127,43 +127,9 @@
   - Dependencies: Approve/agree a Rental Contract, Add PayPal information
   - Estimate: 2 hour (½ day)
   - Priority: 1
-  - Status: Not started
+  - Status: In progress
   - Author: Sheldon
 
-
-## Feedback
-
-- US Create a Rental Contract
-  - Description: As a vendor, I want to create/edit a contract with the renter to rent a specific car on a specific date for a certain price.
-  - Dependencies: Login, Register, Add a car
-  - Estimate: 12 hours (2 days)
-  - Priority: 1
-  - Status: Not started
-  - Author: Katie
-
-- US Approve/agree to Rental Contract
-  - Description: As a renter, I want to view the details of my rental contract and sign.
-  - Dependencies: Login, Register, Create a Rental Contract
-  - Estimate: 8 hours (1½ days)
-  - Priority: 1
-  - Status: Not started
-  - Author: Katie
-
-- US Pay for Rental
-  - Description: As a renter, I want to be able to pay for the car I have rented via the rental contract.
-  - Dependencies: Approve/agree a Rental Contract, Add PayPal information
-  - Estimate: 2 hour (½ day)
-  - Priority: 1
-  - Status: Not started
-  - Author: Sheldon
-
-- US Receive Payment for Rental
-  - Description: As a vendor, I want to be able to receive payment for the car I have loaned out.
-  - Dependencies: Approve/agree a Rental Contract, Add PayPal information
-  - Estimate: 2 hour (½ day)
-  - Priority: 1
-  - Status: Not started
-  - Author: Sheldon
 
 ## Feedback (56 hours/ 9.5 days)
 
