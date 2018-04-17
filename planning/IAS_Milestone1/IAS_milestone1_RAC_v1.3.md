@@ -8,8 +8,8 @@
 - Project Coordinator: Katie Bridson
 - Quality Assurance Czar: Sheldon Ebron
 - Video Demo Creators:
-  - Senjuti Dutta, 999
-  -  Laqin Fan, 999
+  - Senjuti Dutta
+  - Laqin Fan
 - Demo-Booth Operator: Katie Bridson
 
 ## Tasks: Katie Bridson
@@ -44,12 +44,12 @@
 ### Task 1: Register as New User
 - Description: Set up devise that will create the registration page.
 - How to Evaluate: In the register page (see UI Sketch for Register Page) click the register button that will bring up a new form with Nmae, username and password fields . After filling those fields if a user clicks submits button it will redirect to Login Page (see UISketch for LoginPage)
-- Outcome of Task: Set up devise is done where it will redirect to register page if a user is not logged in and does not have any account . Then the user needs to sign up before renting a car .
+- Outcome of Task: Set up devise is done where it will redirect to register page if a user is not logged in and does not have any account . Then the user needs to sign up before renting a car.
 
 ### Task 2: Login
 - Description: Set up devise that will create the login page.
 - How to Evaluate: In the login page (see UI Sketch for Login Page) click the login button that will bring up a new form with username and password fields . After filling those fields if a user clicks submits button it will redirect to Homepage(see UISketch for HomePage)
-- Outcome of Task: Set up devise will create the login page. When a user already have an account then the user will login with his/her mailid and password before accessing accounts section in the Rent-a-car website but before logging in  the website the user can browse vehicles but will not be able to rent a car .
+- Outcome of Task: Set up devise will create the login page. When a user already have an account then the user will login with his/her mailid and password before accessing accounts section in the Rent-a-car website but before logging in  the website the user can browse vehicles but will not be able to rent a car.
 
 ### Task 3: Add Renter Profile Information
 - Description: To add renter profile information I need the RenterProfile model (see class diagram), base controller, new/edit form (see UI Sketches for Profile page)
@@ -59,7 +59,7 @@
 ### Task 4: Add Paypal Information
 - Description: To add paypal information I need the paypal model (see class diagram) base controller, new/edit form (see UI sketches for Profile Page)
 - How to Evaluate: see UI Sketch for Profile Page click the create new button that will bring up  new paypal form where the user can add their paypal information and if any user does not have any account then create new account link  will redirect to [official PayPal signup](https://www.paypal.com/in/webapps/mpp/account-selection). If a user clicks edit button it will redirect to edit paypal form and the user can edit their PayPal information.
-- Outcome of Task: A logged in user  have to add his/her paypal information like paypal id , paypal username and account routing number if the user  does not have any paypal account before renting a car . When a user does not have any paypal account it will automatically redirect to new paypal form where the user can create new paypal account by clicking new paypal.The user can edit his/her paypal information if any information is incorrect. Otherwise if the user already have a paypal account then it will automatically redirect to mypaypal page where all of the user's paypal information will only be shown to the user. The paypal linking of the authenticated paypal site is not important because it does not have any fuction with "Rent-a-car" website . If a user can put all his/her information in official paypal page that doest not link to this website. So this is why it is not needed here.
+- Outcome of Task: A logged in user  have to add his/her paypal information like paypal id , paypal username and account routing number if the user  does not have any paypal account before renting a car . When a user does not have any paypal account it will automatically redirect to new paypal form where the user can create new paypal account by clicking new paypal.The user can edit his/her paypal information if any information is incorrect. Otherwise if the user already have a paypal account then it will automatically redirect to mypaypal page where all of the user's paypal information will only be shown to the user. The paypal linking of the authenticated paypal site is there when a user already have a paypal account then then it will be redirect to the official paypal sign up page.
 
 ## Tasks: Sheldon Ebron
 
@@ -89,6 +89,3 @@
 - Description: Transaction model linked to a contract where the debit and credits to PayPal accounts are stored. Create a class to do the calculation in models.
 - How to Evaluate: Navigate to the contract page, and choose one contract. After renter and vendor approve the contract, our RentACar would deduct the renting fee based on the final price and transfer it to vendor by paypal.
 - Outcome of Task: There is no transaction model, but I have done association between paypal and contract, and association between car and contract. In contract form, it can show the car owner's paypal account info.
-
-
-
