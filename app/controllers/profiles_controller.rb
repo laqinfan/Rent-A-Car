@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
             social_security: params[:profile][:social_security])
         if @profile.save
         flash[:notice] = "Profile saved successfully"
-        redirect_to profiles_url
+        redirect_to my_profile_url
         else
             flash.now[:alert] = "Profile save failed!!!!!"
             render :new
@@ -46,7 +46,7 @@ class ProfilesController < ApplicationController
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             flash[:alert] = "Profile could not be found"
-            redirect_to profiles_url and return
+            redirect_to my_profile_url and return
         end
     end
 
@@ -55,7 +55,7 @@ class ProfilesController < ApplicationController
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
             flash[:alert] = "Profile could not be found"
-            redirect_to profiles_url and return
+            redirect_to my_profile_url and return
         end
         if @profile.update(drivers_license: params[:profile][:drivers_license],
             first_name: params[:profile][:first_name],
@@ -66,7 +66,7 @@ class ProfilesController < ApplicationController
             social_security: params[:profile][:social_security])
     
             flash[:notice] = "Profile updated successfully"
-            redirect_to profiles_url 
+            redirect_to my_profile_url 
         else
             flash.now[:alert] = "Profile could not be updated"
             render :edit
@@ -79,7 +79,7 @@ class ProfilesController < ApplicationController
         begin
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
-            redirect_to paypals_url, alert: "Profile not found."
+            redirect_to my_profile_url, alert: "Profile not found."
         end
     end
 
