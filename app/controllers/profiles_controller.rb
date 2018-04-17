@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
             social_security: params[:profile][:social_security])
         if @profile.save
         flash[:notice] = "Profile saved successfully"
-        redirect_to profiles_url
+        redirect_to my_profile_url
         else
             flash.now[:alert] = "Profile save failed!!!!!"
             render :new

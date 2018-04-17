@@ -17,7 +17,7 @@ class PaypalsController < ApplicationController
             paypal_account_routing_number: params[:paypal][:paypal_account_routing_number])
         if @paypal.save
             flash[:notice] = "Paypal saved successfully"
-            redirect_to paypals_url
+            redirect_to my_paypal_url
         else
             flash.now[:alert] = "Paypal save failed!!!!!"
             render :new
