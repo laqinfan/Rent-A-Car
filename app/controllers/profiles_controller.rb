@@ -79,7 +79,7 @@ class ProfilesController < ApplicationController
         begin
             @profile = Profile.find(params[:id])
         rescue ActiveRecord::RecordNotFound
-            redirect_to my_profile_url, alert: "Profile not found."
+            redirect_to profiles_url, alert: "Profile not found."
         end
     end
 
