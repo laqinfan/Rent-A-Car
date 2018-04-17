@@ -34,6 +34,8 @@
               <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
               <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
               <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
+              <%= link_to 'View Conversations', conversations_path, class: "dropdown-item"  %>
+
             </div>
           </li>
           <li class="nav-item <%= 'active' if current_page?(root_path) %>">
@@ -72,6 +74,6 @@
   <div class="bs-component" style="padding-top: 50px">
     <%= yield %>
   </div>
-  
+
   </body>
 </html>
