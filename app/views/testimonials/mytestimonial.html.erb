@@ -1,0 +1,47 @@
+
+<style>
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #A2D9CE;
+    padding: 10px;
+}
+</style>
+<div class="container">
+    <h3 align="center"> <font color="purple"> My Testimonial for Rent A Car </font></h3>
+    <div class="center">
+    <% if !@user_testimonial.empty? %>
+
+        <div class="container">
+        <% @user_testimonial.each do |testimonial| %>
+            <div class="testimonials">
+            <font color="#A569BD"><%= testimonial.user.email %></font>
+            <div class="star-rating" data-score= <%= testimonial.rating %>> </div>
+            <font color="purple"><%= testimonial.created_at.localtime.strftime '%Y-%m-%d' %></font>
+            <%= testimonial.comment %>
+            </div>
+
+            <%= link_to 'Update', edit_testimonial_path(testimonial) %></td> |
+            <%= link_to 'Delete', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </br>
+        <% end %>
+
+        <script>
+        $('.star-rating').raty({
+            path: '/assets/',
+            readOnly: true,
+            score: function() {
+                return $(this).attr('data-score');
+        }
+        });
+        </script>
+
+    <% else %>
+
+    <p>You have no testimonial for Rent A Car.</p>
+    <%= link_to 'Write a testimonial', new_testimonial_path %>
+
+    <% end %>
+
+    </div>
+</div>

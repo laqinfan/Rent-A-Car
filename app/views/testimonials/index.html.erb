@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Testimonials</h1>
+
+<div class="container">
+    <% @testimonials.each do |testimonial| %>
+      <div class="testimonials">
+      <font color="#A569BD"><%= testimonial.user.email %></font>
+      <div class="star-rating" data-score= <%= testimonial.rating %>> </div>
+      <font color="purple"><%= testimonial.created_at.localtime.strftime '%Y-%m-%d' %></font>
+      <%= testimonial.comment %>
+      </div>
+      </br>
+    <% end %>
+
+  <script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+  }
+  });
+  </script>
+
+  <%= link_to 'Write a review', new_testimonial_path %>
+</div>
