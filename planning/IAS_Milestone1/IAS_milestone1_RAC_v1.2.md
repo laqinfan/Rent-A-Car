@@ -72,20 +72,20 @@
 
 ### Task 1: Create a Rental Contract
 - Description: Contract model, controller, _form.html.erb (+new/edit), show.html.erb, seeds, validations, validation tests
-- How to Evaluate:In the rental period page(see UI Sketch for Rental period Page),click the button generate an contract, it will redirect to the vehicle detail page(see UI Sketch), and generate a new contract in contract page(see UI Sketch). 
-- Outcome of Task: N/A
+- How to Evaluate:In the rental period page(see UI Sketch for Rental period Page),click the button generate a contract, it will redirect to the vehicle detail page(see UI Sketch), and generate a new contract in contract page(see UI Sketch). 
+- Outcome of Task: In the rental period page, renter can generate a contract, choose the start date, end date, the price/day, the subtotal and total fee can be calculated in the backend.The renter can see the contract details by navigating to my contracts page, there would be contract list for renter. 
 
 ### Task 2: Approve/agree to Rental Contract
 - Description: edit Contract controller, approve.html.erb
 - How to Evaluate: After generating a contract, the contract would be put into the database. In the contract form (see UI Sketch for contract form), there are buttons: edit/negotiate/void/approve. clicking Edit button can edit the contract, clicking negociate button will show the chatting message, clicking void button means this contract is canceled, clicking approve button means approve and get a deal.
-- Outcome of Task: N/A
+- Outcome of Task: Only car owner can approve the contract in my contracts page, see the contract detail, click approve button, the contract status change from pending to executed.
 
 ### Task 3: Pay for Rental as a renter
 - Description: Transaction model linked to a contract where the debit and credits to PayPal accounts are stored. Create a class to do the calculation in models.
 - How to Evaluate: Navigate to the contract page, and choose one contract. After renter and vendor approve the contract, our RentACar would deduct the renting fee based on the final price. 
-- Outcome of Task: N/A
+- Outcome of Task: There is no transaction model, but I have done association between paypal and contract, so in contract form, it can show the renter's paypal account info.
 
 ### Task 4: Receive Payment for Rental as a vendor
 - Description: Transaction model linked to a contract where the debit and credits to PayPal accounts are stored. Create a class to do the calculation in models.
 - How to Evaluate: Navigate to the contract page, and choose one contract. After renter and vendor approve the contract, our RentACar would deduct the renting fee based on the final price and transfer it to vendor by paypal.
-- Outcome of Task: N/A
+- Outcome of Task: There is no transaction model, but I have done association between paypal and contract, and association between car and contract. In contract form, it can show the car owner's paypal account info.

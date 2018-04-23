@@ -1,6 +1,39 @@
-<h1>Editing Contract</h1>
+<h1>Updating Contract</h1>
 
-<%= render 'form', contract: @contract %>
+<% if @contract.errors.any? %>
+    <div style= "background-color: #FF0000">
+        <p>Please fix the following errors </p>
+        <ul>
+            <% @contract.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @contract do |form| %>
+
+    <p>
+    Start Date <br>
+    <%= form.text_field :start_date %>
+    </p>
+
+    <p>
+    End Date <br>
+    <%= form.text_field :return_date %>
+    </p>
+
+    <p>
+    Price/Day <br>
+    <%= form.text_field :price %>
+    </p>
+
+    <p>
+    <%= form.submit "Update Contract" %>
+    </p>
+<% end %>
+
 
 <%= link_to 'Show', @contract %> |
-<%= link_to 'Back', contracts_path %>
+<%= link_to 'Back', my_contracts_path %>
