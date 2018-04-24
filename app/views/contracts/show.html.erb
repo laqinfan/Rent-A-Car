@@ -43,6 +43,8 @@
   <% if @contract_owner == current_user %>
     <%= form_for @contract do |f| %>
       <%= f.hidden_field :status, value: "executed" %>
+      <% ApproveMailer.approve_email(@contract.car.owner, @contract, @contract.renter_paypal.user, "approve_email_owner.text.erb").deliver %>
+      <% ApproveMailer.approve_email(@contract.renter_paypal.user, @contract, @contract.car.owner, "approve_email_renter.text.erb").deliver %>
       <%= f.submit "Approve" %>
     <% end %>
   <% end %>

@@ -1,0 +1,12 @@
+
+Dear <%= @user.email %>, 
+===============================================
+ 
+You are genreating a contract with <%=@renter%>
+
+Contract ID:<%= @contract.id %>.
+Start Date: <%= @contract.start_date %>.
+End Date: <%= @contract.return_date %>.
+Price/Day: <%= @contract.price %>.
+For more information, please visit our website <%= @url %>, and check your contracts.
+Thanks and have a great day!
