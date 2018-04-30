@@ -2,119 +2,144 @@
 
 <style>
 
-* {
-     margin: 0;
-     padding: 0;
-     font-family: tahoma, sans-serif;
-     box-sizing: border-box;
+     * {
+          margin: 0;
+          padding: 0;
+          font-family: tahoma, sans-serif;
+          box-sizing: border-box;
+     }
+
+     body{
+          background: white;
+     }
+
+     .chatbox{
+          width: 500px;
+          min-width: 390px;
+          height: 600px;
+          background: white;
+          padding: 25px;
+          margin: 20px auto;
+          box-shadow: 0 3px grey;
+
+     }
 
 
-}
+     .chatlog{
+          padding: 10px;
+          width: 100%;
+          height: 450px;
 
-body{
-     background: lightblue;
+     }
 
-}
-.chatbox{
-     width: 500px;
-     min-width: 390px;
-     height: 600px;
-     background: white;
-     padding: 25px;
-     margin: 20px auto;
-     box-shadow: 0 3px grey;
+     .chat{
+          display: flex;
+          flex-flow: row wrap;
+          align-items: flex-start;
+          margin-bottom: 10px;
+     }
 
-}
+     .chat .user-photo{
+          width: 60px;
+          height: 60px;
+          background: grey;
+          border-radius: 50%;
 
+     }
 
-.chatlog{
-     padding: 10px;
-     width: 100%;
-     height: 450px;
+     .chat .chat-message{
+          width:80%;
+          padding: 15px;
+          margin: 5px 10px 0;
+          background: blue;
+          border-radius: 10px;
+          color: white;
+          font-size: 18px;
+     }
 
-}
-.chat{
-     display: flex;
-     flex-flow: row wrap;
-     align-items: flex-start;
-     margin-bottom: 10px;
-}
+     .friend .chat-message{
+          background: blue;
+     }
 
-.chat .user-photo{
-     width: 60px;
-     height: 60px;
-     background: white;
-     border-radius: 50%;
-}
+     .self .chat-message{
+          background: green;
+          order: -1;
 
-.chat .chat-message{
-     width:80%;
-     padding: 15px;
-     margin: 5px 10px 0;
-     background: blue;
-     border-radius: 10px;
-     color: white;
-     font-size: 18px;
-}
-.friend .chat-message{
-     background: blue;
-}
+     }
 
-.self .chat-message{
-     background: green;
-     order: -1;
+     p#losinfo {
+     font-size:20px;
+     }
 
-}
+     p#losinfo span {
+     font-size:15px;
+     }
 </style>
 
 
+<div class="container">
+  <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
+      padding-bottom: 20%;">
 
 
 
-<div class= "chatbox">
 
-     <div class= "chatlog">
-          <% if Communication.all.empty?%>
+    <div class="overlay"></div>
+    <div class="container text-center text-light">
+      <h1 class="display-3 mb-1 text-light">Conversations</h1>
 
-          <% else %>
-
-          <% Communication.all.each do |communication|  %>
-               <% if conversation.user1.email == communication.sender.email%>
-                    <% if conversation.user2.email == communication.reciever.email%>
-                         <div class= "chat self">
-                              <div class= "user-photo">
-                              <%= communication.sender.email %>
-                              </div>
-                              <p class= "chat-message">
-                                   <%= communication.message.message %></p>
-                         </div>
-                    <% end %>
+      <p class="lead" style="font-size: 18pt;">Below are hyperlinks to all of the conversations that your connected to and by selecting the linkink you will be able to view the conversation</p>
 
 
-                    <% elsif conversation.user1.email == communication.reciever.email%>
-                         <% if conversation.user2.email == communication.sender.email%>
-                         <div class= "chat friend">
-                                <div class= "user-photo">
-                                     <%= communication.sender.email %>
-                                </div>
-                                <p class= "chat-message">
-                                     <%= communication.message.message %>
-                                </p>
-                           </div>
-                           <% end %>
+      <div class= "chatbox">
 
-               <% end %>
+           <div class= "chatlog">
+                <% if Communication.all.empty?%>
 
-            <% end %>
-            <% end %>
+                <% else %>
 
-
-     </div>
+                <% Communication.all.each do |communication|  %>
+                     <% if conversation.user1.email == communication.sender.email%>
+                          <% if conversation.user2.email == communication.reciever.email%>
+                               <div class= "chat self">
+                                    <div class= "user-photo">
+                                         <p style="color:white;">       <br>S</p>
+                                    </div>
+                                    <p class= "chat-message" id="losinfo">
+                                         <span ><%= communication.sender.email %></span><br><%= communication.message.message %></p>
 
 
+                               </div>
+                          <% end %>
 
-     <%= link_to "Create a New Message", new_communication_path %>
+                          <% elsif conversation.user1.email == communication.reciever.email%>
+                               <% if conversation.user2.email == communication.sender.email%>
+                               <div class= "chat friend">
+                                      <div class= "user-photo">
+                                           <p style="color:white;">        R</p>
+                                      </div>
+                                      <p class= "chat-message" id="losinfo">
+                                           <span ><%= communication.sender.email %></span><br><%= communication.message.message %></p>
+
+                                 </div>
+                                 <% end %>
+
+                     <% end %>
+
+                  <% end %>
+                  <% end %>
+
+
+           </div>
+           <%= link_to "Create a New Message", new_communication_path %>
+
+      </div>
 
 
 
-</body>
+      </body>
+
+
+    </div>
+  </div>
+</div>

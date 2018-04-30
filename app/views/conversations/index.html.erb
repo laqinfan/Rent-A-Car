@@ -4,65 +4,51 @@
 -->
 
 
+<div class="container">
+  <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
+      padding-bottom: 20%;">
 
 
 
+    <div class="overlay"></div>
+    <div class="container text-center text-light">
+      <h1 class="display-3 mb-1 text-light">Conversations</h1>
 
+      <p class="lead" style="font-size: 18pt;">Below are hyperlinks to all of the conversations that your connected to and by selecting the linkink you will be able to view the conversation</p>
 
- <style>
- html  {
-     background: #cccccc;
- }
-
- h1 {
-     text-align: center;
- }
-
-
-
- </style>
-
-<div class = "conversation-window">
-
-
- <h1><%= @user.email %>'s Conversations</h1>
-<center>
- <table>
-         <tr>
-             <th> <b>In contact will</b> </th>
-             <th></th>
-         </tr>
-
-         <% if @conversations.empty?%>
-
-         <% else %>
-               <% @conversations.each do |conversation|  %>
+      <center>
+       <table>
                <tr>
-                   <td>
-                   <% if conversation.user1.email == @user.email %>
-                   <%= link_to conversation.user2.email, conversation_path(conversation) %>
+                   <th> <b><%= link_to "Create a New Conversation", new_conversation_path %></b> </th>
+                   <th></th>
+               </tr>
 
-                   <%elsif conversation.user2.email == @user.email %>
-                   <%= link_to conversation.user1.email, conversation_path(conversation) %>
+               <% if @conversations.empty?%>
 
+               <% else %>
+                     <% @conversations.each do |conversation|  %>
+                     <tr>
+                         <td>
+                         <center>
+                         <% if conversation.user1.email == @user.email %>
+                         <%= link_to conversation.user2.email, conversation_path(conversation) %>
 
-               </td>
+                         <%elsif conversation.user2.email == @user.email %>
+                         <%= link_to conversation.user1.email, conversation_path(conversation) %>
+                         </center>
 
-                     <%end%>
-                <%end%>
+                     </td>
 
-           </tr>
+                           <%end%>
+                      <%end%>
 
-         <%end%>
+                 </tr>
 
+               <%end%>
 
+          </table>
+     </center>
 
-
- </table>
-
-</center>
-<br><br>
- <%= link_to "Create a New Conversation", new_conversation_path %>
-
-
+    </div>
+  </div>
 </div>
