@@ -10,18 +10,11 @@ end
 # RVM Settings
 #
 ruby '2.4.1'
-##ruby-gemset=comp7012
+#ruby-gemset=comp7012
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.4'
-
-gem 'materialize-sass'
-
-gem 'devise'
-
-gem 'jquery-rails'
-
+gem 'rails', '~> 5.1.5'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -43,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 
 
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+# gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
@@ -75,3 +68,5 @@ gem 'rails-controller-testing'
 gem 'devise'
 gem 'cocoon'
 gem 'bootstrap'
+
+gem 'materialize-sass'
