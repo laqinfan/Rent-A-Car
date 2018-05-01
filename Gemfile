@@ -68,5 +68,5 @@ gem 'rails-controller-testing'
 gem 'devise'
 gem 'cocoon'
 gem 'bootstrap'
-
+gem 'ratyrate', github: 'wazery/ratyrate', branch: 'master'
 gem 'materialize-sass'

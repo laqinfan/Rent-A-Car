@@ -93,9 +93,11 @@ Rails.application.routes.draw do
   delete 'communications/:id', to: 'communications#destroy'
   delete 'conversations/:id', to: 'conversations#destroy'
   #--------------------------------------------------------------
-  
+
   get '/browse-vehicles', to: 'cars#browse', as: 'browse_vehicles'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
+  get '/vehicles/:id/history', to: 'cars#history', as: 'car_history'
+
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
 
   get 'profiles', to: 'profiles#index', as: 'profiles'

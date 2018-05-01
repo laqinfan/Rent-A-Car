@@ -36,6 +36,14 @@ class CarsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to browse_vehicles_url, alert: "Car not found."
   end
+  def history
+      @ctr = 0
+
+    @car = Car.find(params[:id])
+    @contracts = Contract.all
+    rescue ActiveRecord::RecordNotFound
+      redirect_to browse_vehicles_url, alert: "Car not found."
+  end
 
   # GET /cars/new
   def new
