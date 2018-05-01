@@ -31,6 +31,7 @@
 
 Rails.application.routes.draw do
 
+  resources :testimonials
   root to: 'pages#home'
 
   devise_for :users
@@ -97,6 +98,7 @@ Rails.application.routes.draw do
   get '/browse-vehicles', to: 'cars#browse', as: 'browse_vehicles'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
+  get '/mytestimonial', to: 'testimonials#mytestimonial', as: 'my_testimonial'
 
   get 'profiles', to: 'profiles#index', as: 'profiles'
   get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'

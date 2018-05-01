@@ -129,3 +129,10 @@ contract2 = car7.contracts.new(start_date: '2018-04-07', return_date:'2018-04-08
 contract2.owner_paypal = contract2.car.owner.paypal
 contract2.renter_paypal = user2.paypal
 contract2.save!
+
+testimonial1 = Testimonial.new(rating: 4, comment: "This is an amazing website." )
+
+testimonial1 = user4.testimonials.create!(rating: 4, comment: "This is an amazing website.")
+testimonial1.save!
+testimonial2 = user5.testimonials.create!(rating: 5, comment: "I will recommend it to my friends.")
+testimonial2.save!

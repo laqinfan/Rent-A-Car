@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :contract_price %>
+    <%= form.text_field :price, id: :contract_price, value: @car.price_per_day %>
   </div>
 
   <div class="field">

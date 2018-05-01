@@ -45,9 +45,9 @@ class Contract < ApplicationRecord
 
   scope :by_owner, -> (user) { joins(:owner_paypal).merge(Paypal.by_user(user)) }
   scope :by_renter, -> (user) { joins(:renter_paypal).merge(Paypal.by_user(user)) }
-  
-  before_save :calculate_subtotal
 
+
+  before_save :calculate_subtotal
   before_update :check
 
   private
@@ -56,7 +56,7 @@ class Contract < ApplicationRecord
       enddate = Date.parse(self.return_date)
       begin 
         if (enddate - startdate) >= 0
-          self.subtotal = (enddate - startdate).to_i*self.price
+          self.subtotal = ((enddate - startdate).to_i + 1)*self.price
           self.total = self.subtotal*(1.03).round(2)
         else
           raise "Return date should be greater and equal than start date" 
