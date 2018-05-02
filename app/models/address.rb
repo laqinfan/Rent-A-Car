@@ -28,4 +28,8 @@ class Address < ApplicationRecord
     def state=(val)
         write_attribute :state, val.upcase
     end
+
+    def short_form
+        "#{city}, #{state}, #{zipcode}"
+    end
 end

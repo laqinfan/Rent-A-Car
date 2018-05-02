@@ -69,18 +69,18 @@ carmen = User.create!(email: "carmen@gmail.com", password: "password")
 dan = User.create!(email: "dan@gmail.com", password: "password")
 elliot = User.create!(email: "elliot@gmail.com", password: "password")
 
-car1 = alice.cars.create!(make: "Toyota", model: "Camry", year: 2017, color: "white", description: "Hello", category: "Sedan", mileage: 34500, number_of_seats: 4, price_per_day: 19.567)
+car1 = alice.cars.create!(make: "Toyota", model: "Camry", year: 2017, color: "white", description: "This car still has that new car smell!", category: "Sedan", mileage: 34500, number_of_seats: 4, price_per_day: 19.567)
 car1.locations.create!(address: place5, status: "saved")
 car1.locations.create!(address: place2, status: "saved")
 car1.locations.create!(address: place8, status: "current")
 car1.save!
 
-car2 = alice.cars.create!(make: "Ford", model: "Taurus", year: 2014, color: "grey", description: "Hello", category: "Sedan", mileage: 34567, number_of_seats: 4, price_per_day: 21.99)
+car2 = alice.cars.create!(make: "Ford", model: "Taurus", year: 2014, color: "grey", description: "This is a very practical car.", category: "Sedan", mileage: 34567, number_of_seats: 4, price_per_day: 21.99)
 car2.locations.create!(address: place5, status: "saved")
 car2.locations.create!(address: place4, status: "current")
 car2.save!
 
-car3 = bob.cars.create!(make: "Dodge", model: "Charger", year: 2014, color: "black", description: "Hello", category: "Sports Car", mileage: 45000, number_of_seats: 4, price_per_day: 55.99)
+car3 = bob.cars.create!(make: "Dodge", model: "Charger", year: 2014, color: "black", description: "This car is fantastic!", category: "Sports Car", mileage: 45000, number_of_seats: 4, price_per_day: 55.99)
 car3.locations.create!(address: place3, status: "current")
 car3.save!
 
@@ -101,6 +101,9 @@ profile5 = elliot.create_profile!(drivers_license: '315624532', first_name: 'Ell
 
 paypal1 = alice.create_paypal!(paypal_id: 92202, paypal_username: 'alicefredericks', paypal_account_routing_number: 12020022)
 paypal2 = bob.create_paypal!(paypal_id: 78954, paypal_username: 'bobhenry', paypal_account_routing_number: 14567022)
+paypal3 = carmen.create_paypal!(paypal_id: 56783, paypal_username: 'carmenjones', paypal_account_routing_number: 76542398)
+paypal4 = dan.create_paypal!(paypal_id: 23765, paypal_username: 'danlarson', paypal_account_routing_number: 34872678)
+paypal5 = elliot.create_paypal!(paypal_id: 92345, paypal_username: 'elliotnewman', paypal_account_routing_number: 14598367)
 
 car6 = dan.cars.create!(make: "Mazda", model: "CX-5", year: 2017, color: "Black", description: "This is a very fast car!", category: "Sports Car", mileage: 500, number_of_seats: 5, price_per_day: 19.567)
 car6.locations.create!(address: place7, status: "current")

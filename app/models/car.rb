@@ -54,6 +54,10 @@ class Car < ApplicationRecord
         "#{make} #{model}"
     end
 
+    def make_model_year
+        "#{make} #{model} (#{year})"
+    end
+
     private
     def round_price
         self.price_per_day = price_per_day.to_f.round(2)
