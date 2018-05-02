@@ -8,18 +8,43 @@ class ConversationsController < ApplicationController
           else
           @user = current_user
           @conversations = Conversation.all
-     end
+
+          end
 
      end
 
      def show
-          @user = current_user
-          @conversation = Conversation.find(params[:id])
-          @communications = Communication.all
+          if current_user.nil?
+               redirect_to user_session_path
+          else
+               @user = current_user
+               # @communication = Communication.new
 
 
-         render 'communications/index.html.erb'
+               @conversations = Conversation.all
+               @conversation = Conversation.find(params[:id])
+               @communications = Communication.all
+
+          end
+          @message = Message.new
+          @communication = Communication.new
+
+
      end
+
+     def create_send
+          @message= Message.new(message: params[:message][:message])
+
+          if @message.save
+             flash[:notice] = 'Conversation saved successfully!'
+             redirect_to new_communication_path
+          else
+             flash.now[:alert] = 'Conversation save failed!'
+             render :new
+          end
+      end
+
+
 
 
 
@@ -27,13 +52,24 @@ class ConversationsController < ApplicationController
 
 
      def new
+          if current_user.nil?
+               redirect_to user_session_path
+          else
           @user = current_user
+          @conversations = Conversation.all
+          @communications = Communication.all
           @conversation = Conversation.new
+          @communication = Communication.new
+
+
+
+          end
               #render 'countries/new.html.erb'
      end
 
      def create
-         @conversation= Conversation.new(user1_id: params[:conversation][:user1_id],
+
+         @conversation= Conversation.new(user1_id: current_user.id,
                                         user2_id: params[:conversation][:user2_id])
 
          if @conversation.save
@@ -43,6 +79,7 @@ class ConversationsController < ApplicationController
             flash.now[:alert] = 'Conversation save failed!'
             render :new
          end
+
      end
 
 
@@ -57,8 +94,5 @@ class ConversationsController < ApplicationController
      end
 
      def destroy
-         begin
-
-         end
      end
 end

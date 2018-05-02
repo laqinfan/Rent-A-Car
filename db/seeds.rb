@@ -54,6 +54,10 @@ user1.save!
 user2.save!
 
 
+
+
+user1.save!
+user2.save!
 place1 = Address.create!(street1: "1568 Front St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
 place2 = Address.create!(street1: "5678 Bored Lane", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
 place3 = Address.create!(street1: "1234 Fleet St", street2: "", city: "Memphis", state: "TN", zipcode: 38016)
@@ -132,3 +136,11 @@ aval1 = car4.availabilities.create!(start: '2018-04-07', end:'2018-04-08', statu
 aval1.save!
 aval2 = car5.availabilities.create!(start: '2018-05-07', end:'2018-05-18', status: "Available")
 aval2.save!
+
+
+rate_renter1 = RateRenter.new(rating: 2, comment: "The user did not return the car on time.")
+rate_renter2 = RateRenter.new(rating: 5 , comment: "Very Professional!!! ")
+rate_renter1.contract = contract1
+rate_renter2.contract = contract2
+rate_renter1.save!
+rate_renter2.save!

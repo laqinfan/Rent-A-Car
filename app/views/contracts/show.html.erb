@@ -1,8 +1,22 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
+<link rel= "stylesheet" href= "jquery.raty.css">
+<script src="jquery.raty.js"></script>
 
         <h2 class="text-center"><%= @contract.short_form %></h2>
+
+<div class='star-rating' data-score = <%= @rate_renter.rating %>></div>
+
+<style>
+.checked {
+    color: orange;
+}
+</style>
+
+
+
+
 
         <p>
           <strong>Owner's Email:</strong>
@@ -40,6 +54,75 @@
           <%= link_to 'Back', my_contracts_path %>
         </div>
 
+  <% if @contract_owner == current_user %>
+    <%= form_for @contract do |f| %>
+      <%= f.hidden_field :status, value: "executed" %>
+      <%= f.submit "Approve" %>
+    <% end %>
+  <% end %>
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+  <!--In this secion I sheldon created a popup window for when a renter wants to rate a renter-->
+<%if current_user.email == @contract.car.owner.email %>
+<a class="btn btn-primary" href=  <%= new_rate_renters_path %>>Rate the Renter</a>
+
+
+ <%end%>
+
+
+
+
+
+
+ <script>
+           $('.star').raty({
+               path: '/assets',
+               scoreName: 'review[rating]',
+
+             click : function(score, evt) {
+               $(this).raty('cancel');
+               $('#result').raty('score', score);
+               document.getElementById("input").innerHTML = score;
+
+
+             }
+           });
+
+                $('#result').raty( {
+                     path: '/assets',
+                     scoreName: 'review[rating]',
+
+               });
+
+
+
+
+           $('#star-rating').raty(
+                {
+           	path: '/assets',
+           	scoreName: 'review[rating]',
+
+           });
+
+          var x =  $('#star-rating').raty('score');
+
+
+           $('.star-rating').raty({
+            path: '/assets/',
+            readOnly: true,
+            score: function() {
+                   return $(this).attr('data-score');
+          }
+          });
+
+ </script>
