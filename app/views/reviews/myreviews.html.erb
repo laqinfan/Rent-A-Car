@@ -1,53 +1,65 @@
-<h1>Owner Ratings</h1>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+      <div class="container">
+        <h2 class="text-center">Owner Ratings</h2>
 
-  <tbody>
-    <% @owner_ratings.each do |owner_rating| %>
+        <% if !@owner_ratings.empty? %>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Owner</th>
+              <th scope="col">Contract</th>
+              <th colspan="1"></th>
+            </tr>
+          </thead>
 
-      <tr>
-        <td><%= owner_rating.owner.email %></td>
-        <td><%= owner_rating.contract.car.make_model %></td>
-        <td><%= owner_rating.contract.start_date %></td>
-        <td><%= owner_rating.contract.return_date %></td>
+          <tbody>
+            <% @owner_ratings.each do |owner_rating| %>
 
-       <td><%= link_to 'Edit', edit_owner_rating_path(owner_rating) %></td>
-        
-      </tr>
+              <tr bgcolor="#f7f7f9" >
+                <td><%= owner_rating.owner.email %></td>
+                <td><%= owner_rating.contract.short_form %></td>
+                
+                <td><%= link_to 'Edit', edit_owner_rating_path(owner_rating) %></td>
+                
+              </tr>
 
-    <% end %>
-  </tbody>
-</table>
+            <% end %>
+          </tbody>
+        </table>
 
-<br>
+        <% end %>
+      </div>
+
+      <div class="container">
+        <h2 class="text-center">Owner Ratings</h2>
+
+        <% if !@owner_ratings.empty? %>
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Contract</th>
+              <th colspan="1"></th>
+              </tr>
+          </thead>
 
 
-<h1>Car Ratings</h1>
+          <tbody>
+            <% @car_ratings.each do |car_rating| %>
+              <tr bgcolor="#f7f7f9" >
+                <td><%= car_rating.contract.short_form %></td>
+                
+                <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
+                
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+      </div>
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @car_ratings.each do |car_rating| %>
-      <tr>
-        <td><%= car_rating.car.make_model %></td>
-        <td><%= car_rating.contract.start_date %></td>
-        <td><%= car_rating.contract.return_date %></td>
-
-        <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    </div>
+  </div>
+</div>
