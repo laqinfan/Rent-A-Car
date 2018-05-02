@@ -1,53 +1,45 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-<p>
-  <strong>Owner Email:</strong>
-  <%= @contract.car.owner.email %>
-</p>
+        <h2 class="text-center"><%= @contract.short_form %></h2>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @contract.start_date %>
-</p>
+        <p>
+          <strong>Owner's Email:</strong>
+          <%= @contract.car.owner.email %>
+        </p>
 
-<p>
-  <strong>Return date:</strong>
-  <%= @contract.return_date %>
-</p>
+        <p>
+          <strong>Price: $</strong>
+          <%= @contract.price %>
+        </p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @contract.price %>
-</p>
+        <p>
+          <strong>Subtotal: $</strong>
+          <%= @contract.subtotal %>
+        </p>
 
-<p>
-  <strong>Subtotal:</strong>
-  <%= @contract.subtotal %>
-</p>
+        <p>
+          <strong>Total: $</strong>
+          <%= @contract.total %>
+        </p>
 
-<p>
-  <strong>Total:</strong>
-  <%= @contract.total %>
-</p>
+        <p>
+          <strong>Status:</strong>
+          <%= @contract.status %>
+        </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @contract.status %>
-</p>
+        <div class="links text-center">
+          <% if @contract_owner == current_user %>
+            <%= link_to 'Approve', approve_contract_path(@contract), method: :post%> |
+          <% end %>
+          <% if @contract.status == 'pending' %>
+            <%= link_to 'Update', edit_contract_path(@contract)%> | 
+          <% end %>
+          <%= link_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure you want to permanently delete this contract?' } %> | 
+          <%= link_to 'Back', my_contracts_path %>
+        </div>
 
-<div>
-  <%= link_to 'Update', edit_contract_path(@contract)%> | 
-  <%= link_to 'Cancel', @contract, method: :delete, data: { confirm: 'Are you sure?' } %> | 
-  <%= link_to 'Back', my_contracts_path %>
-  <% if @contract_owner == current_user %>
-    <%= link_to 'Approve', approve_contract_path(@contract), method: :post%> |
-    <% if false %>
-    <%= form_for @contract do |f| %>
-      <%= f.hidden_field :status, value: "executed" %>
-      <% ApproveMailer.approve_email(@contract.car.owner, @contract, @contract.renter_paypal.user, "approve_email_owner.text.erb").deliver %>
-      <% ApproveMailer.approve_email(@contract.renter_paypal.user, @contract, @contract.car.owner, "approve_email_renter.text.erb").deliver %>
-      <%= f.submit "Approve" %>
-    <% end %>
-    <% end %>
-  <% end %>
+    </div>
+  </div>
 </div>

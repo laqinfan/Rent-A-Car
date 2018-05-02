@@ -1,73 +1,92 @@
-<% if current_user %>
-  <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
- <% end %>    
+      <div class="container">
+        <h2 class="text-center">My Profile Information</h2>
+      
+        <% if current_user.profile %> 
 
+          <p>
+            <b> Name:</b>
+            <%= current_user.profile.full_name_private%>
+          </p>
 
-<h1> Profiles </h1>
+          <p>
+            <b> Phone: </b>
+            <%= current_user.profile.phone%>
+          </p>
 
-<% if current_user.profile %> 
+          <p>
+            <b> Social Security: </b>
+            <%= current_user.profile.social_security%>
+          </p>
 
-<ul>
-<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
-<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
+          <p> 
+            <b> Drivers License Id:</b>
+            <%= current_user.profile.drivers_license %>
+          </p>
 
+          <p>
+            <b> Background Check Status: </b>
+            <%= current_user.profile.backgroundcheck_status%>
+          </p>
 
-</ul>
-<p> 
-<b> Drivers License :</b>
-<%= current_user.profile.drivers_license %>
-</p>
+          <div class="links text-center">
+            <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
+          </div>
 
-<p>
-<b> First Name :</b>
-<%= current_user.profile.first_name%>
-</p>
+        <% else %>
 
- <p>
- <b> Last Name : </b>
- <%= current_user.profile.last_name%>
-</p>
- 
- <p>
- <b> Middle Name : </b>
- <%= current_user.profile.middle_name%>
-</p>
+          <p class="lead">You have not created a profile. Do you want to create one now?</p>
 
-<p>
- <b> Backgroundcheck Status : </b>
- <%= current_user.profile.backgroundcheck_status%>
-</p>
+          <div class="links text-center">
+            <%= link_to 'New Profile', new_profile_path %>
+          </div>
 
-<p>
- <b> Phone : </b>
- <%= current_user.profile.phone%>
-</p>
+        <% end %>
 
-<p>
- <b> Social Security : </b>
- <%= current_user.profile.social_security%>
-</p>
+      </div>
 
+      <div class="container mt-5">
+        <h2 class="text-center">My Paypal Information</h2>
 
+        <% if current_user.paypal %> 
 
-<p>
-   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
-</p>
+          <p>
+            Login to your official Paypal Account:<a href ="https://www.paypal.com/signin?returnUri=https%3A%2F%2Fwww.paypal.com%2Fcgi-bin%2Fwebscr%3fcmd%3d_account"> Click this link </a>
+          </p>
 
-<% else %>
+          <p> 
+            <b>Paypal Id :</b>
+            <%= current_user.paypal.paypal_id %>
+          </p>
 
-<ul>
-<img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
-<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
+          <p>
+            <b> Username :</b>
+            <%= current_user.paypal.paypal_username%>
+          </p>
 
+          <p>
+            <b> Account Routing Number : </b>
+            <%= current_user.paypal.paypal_account_routing_number%>
+          </p>
 
-</ul>
+          <div class="links text-center">
+              <%= link_to 'Edit', edit_paypal_path(current_user.paypal) %> 
+          </div>
 
+        <% else %>
 
-<p>
-<h3> You have not created a profile, create one new? </h3>
-<%= link_to 'New Profile', new_profile_path %> 
+          <p class="lead">You have not registed your paypal with us. Do you want to add one now?</p>
 
-</p> 
-<% end %>
+          <div class="links text-center">
+            <%= link_to 'New Paypal', new_paypal_path %> 
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

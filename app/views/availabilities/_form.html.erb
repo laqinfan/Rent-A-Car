@@ -12,27 +12,28 @@
   <% end %>
 
 
-  <div class="field">
-  <%= form.label :car_id %>
-  <%= form.collection_select(:car_id, current_user.cars, :id, :model)%>
+  <div class="form-group">
+    <%= form.label :car_id %>
+    <%= form.collection_select :car_id, current_user.cars, :id, :model, {}, { class: "form-control" } %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :start %>
-    <%= form.date_field :start, id: :availability_start %>
+    <%= form.date_field :start, id: :availability_start, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :end %>
-    <%= form.date_field :end, id: :availability_end %>
+    <%= form.date_field :end, id: :availability_end, class: "form-control" %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
   <%= form.label :status %>
-  <%= form.select :status, options_for_select(Availability::CAR_STATUS, availability.status), {} %>
+  <%= form.select :status, options_for_select(Availability::CAR_STATUS, availability.status), {}, { class: "form-control" } %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary btn-block" %>
   </div>
+  
 <% end %>

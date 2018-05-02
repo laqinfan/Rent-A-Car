@@ -1,79 +1,90 @@
-<p id="notice"><%= notice %></p>
-<h3>Car Availability</h3>
-<table>
-  <thead>
-    <tr bgcolor="#C0C0C0">
-    <th>From</th>
-    <th>To</th>
-    <th>Car Status</th>
-    <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @car.availabilities.each do |a| %>
-    <tr bgcolor="#e0eeee" >
-    <% if a.status == "Available"%>
-    <td> <%= a.start %></td>
-    <td><%= a.end %></td>
-    <td><%= a.status %></td>
-    <% end %>
-  <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-<br>
+      <h2 class="text-center"><%= @car.make_model_year %></h2>
 
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
+      <p>
+        <strong>Category:</strong>
+        <%= @car.category %>
+      </p>
 
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
+      <p>
+        <strong>Color:</strong>
+        <%= @car.color %>
+      </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @car.description %>
+      </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @car.color %>
-</p>
+      <p>
+        <strong>Mileage:</strong>
+        <%= @car.mileage %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @car.description %>
-</p>
+      <p>
+        <strong>Number of seats:</strong>
+        <%= @car.number_of_seats %>
+      </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @car.category %>
-</p>
+      <p>
+        <strong>Price per day: $</strong>
+        <%= @car.price_per_day %>
+      </p>
 
-<p>
-  <strong>Mileage:</strong>
-  <%= @car.mileage %>
-</p>
+      <div class="mt-5">
+        <h4>Pickup Location</h4>
+        <% @car.locations.each do |location| %>
+          <% if location.status == "current"%>
+            <p>
+              <%= location.address.street1 %><br>
+              <%= location.address.short_form %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Number of seats:</strong>
-  <%= @car.number_of_seats %>
-</p>
+      <div class="mt-5">
+        <h4>Car Availability</h4>
+        <% if !@car.availabilities.empty? %>
 
-<p>
-  <strong>Price per day:</strong>
-  <%= @car.price_per_day %>
-</p>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @car.availabilities.each do |a| %>
+              <tr bgcolor="#f7f7f9" >
+              <% if a.status == "Available"%>
+              <td><%= a.start %></td>
+              <td><%= a.end %></td>
+              <td><%= a.status %></td>
+              <% end %>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      
+      <% else %>
 
-<h2>Pickup Location</h2>
-<% @car.locations.each do |location| %>
-  <% if location.status == "current"%>
-    <%= render location.address %><br><br>
-  <% end %>
-<% end %>
+        <p class="lead text-center">This car has no available dates.</p>
 
-<%= link_to 'Generate Contract', new_contract_path(id: @car) %> |
-<%= link_to 'Back', browse_vehicles_path %>
+      <% end %>
+
+      <div class="links text-center">
+        <% if @car.owner != current_user %>
+          <%= link_to 'Generate Contract', new_contract_path(id: @car) %> |
+        <% end %>
+        <%= link_to 'Back', browse_vehicles_path %>
+      </div>
+
+    </div>
+  </div>
+</div>
+      

@@ -50,8 +50,12 @@ class Contract < ApplicationRecord
   scope :by_renter, -> (user) { joins(:renter_paypal).merge(Paypal.by_user(user)) }
 
 
-  before_save :calculate_subtotal
+  before_save :calculate_subtotal, :round_prices
   before_update :check
+
+  def short_form
+    "#{car.make_model} from #{start_date} to #{return_date}"
+  end
 
   private
     def calculate_subtotal 
@@ -73,6 +77,11 @@ class Contract < ApplicationRecord
         if status == 'Executed'
           readonly!
         end
+    end
+    def round_prices
+      self.price = price.to_f.round(2)
+      self.subtotal = subtotal.to_f.round(2)
+      self.total = total.to_f.round(2)
     end
 
 end
