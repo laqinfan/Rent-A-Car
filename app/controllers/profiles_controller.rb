@@ -29,6 +29,8 @@ class ProfilesController < ApplicationController
     end
 
     def show
+        @profile = Profile.find(params[:id])
+        @owner_ratings = OwnerRating.by_owner(@profile.user)
         #@profile = Profile.find(params[:id])
         #render 'profiles/show.html.erb'
     end

@@ -40,6 +40,8 @@ Rails.application.routes.draw do
   resources :registers
   resources :contracts
   resources :cars
+  resources :owner_ratings
+  resources :car_ratings
 
   #All of Sheldon Ebron's Home Pages (Not used in most casses will probably delete later)
   #--------------------------------------------------------------
@@ -99,6 +101,9 @@ Rails.application.routes.draw do
   get '/browse-vehicles', to: 'cars#browse', as: 'browse_vehicles'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
+  
+  post 'contracts/:id/approve', to: 'contracts#update_status', as: 'approve_contract'
+  get '/myreviews', to: 'reviews#myreviews', as: 'my_reviews'
   get '/mytestimonial', to: 'testimonials#mytestimonial', as: 'my_testimonial'
   get '/mycarstatus', to: 'availabilities#mycarstatus', as: 'my_carstatus'
 
@@ -122,5 +127,9 @@ Rails.application.routes.draw do
   get 'paypals/:id/edit', to: 'paypals#edit', as: 'edit_paypal'
   put 'paypals/:id', to: 'paypals#update'
   patch 'paypals/:id', to: 'paypals#update'
+
+  
+  post '//reviewpostbyrenter' , to: 'reviewrenters#reviewpostbyrenter' , as: 'review_post'
+  get '/about', to: 'pages#about', as: 'about_us'
 
 end
