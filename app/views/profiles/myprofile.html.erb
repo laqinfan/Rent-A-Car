@@ -1,20 +1,20 @@
 <% if current_user %>
   <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
 
- <% end %>    
+ <% end %>
 
 
 <h1> Profiles </h1>
 
-<% if current_user.profile %> 
+<% if current_user.profile %>
 
 <ul>
 <img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
-<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
+<li><%= link_to 'My Paypal',  my_paypal_path %></li>
 
 
 </ul>
-<p> 
+<p>
 <b> Drivers License :</b>
 <%= current_user.profile.drivers_license %>
 </p>
@@ -28,7 +28,7 @@
  <b> Last Name : </b>
  <%= current_user.profile.last_name%>
 </p>
- 
+
  <p>
  <b> Middle Name : </b>
  <%= current_user.profile.middle_name%>
@@ -52,14 +52,15 @@
 
 
 <p>
-   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
+   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> |
+
 </p>
 
 <% else %>
 
 <ul>
 <img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
-<li><%= link_to 'My Paypal',  my_paypal_path %></li> 
+<li><%= link_to 'My Paypal',  my_paypal_path %></li>
 
 
 </ul>
@@ -67,7 +68,7 @@
 
 <p>
 <h3> You have not created a profile, create one new? </h3>
-<%= link_to 'New Profile', new_profile_path %> 
+<%= link_to 'New Profile', new_profile_path %>
 
-</p> 
+</p>
 <% end %>

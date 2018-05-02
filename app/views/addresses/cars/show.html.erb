@@ -56,4 +56,5 @@
 <% end %>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', cars_path %> |
+<%= link_to "History", car_history_path(id: @car) %>

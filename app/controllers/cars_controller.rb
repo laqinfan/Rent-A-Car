@@ -18,8 +18,8 @@ class CarsController < ApplicationController
     @categories = Car.distinct.pluck(:category)
     @makes = Car.distinct.pluck(:make)
     @cars = Car.includes(:pickup_addresses).filter(params.slice(:by_color, :by_category, :by_make, :by_pickup_location_zipcode))
-    
-    # respond_to do |format| 
+
+    # respond_to do |format|
     #   format.html { render :browse }
     #   format.js { render :browse }
     # end
@@ -35,16 +35,16 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       redirect_to browse_vehicles_url, alert: "Car not found."
-  end
+     end
+
   def history
-      @ctr = 0
+       @ctr = 0
+       @p = 0
+       @car = Car.find(params[:id])
+       @contracts = Contract.all
+       @rate_renter = RateRenter.all
 
-    @car = Car.find(params[:id])
-    @contracts = Contract.all
-    rescue ActiveRecord::RecordNotFound
-      redirect_to browse_vehicles_url, alert: "Car not found."
-  end
-
+end
   # GET /cars/new
   def new
     @car = current_user.cars.new
@@ -62,7 +62,7 @@ class CarsController < ApplicationController
   def create
     @car = current_user.cars.new(car_params)
     #@car = Car.new(car_params)
-    
+
     respond_to do |format|
       if @car.save
         format.html { redirect_to @car, notice: 'Car was successfully created.' }

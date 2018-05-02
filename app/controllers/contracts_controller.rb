@@ -17,6 +17,9 @@ class ContractsController < ApplicationController
   # GET /contracts/1.json
   def show
     @contract_owner = @contract.owner_paypal.user
+    @rate_renter = RateRenter.find(params[:id])
+
+
   end
 
   # GET /contracts/new
@@ -29,6 +32,10 @@ class ContractsController < ApplicationController
 
   # GET /contracts/1/edit
   def edit
+       @car = Car.find(params[:id])
+       @contract = @car.contracts.new
+       @renter_paypal = current_user.paypal
+       @owner_paypal = @car.owner.paypal
   end
 
   # POST /contracts

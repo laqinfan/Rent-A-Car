@@ -96,6 +96,7 @@ Rails.application.routes.draw do
 
   get '/browse-vehicles', to: 'cars#browse', as: 'browse_vehicles'
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
+
   get '/vehicles/:id/history', to: 'cars#history', as: 'car_history'
 
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
@@ -108,6 +109,8 @@ Rails.application.routes.draw do
   #get 'profiles/:id', to: 'profiles#show', as: 'profile'
   #get 'profiles/:id', to: 'users#show', as: 'profile'
   get 'profiles/:id/edit', to: 'profiles#edit', as: 'edit_profile'
+  get '/profiles/:id/history', to: 'profiles#history', as: 'profile_history'
+
   put 'profiles/:id', to: 'profiles#update'
   patch 'profiles/:id', to: 'profiles#update'
 

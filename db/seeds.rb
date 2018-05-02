@@ -55,14 +55,14 @@ message3.save!
 message4.save!
 
 
-
-
 communication1.save!
 communication2.save!
 communication3.save!
 
 
 conversation1.save!
+
+
 
 
 user1.save!
@@ -125,7 +125,18 @@ contract1.owner_paypal = contract1.car.owner.paypal
 contract1.renter_paypal = user2.paypal
 contract1.save!
 
+
+
+
 contract2 = car7.contracts.new(start_date: '2018-04-07', return_date:'2018-04-08', price: '20', subtotal: '40', total: '40.5', status: 'pending')
 contract2.owner_paypal = contract2.car.owner.paypal
 contract2.renter_paypal = user2.paypal
 contract2.save!
+
+
+rate_renter1 = RateRenter.new(rating: 2, comment: "The user did not return the car on time.")
+rate_renter2 = RateRenter.new(rating: 5 , comment: "Very Professional!!! ")
+rate_renter1.contract = contract1
+rate_renter2.contract = contract2
+rate_renter1.save!
+rate_renter2.save!

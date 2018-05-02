@@ -10,6 +10,68 @@
 
 <body>
 
+
+
+
+
+
+     <style>
+     body{
+         margin-top:20px;
+         background-color: #edf0f0;
+     }
+     .btn-primary,
+     .btn-primary:hover,
+     .btn-primary:focus,
+     .btn-primary:active,
+     .btn-primary.active,
+     .btn-primary.focus,
+     .btn-primary:active,
+     .btn-primary:focus,
+     .btn-primary:hover,
+     .open>.dropdown-toggle.btn-primary {
+         background-color: #3bc0c3;
+         border: 1px solid #3bc0c3;
+     }
+     .p-t-10 {
+         padding-top: 10px !important;
+     }
+     .media-main a.pull-left {
+         width: 100px;
+     }
+     .thumb-lg {
+         height: 84px;
+         width: 84px;
+     }
+     .media-main .info {
+         overflow: hidden;
+         color: #000;
+     }
+     .media-main .info h4 {
+         padding-top: 10px;
+         margin-bottom: 5px;
+     }
+     .social-links li a {
+         background: #EFF0F4;
+         width: 30px;
+         height: 30px;
+         line-height: 30px;
+         text-align: center;
+         display: inline-block;
+         border-radius: 50%;
+         -webkit-border-radius: 50%;
+         color: #7A7676;
+     }
+
+     </style>
+
+
+<script>
+$(function(){
+ $("a[data-toggle='tooltip']").tooltip();
+});
+
+</script>
   <div class="bs-component">
     <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
       <a class="navbar-brand" href="/">Rent A Car</a>
@@ -17,81 +79,62 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
+
+
       <div class="collapse navbar-collapse" id="navbarColor01">
+
+
         <ul class="navbar-nav ml-auto">
           <li class="nav-item <%= 'active' if current_page?(root_path) %>">
             <%= link_to 'Home', root_path, { class: "nav-link"} %>
           </li>
+
           <li class="nav-item <%= 'active' if current_page?(browse_vehicles_path) %>">
             <%= link_to 'Browse Vehicles', browse_vehicles_path, { class: "nav-link"} %>
           </li>
+
           <% if user_signed_in? %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Account
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
-              <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
-              <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
-              <%= link_to 'View Conversations', conversations_path, class: "dropdown-item"  %>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
+                        <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
+                        <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
+                        <%= link_to 'View Conversations', conversations_path, class: "dropdown-item"  %>
 
-            </div>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-            <%= link_to current_user.email, edit_user_registration_path, { class: "nav-link"} %>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(destroy_user_session_path) %>">
-            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-          </li>
+                      </div>
+                    </li>
+                    <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+                      <%= link_to current_user.email, edit_user_registration_path, { class: "nav-link"} %>
+                    </li>
+                    <li class="nav-item <%= 'active' if current_page?(destroy_user_session_path) %>">
+                      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+                    </li>
+
           <% else %>
-          <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
-            <%= link_to 'Sign In', new_user_session_path, { class: "nav-link"} %>
-          </li>
-          <li class="nav-item <%= 'active' if current_page?(new_user_registration_path) %>">
-            <%= link_to 'Sign Up', new_user_registration_path, { class: "nav-link"} %>
-          </li>
+                    <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
+                      <%= link_to 'Sign In', new_user_session_path, { class: "nav-link"} %>
+                    </li>
+                    <li class="nav-item <%= 'active' if current_page?(new_user_registration_path) %>">
+                      <%= link_to 'Sign Up', new_user_registration_path, { class: "nav-link"} %>
+                    </li>
           <% end %>
+
+
         </ul>
+
+
+
+
       </div>
 
-      <div class = "containter">
-           <button type="button" class ="btn btn-primary" class: "dropdown-item" data-toggle = "modal" data-target= "#modal-1">Activate</button>
-           <div class = "modal fade" id =  "modal-1">
-                <div class = "modal-dialog">
-                     <div class =" modal-content">
-                          <div class =" modal-header">
-                               <h3 class = "modal-title"> Rate the user</h3>
-
-                               <button type = "button" class = "close" data-dismiss = "modal"> &times; </button>
-                          </div>
-
-                          <div class =" modal-body">
-
-                               <script src="jquery.raty.js">
-                               $('div').raty();
-                          </script>
-
-                          <div>
-
-                          </div>
-                          </div>
-                          <div class = "modal-footer">
-                               <a href= "" class= "btn btn-primary" data-dismiss = "modal"> Close</a>
-                               <a href= "" class= "btn btn-primary"> Enter</a>
-
-                          </div>
-
-                     </div>
-                </div>
-           </div>
-      </div>
     </nav>
   </div>
 
 
 
-  <!--In this secion I sheldon created a popup window for when a renter wants to rate a renter-->
 
 
 

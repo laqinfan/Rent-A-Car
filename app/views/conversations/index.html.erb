@@ -3,52 +3,81 @@
     Email: sebron@memphis.edu
 -->
 
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="pull-right btn-group-sm padding-right =50px">
+<a href= <%=new_conversation_path%> class="btn btn-success tooltips" data-placement="top" data-original-title="Add">
+    <i class="fa fa-plus"></i>
 
-<div class="container">
-  <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
-      padding-bottom: 20%;">
-
-
-
-    <div class="overlay"></div>
-    <div class="container text-center text-light">
-      <h1 class="display-3 mb-1 text-light">Conversations</h1>
-
-      <p class="lead" style="font-size: 18pt;">Below are hyperlinks to all of the conversations that your connected to and by selecting the linkink you will be able to view the conversation</p>
-
-      <center>
-       <table>
-               <tr>
-                   <th> <b><%= link_to "Create a New Conversation", new_conversation_path %></b> </th>
-                   <th></th>
-               </tr>
-
-               <% if @conversations.empty?%>
-
-               <% else %>
-                     <% @conversations.each do |conversation|  %>
-                     <tr>
-                         <td>
-                         <center>
-                         <% if conversation.user1.email == @user.email %>
-                         <%= link_to conversation.user2.email, conversation_path(conversation) %>
-
-                         <%elsif conversation.user2.email == @user.email %>
-                         <%= link_to conversation.user1.email, conversation_path(conversation) %>
-                         </center>
-
-                     </td>
-
-                           <%end%>
-                      <%end%>
-
-                 </tr>
-
-               <%end%>
-
-          </table>
-     </center>
-
-    </div>
-  </div>
+</a>
 </div>
+<div class="container bootstrap snippet">
+
+    <div class="row">
+         </a>
+        <% if @conversations.empty?%>
+        <% else %>
+              <% @conversations.each do |conversation|  %>
+               <% if conversation.user1.email == @user.email %>
+                  <div class="col-sm-6">
+                      <div class="panel">
+                         <div class="panel-body p-t-10">
+                              <div class="media-main">
+                                  <a class="pull-left" href="#">
+                                      <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_3.jpg" alt="">
+                                  </a>
+                                  <div class="pull-right btn-group-sm">
+                                      <a href=<%=conversation_path(conversation)%> class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                          <i class="fa fa-pencil"></i>
+                                      </a>
+                                      <a href="#" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                          <i class="fa fa-close"></i>
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <h4><%= conversation.user2.email%>
+                                                  </h4>
+                                      <p class="text-muted"><%= link_to conversation.user2.email, conversation_path(conversation) %>
+                                   </p>
+                                  </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <hr>
+                         </div>
+                      </div>
+                  </div>
+
+                  <%elsif conversation.user2.email == @user.email %>
+
+                  <%= link_to conversation.user1.email, conversation_path(conversation) %>
+                  <div class="col-sm-6">
+                      <div class="panel">
+                         <div class="panel-body p-t-10">
+                              <div class="media-main">
+                                  <a class="pull-left" href="#">
+                                      <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_3.jpg" alt="">
+                                  </a>
+                                  <div class="pull-right btn-group-sm">
+                                      <a href="#" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                          <i class="fa fa-pencil"></i>
+                                      </a>
+                                      <a href="#" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
+                                          <i class="fa fa-close"></i>
+                                      </a>
+                                  </div>
+                                  <div class="info">
+                                      <h4>Jonathan Smith</h4>
+                                      <p class="text-muted">Graphics Designer</p>
+                                  </div>
+                              </div>
+                              <div class="clearfix"></div>
+                              <hr>
+                         </div>
+                      </div>
+                  </div>
+                  </center>
+
+              </td>
+
+                    <%end%>
+               <%end%>
+          <%end%>
