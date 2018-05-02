@@ -1,0 +1,46 @@
+<h1>Updating Testimonial</h1>
+
+<% if @testimonial.errors.any? %>
+    <div style= "background-color: #FF0000">
+        <p>Please fix the following errors </p>
+        <ul>
+            <% @testimonial.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+
+            <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for @testimonial do |form| %>
+
+
+    <p>
+    Rating<br>
+    <div class="form-group row">
+    <div class="col-sm-6" id='star-rating'></div>
+    </div>
+    </p>
+
+    <p>
+    Comment<br>
+    <%= form.text_field :comment %>
+    </p>
+
+    <script>
+    $('#star-rating').raty({
+        path: '/assets',
+        scoreName: 'testimonial[rating]'
+    });
+    </script>
+
+
+    <p>
+    <%= form.submit "Update Testimonial" %>
+    </p>
+<% end %>
+
+
+<%= link_to 'Show', @testimonial %> |
+<%= link_to 'Back', my_testimonial_path %>
+
