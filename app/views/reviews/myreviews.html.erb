@@ -14,7 +14,7 @@
         <td><%= owner_rating.owner.email %></td>
         <td><%= owner_rating.contract.car.make_model %></td>
         <td><%= owner_rating.contract.start_date %></td>
-        <td><%= owner_rating.contract.end_date %></td>
+        <td><%= owner_rating.contract.return_date %></td>
 
        <td><%= link_to 'Edit', edit_owner_rating_path(owner_rating) %></td>
         
@@ -41,7 +41,7 @@
       <tr>
         <td><%= car_rating.car.make_model %></td>
         <td><%= car_rating.contract.start_date %></td>
-        <td><%= car_rating.contract.end_date %></td>
+        <td><%= car_rating.contract.return_date %></td>
 
         <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
         
