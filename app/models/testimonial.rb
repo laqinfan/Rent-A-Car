@@ -17,6 +17,8 @@
 class Testimonial < ApplicationRecord
     belongs_to :user
 
+    validates :rating, :comment, presence: true
+
     scope :by_user, -> (user) {where(user: user)}
 
 end

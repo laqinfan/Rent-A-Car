@@ -23,10 +23,10 @@ class CarRatingsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to car_rating_url(CarRating.last)
   end
 
-  # test "should show car_rating" do
-  #   get car_rating_url(@car_rating)
-  #   assert_response :success
-  # end
+  test "should show car_rating" do
+    get car_rating_url(@car_rating)
+    assert_response :success
+  end
 
   test "should get edit" do
     get edit_car_rating_url(@car_rating)

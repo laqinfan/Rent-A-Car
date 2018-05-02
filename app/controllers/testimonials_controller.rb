@@ -23,7 +23,7 @@ class TestimonialsController < ApplicationController
       @testimonial = current_user.testimonials.new
     else 
       respond_to do |format|
-        format.html { redirect_to root_path, notice: 'You already have one testimonial.' }
+        format.html { redirect_to my_testimonial_path, alert: 'You already have one testimonial.' }
       end
     end
   # @testimonial = Testimonial.new
@@ -54,7 +54,7 @@ end
   def update
     respond_to do |format|
       if @testimonial.update(testimonial_params)
-        format.html { redirect_to @testimonial, notice: 'Testimonial was successfully updated.' }
+        format.html { redirect_to my_testimonial_path, notice: 'Testimonial was successfully updated.' }
         format.json { render :show, status: :ok, location: @testimonial }
       else
         format.html { render :edit }

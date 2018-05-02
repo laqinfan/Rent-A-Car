@@ -17,12 +17,12 @@
             <div class="testimonials">
             <font color="#A569BD"><%= testimonial.user.email %></font>
             <div class="star-rating" data-score= <%= testimonial.rating %>> </div>
-            <font color="purple"><%= testimonial.created_at.localtime.strftime '%Y-%m-%d' %></font>
+            <font color="purple"><%= testimonial.created_at.localtime.strftime '%m-%d-%Y' %></font>
             <%= testimonial.comment %>
             </div>
 
             <%= link_to 'Update', edit_testimonial_path(testimonial) %></td> |
-            <%= link_to 'Delete', testimonial, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to 'Delete', testimonial, method: :delete, data: { confirm: 'Are you sure you want to delete your testimonial?' } %>
             </br>
         <% end %>
 
