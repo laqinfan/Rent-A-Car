@@ -18,18 +18,18 @@ class CommunicationsController < ApplicationController
 
 
      end
-
-
-
-
-
      def new
           @user = current_user
           @communication = Communication.new
+          @message = Message.new
+
               #render 'countries/new.html.erb'
      end
 
      def create
+
+
+
          @communication= Communication.new(message_id: params[:communication][:message_id],
                                         sender_id: params[:communication][:sender_id],
                                         reciever_id: params[:communication][:reciever_id],
@@ -40,7 +40,6 @@ class CommunicationsController < ApplicationController
             redirect_to conversations_url
          else
             flash.now[:alert] = 'Conversation save failed!'
-            render :new
          end
      end
 end

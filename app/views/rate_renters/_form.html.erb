@@ -1,0 +1,17 @@
+<%= form_with(model: rate_renter, local: true) do |form| %>
+  <% if rate_renter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(rate_renter.errors.count, "error") %> prohibited this rate_renter from being saved:</h2>
+
+      <ul>
+      <% rate_renter.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

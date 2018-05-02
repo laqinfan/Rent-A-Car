@@ -38,6 +38,7 @@ Rails.application.routes.draw do
   resources :registers
   resources :contracts
   resources :cars
+   resources :ratings
 
   #All of Sheldon Ebron's Home Pages (Not used in most casses will probably delete later)
   #--------------------------------------------------------------
@@ -50,24 +51,31 @@ Rails.application.routes.draw do
   get 'messaging', to: 'messages#index', as: 'messages'
   get 'communications', to: 'communications#index', as: 'communications'
   get 'conversations', to: 'conversations#index', as: 'conversations'
+  get 'rate_renters', to: 'rate_renters#index', as: 'rate_renters'
 
   #All of Sheldon Ebron's New Routes
   #--------------------------------------------------------------
   get 'messaging/new', to: 'messages#new', as: 'new_message'
   get 'communications/new', to: 'communications#new', as: 'new_communication'
   get 'conversations/new', to: 'conversations#new', as: 'new_conversation'
+  get 'rate_renters/new', to: 'rate_renters#new', as: 'new_rate_renters'
 
   #All of Sheldon Ebron's New Routes
   #--------------------------------------------------------------
   post 'messaging', to: 'messages#create'
   post 'communications', to: 'communications#create'
   post 'conversations', to: 'conversations#create'
+  get 'rate_renters', to: 'rate_renters#create'
+
+
 
   #All of Sheldon Ebron's Show/Find Routes
   #--------------------------------------------------------------
   get 'messaging/:id', to: 'messages#show', as: 'message'
   get 'communications/:id', to: 'communications#show', as: 'communication'
   get 'conversations/:id', to: 'conversations#show', as: 'conversation'
+
+
 
   #All of Sheldon Ebron's Show/Find Routes
   #--------------------------------------------------------------
@@ -80,6 +88,9 @@ Rails.application.routes.draw do
   put 'messaging/:id', to: 'messages#update'
   put 'communications/:id', to: 'communications#update'
   put 'conversations/:id', to: 'conversations#update'
+
+
+  post 'conversations/:id', to: 'conversations#create_send'
 
   #All of Sheldon Ebron's update Routes
   #--------------------------------------------------------------

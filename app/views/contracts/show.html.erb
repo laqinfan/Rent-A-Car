@@ -2,14 +2,8 @@
 <link rel= "stylesheet" href= "jquery.raty.css">
 <script src="jquery.raty.js"></script>
 
-<div id="input"></div>
-<div id='star-rating-read'></div>
-
 
 <div class='star-rating' data-score = <%= @rate_renter.rating %>></div>
-
-
-<div id="result"></div>
 
 <style>
 .checked {
@@ -70,11 +64,6 @@
   <% end %>
 
 
-  <form action="../my-contracts/" method="get">
-    <label for="q">Search for:</label>
-    <input id="q" name="q" type="text" />
-    <input type="submit" />
-  </form>
 
 
 
@@ -84,37 +73,8 @@
 
   <!--In this secion I sheldon created a popup window for when a renter wants to rate a renter-->
 <%if current_user.email == @contract.car.owner.email %>
+<a class="btn btn-primary" href=  <%= new_rate_renters_path %>>Rate the Renter</a>
 
- <div class = "containter">
-       <button type="button" class ="btn btn-primary" class: "dropdown-item" data-toggle = "modal" data-target= "#modal-1">Rate the Renter</button>
-       <div class = "modal fade" id =  "modal-1">
-            <div class = "modal-dialog">
-                <div class =" modal-content">
-                     <div class =" modal-header">
-                          <h3 class = "modal-title"> Rate the user</h3>
-                          <button type = "button" class = "close" data-dismiss = "modal"> &times; </button>
-                     </div>
-
-                     <div class =" modal-body">
-
-                              <h2>As the vender rate the Renter</h2>
-                              <!-- <div id='star-rating'></div> -->
-                              <div class="star"></div>
-
-
-
-
-                     </div>
-                     <div class = "modal-footer">
-                          <a href= "" class= "btn btn-primary" data-dismiss = "modal"> Close</a>
-                          <a href= "" class= "btn btn-primary"> Enter</a>
-
-                     </div>
-
-                </div>
-            </div>
-       </div>
- </div>
 
  <%end%>
 
