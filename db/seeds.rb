@@ -136,3 +136,8 @@ testimonial1 = user4.testimonials.create!(rating: 4, comment: "This is an amazin
 testimonial1.save!
 testimonial2 = user5.testimonials.create!(rating: 5, comment: "I will recommend it to my friends.")
 testimonial2.save!
+
+aval1 = car4.availabilities.create!(start: '2018-04-07', end:'2018-04-08', status: "Available")
+aval1.save!
+aval2 = car5.availabilities.create!(start: '2018-05-07', end:'2018-05-18', status: "Available")
+aval2.save!

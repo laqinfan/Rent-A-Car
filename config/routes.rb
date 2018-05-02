@@ -31,6 +31,7 @@
 
 Rails.application.routes.draw do
 
+  resources :availabilities
   resources :testimonials
   root to: 'pages#home'
 
@@ -99,6 +100,7 @@ Rails.application.routes.draw do
   get '/vehicles/:id/details', to: 'cars#details', as: 'car_details'
   get '/my-contracts', to: 'contracts#mycontracts', as: 'my_contracts'
   get '/mytestimonial', to: 'testimonials#mytestimonial', as: 'my_testimonial'
+  get '/mycarstatus', to: 'availabilities#mycarstatus', as: 'my_carstatus'
 
   get 'profiles', to: 'profiles#index', as: 'profiles'
   get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'
