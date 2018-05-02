@@ -48,7 +48,7 @@ class ContractsController < ApplicationController
       if @contract.save
 
         UserMailer.notify_email(@contract.car.owner, @contract, @renter, "notify_email.text.erb").deliver
-        UserMailer.notify_email(@renter, @contract, @contract.car.owner, "notify_renter.text.erb").deliver 
+        UserMailer.notify_email(@renter, @contract, @contract.car.owner, "notify_renter.text.erb").deliver
 
         format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
         format.json { render :show, status: :created, location: @contract }
@@ -93,7 +93,7 @@ class ContractsController < ApplicationController
     #@owner = User.find(@contract.owner_paypal.user.id)
     #@contract.owner_paypal.user.owner_ratings << OwnerRating.create!(user_id:@contract.renter_paypal.user.id)
     OwnerRating.create!(owner_id: @contract.owner_paypal.user.id, user_id:@contract.renter_paypal.user.id, contract_id:@contract.id)
-    
+
     respond_to do |format|
       if @contract.save
 
@@ -116,6 +116,6 @@ class ContractsController < ApplicationController
     def contract_params
       params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status, :car_id, :owner_paypal_id, :renter_paypal_id)
     end
-    
-    
+
+
 end
