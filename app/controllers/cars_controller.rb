@@ -34,7 +34,7 @@ class CarsController < ApplicationController
   def details
     @car = Car.find(params[:id])
     rescue ActiveRecord::RecordNotFound
-      redirect_to browse_vehicles_url, alert: "Car not found."
+    redirect_to browse_vehicles_url, alert: "Car not found."
   end
 
   # GET /cars/new

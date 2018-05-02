@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415170700) do
+ActiveRecord::Schema.define(version: 20180501234315) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street1"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20180415170700) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "car_ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.string "comments"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "car_id"
+    t.integer "user_id"
+    t.integer "contract_id"
+    t.index ["car_id"], name: "index_car_ratings_on_car_id"
+    t.index ["contract_id"], name: "index_car_ratings_on_contract_id"
+    t.index ["user_id"], name: "index_car_ratings_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
@@ -94,6 +107,19 @@ ActiveRecord::Schema.define(version: 20180415170700) do
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "owner_ratings", force: :cascade do |t|
+    t.integer "rating"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "owner_id"
+    t.integer "contract_id"
+    t.index ["contract_id"], name: "index_owner_ratings_on_contract_id"
+    t.index ["owner_id"], name: "index_owner_ratings_on_owner_id"
+    t.index ["user_id"], name: "index_owner_ratings_on_user_id"
   end
 
   create_table "paypals", force: :cascade do |t|

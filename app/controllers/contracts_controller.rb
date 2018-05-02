@@ -76,7 +76,14 @@ class ContractsController < ApplicationController
   def update_status
     @contract = Contract.find(params[:id])
     @contract.status = 'Executed'
-
+    @car = Car.find(@contract.car.id)
+    print @car.id
+    #@car.ratings << CarRating.create!(car_id: @car.id, user_id: @contract.renter_paypal.user.id)
+    CarRating.create!(car_id: @car.id, user_id: @contract.renter_paypal.user.id, contract_id:@contract.id)
+    #@owner = User.find(@contract.owner_paypal.user.id)
+    #@contract.owner_paypal.user.owner_ratings << OwnerRating.create!(user_id:@contract.renter_paypal.user.id)
+    OwnerRating.create!(owner_id: @contract.owner_paypal.user.id, user_id:@contract.renter_paypal.user.id, contract_id:@contract.id)
+    
     respond_to do |format|
       if @contract.save
         format.html { redirect_to @contract, notice: 'Contract was successfully executed.' }
@@ -95,4 +102,6 @@ class ContractsController < ApplicationController
     def contract_params
       params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status, :car_id, :owner_paypal_id, :renter_paypal_id)
     end
+    
+    
 end

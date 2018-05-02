@@ -39,7 +39,8 @@ class User < ApplicationRecord
     has_one :profile, dependent: :destroy
     has_one :paypal, dependent: :destroy
     has_many :cars
-
+    has_many :owner_ratings
+    
     devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

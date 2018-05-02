@@ -1,0 +1,24 @@
+<div class="ratings">
+                        <p class="pull-right"><%= @number_of_reviews %> reviews</p>
+                        <p>
+                            <% if @avg > 0 %>
+                                <% @avg.times do |rating| %>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                <% end %>
+                                <% (5-@avg).times do |rating| %>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                <% end %>
+                            <% end %>
+                            <% if @avg != 0%>
+                                <%= @avg %>.0 stars
+                            <% else %>
+                                No Rating Yet
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+                <%= render 'reviewrenters/review_car' %>
+
+            </div>
+
+        </div>

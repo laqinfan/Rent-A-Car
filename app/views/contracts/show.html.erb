@@ -41,9 +41,12 @@
   <button type="button"> Negotiate </button> | 
   <%= link_to 'Back', contracts_path %>
   <% if @contract_owner == current_user %>
+    <%= link_to 'Approve', approve_contract_path(@contract), method: :post%> |
+    <% if false %>
     <%= form_for @contract do |f| %>
       <%= f.hidden_field :status, value: "executed" %>
       <%= f.submit "Approve" %>
+    <% end %>
     <% end %>
   <% end %>
 </div>

@@ -1,0 +1,2 @@
+module ReviewrentersHelper
+end

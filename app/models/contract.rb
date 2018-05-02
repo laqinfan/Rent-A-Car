@@ -30,6 +30,9 @@ class Contract < ApplicationRecord
   belongs_to :car
   belongs_to :owner_paypal, class_name: 'Paypal'
   belongs_to :renter_paypal, class_name: 'Paypal'
+
+  has_one :car_rating, class_name: 'CarRating'
+  has_one :owner_rating, class_name: 'OwnerRating'
   
   validates :start_date, presence: true#, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}
   validates :return_date, presence: true#, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}
