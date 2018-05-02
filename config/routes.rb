@@ -31,6 +31,7 @@
 
 Rails.application.routes.draw do
 
+  resources :availabilities
   resources :testimonials
   root to: 'pages#home'
 
@@ -104,6 +105,7 @@ Rails.application.routes.draw do
   post 'contracts/:id/approve', to: 'contracts#update_status', as: 'approve_contract'
   get '/myreviews', to: 'reviews#myreviews', as: 'my_reviews'
   get '/mytestimonial', to: 'testimonials#mytestimonial', as: 'my_testimonial'
+  get '/mycarstatus', to: 'availabilities#mycarstatus', as: 'my_carstatus'
 
   get 'profiles', to: 'profiles#index', as: 'profiles'
   get 'profiles/myprofile', to: 'profiles#myprofile', as: 'my_profile'
