@@ -1,4 +1,5 @@
-<body>
+<style>
+
 
 <style>
 
@@ -21,7 +22,7 @@
           padding: 25px;
           margin: 20px auto;
           box-shadow: 0 3px grey;
-
+          overflow-y: scroll
      }
 
 
@@ -42,8 +43,8 @@
      .chat .user-photo{
           width: 60px;
           height: 60px;
-          background: grey;
-          border-radius: 50%;
+          background: white;
+          border-radius: 0%;
 
      }
 
@@ -77,22 +78,8 @@
 </style>
 
 
-<div class="container">
-  <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
-      padding-bottom: 20%;">
 
-
-
-
-    <div class="overlay"></div>
-    <div class="container text-center text-light">
-      <h1 class="display-3 mb-1 text-light">Conversations</h1>
-
-      <p class="lead" style="font-size: 18pt;">Below are hyperlinks to all of the conversations that your connected to and by selecting the linkink you will be able to view the conversation</p>
-
-
-      <div class= "chatbox">
-
+<div class= "chatbox">
            <div class= "chatlog">
                 <% if Communication.all.empty?%>
 
@@ -103,7 +90,6 @@
                           <% if conversation.user2.email == communication.reciever.email%>
                                <div class= "chat self">
                                     <div class= "user-photo">
-                                         <p style="color:white;">       <br>S</p>
                                     </div>
                                     <p class= "chat-message" id="losinfo">
                                          <span ><%= communication.sender.email %></span><br><%= communication.message.message %></p>
@@ -116,7 +102,6 @@
                                <% if conversation.user2.email == communication.sender.email%>
                                <div class= "chat friend">
                                       <div class= "user-photo">
-                                           <p style="color:white;">        R</p>
                                       </div>
                                       <p class= "chat-message" id="losinfo">
                                            <span ><%= communication.sender.email %></span><br><%= communication.message.message %></p>
@@ -125,21 +110,11 @@
                                  <% end %>
 
                      <% end %>
-
                   <% end %>
                   <% end %>
 
 
            </div>
-           <%= link_to "Create a New Message", new_communication_path %>
 
       </div>
-
-
-
-      </body>
-
-
-    </div>
-  </div>
-</div>
+      <%= link_to "Send New Message", new_communication_path %>

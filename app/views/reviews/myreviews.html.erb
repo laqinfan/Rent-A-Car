@@ -1,0 +1,53 @@
+<h1>Owner Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @owner_ratings.each do |owner_rating| %>
+
+      <tr>
+        <td><%= owner_rating.owner.email %></td>
+        <td><%= owner_rating.contract.car.make_model %></td>
+        <td><%= owner_rating.contract.start_date %></td>
+        <td><%= owner_rating.contract.return_date %></td>
+
+       <td><%= link_to 'Edit', edit_owner_rating_path(owner_rating) %></td>
+        
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+<h1>Car Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @car_ratings.each do |car_rating| %>
+      <tr>
+        <td><%= car_rating.car.make_model %></td>
+        <td><%= car_rating.contract.start_date %></td>
+        <td><%= car_rating.contract.return_date %></td>
+
+        <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

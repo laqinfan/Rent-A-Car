@@ -29,9 +29,7 @@
                                       <a href=<%=conversation_path(conversation)%> class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
                                           <i class="fa fa-pencil"></i>
                                       </a>
-                                      <a href="#" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
-                                          <i class="fa fa-close"></i>
-                                      </a>
+
                                   </div>
                                   <div class="info">
                                       <h4><%= conversation.user2.email%>
@@ -48,7 +46,6 @@
 
                   <%elsif conversation.user2.email == @user.email %>
 
-                  <%= link_to conversation.user1.email, conversation_path(conversation) %>
                   <div class="col-sm-6">
                       <div class="panel">
                          <div class="panel-body p-t-10">
@@ -57,16 +54,16 @@
                                       <img class="thumb-lg img-circle bx-s" src="https://bootdey.com/img/Content/user_3.jpg" alt="">
                                   </a>
                                   <div class="pull-right btn-group-sm">
-                                      <a href="#" class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
+                                      <a href=<%=conversation_path(conversation)%> class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit">
                                           <i class="fa fa-pencil"></i>
                                       </a>
-                                      <a href="#" class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete">
-                                          <i class="fa fa-close"></i>
-                                      </a>
+
                                   </div>
                                   <div class="info">
-                                      <h4>Jonathan Smith</h4>
-                                      <p class="text-muted">Graphics Designer</p>
+                                      <h4><%= conversation.user1.email%>
+                                                  </h4>
+                                      <p class="text-muted"><%= link_to conversation.user1.email, conversation_path(conversation) %>
+                                   </p>
                                   </div>
                               </div>
                               <div class="clearfix"></div>
@@ -74,10 +71,10 @@
                          </div>
                       </div>
                   </div>
-                  </center>
-
               </td>
 
                     <%end%>
                <%end%>
           <%end%>
+</div>
+</div>

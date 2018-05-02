@@ -32,4 +32,12 @@ class Profile < ApplicationRecord
   validates :phone, format: { with: /\d{3}-\d{3}-\d{4}/, message: "Not a valid 10-digit telephone number" },  presence: true
   validates :social_security, numericality: { only_integer: true, less_than_or_equal_to: 999999999, greater_than_or_equal_to: 100000000 }, presence: true
 
+  def full_name_private
+    "#{first_name} #{middle_name} #{last_name}"
+  end
+
+  def full_name_public
+    "#{first_name} #{last_name}"
+  end
+
 end

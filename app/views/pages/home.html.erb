@@ -1,3 +1,12 @@
+<style>
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #A2D9CE;
+    padding: 10px;
+}
+</style>
+
 <div class="container">
   <div class="jumbotron jumbotron-fluid rounded" style="background-image: url(/assets/winding_road_5.jpg); background-size: cover; padding-top: 20%;
       padding-bottom: 20%;">
@@ -5,7 +14,33 @@
     <div class="container text-center text-light">
       <h1 class="display-3 mb-1 text-light">Rent A Car</h1>
       <p class="lead" style="font-size: 18pt;">Choose a car for rent by other people in your area <br> or list your car with our service.</p>
-
     </div>
   </div>
+
+
+  <h3 align="center"> <font color="purple"> User Testimonials </font></h3>
+  <div class="center">
+    <% @testimonials.each do |testimonial| %>
+      <div class="testimonials">
+      <font color="#A569BD"><%= testimonial.user.email %></font>
+      <div class="star-rating" data-score= <%= testimonial.rating %>> </div>
+      <font color="purple"><%= testimonial.created_at.localtime.strftime '%Y-%m-%d' %></font>
+      <%= testimonial.comment %>
+      </div>
+      </br>
+    <% end %>
+
+  <script>
+  $('.star-rating').raty({
+    path: '/assets/',
+    readOnly: true,
+    score: function() {
+          return $(this).attr('data-score');
+  }
+  });
+  </script>
+   <%= link_to 'Read More', testimonials_path %>
+  </div>
 </div>
+
+</br>

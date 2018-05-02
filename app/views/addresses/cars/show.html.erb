@@ -1,59 +1,62 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-<p>
-  <strong>Make:</strong>
-  <%= @car.make %>
-</p>
+      <h2 class="text-center"><%= @car.make_model_year %></h2>
 
-<p>
-  <strong>Model:</strong>
-  <%= @car.model %>
-</p>
+      <p>
+        <strong>Category:</strong>
+        <%= @car.category %>
+      </p>
 
-<p>
-  <strong>Year:</strong>
-  <%= @car.year %>
-</p>
+      <p>
+        <strong>Color:</strong>
+        <%= @car.color %>
+      </p>
 
-<p>
-  <strong>Color:</strong>
-  <%= @car.color %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @car.description %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @car.description %>
-</p>
+      <p>
+        <strong>Mileage:</strong>
+        <%= @car.mileage %>
+      </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @car.category %>
-</p>
+      <p>
+        <strong>Number of seats:</strong>
+        <%= @car.number_of_seats %>
+      </p>
 
-<p>
-  <strong>Mileage:</strong>
-  <%= @car.mileage %>
-</p>
+      <p>
+        <strong>Price per day: $</strong>
+        <%= @car.price_per_day %>
+      </p>
 
-<p>
-  <strong>Number of seats:</strong>
-  <%= @car.number_of_seats %>
-</p>
+      <div class="mt-5">
+        <h4 class="text-center">Pickup Location</h4>
+        <% @car.locations.each do |location| %>
+          <p>
+            <%= location.address.street1 %><br>
+            <%= location.address.short_form %>
+          </p>
+          <p>
+            <strong>Status:</strong>
+            <%= location.status %>
+          </p>
+          <br>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Price per day:</strong>
-  <%= @car.price_per_day %>
-</p>
+      <div class="links text-center">
+        <%= link_to 'Edit', edit_car_path(@car) %> |
+        <%= link_to 'Back', cars_path %>
+      </div>
 
-<h2>Pickup Locations </h2>
-<% @car.locations.each do |location| %>
-  <%= render location.address %>
-  <p>
-    <strong>Status:</strong>
-    <%= location.status %>
-  </p>
-  <br>
-<% end %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_car_path(@car) %> |
 <%= link_to 'Back', cars_path %> |

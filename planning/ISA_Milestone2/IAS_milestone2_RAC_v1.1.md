@@ -59,7 +59,7 @@
 ## Tasks: Laqin Fan
 ### Task 1: Show car availability using calendar
 - Description: Add car availability status by checking the calendar. 
-- How to Evaluate: Navigate to the "Browse Vehicle" page. There would be car status using a calendar tracking the avaliability staus.
+- How to Evaluate: Navigate to the "Browse Vehicle" page. There would be car status using a calendar tracking the avaliability status.
 - Outcome of Task: xxx
 
 ### Task 2: Notify by email

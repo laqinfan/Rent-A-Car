@@ -30,7 +30,11 @@ class Car < ApplicationRecord
     has_many :contracts
     has_many :locations, as: :addressable
     has_many :addresses, through: :locations
+
+    has_many :availabilities
+
     accepts_nested_attributes_for :locations
+    has_many :ratings , class_name: 'CarRating', foreign_key: 'car_rating_id'
 
     VEHICLE_CATEGORIES = ["SUV", "Truck", "Sedan", "Van", "Coupe", "Wagon", "Convertible", "Sports Car", "Diesal", "Crossover", "Luxury Car", "Hybrid/Electric", "Other"]
     
@@ -51,6 +55,10 @@ class Car < ApplicationRecord
 
     def make_model
         "#{make} #{model}"
+    end
+
+    def make_model_year
+        "#{make} #{model} (#{year})"
     end
 
     private

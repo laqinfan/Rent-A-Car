@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Car Ratings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @car_ratings.each do |car_rating| %>
+      <tr>
+        <td><%= link_to 'Show', car_rating %></td>
+        <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
+        <td><%= link_to 'Destroy', car_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Car Rating', new_car_rating_path %>

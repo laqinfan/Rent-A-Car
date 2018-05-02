@@ -1,0 +1,104 @@
+
+<style>
+html  {
+   background: gray;
+}
+
+h1 {
+   text-align: center;
+}
+
+     * {
+          margin: 0;
+          padding: 0;
+          font-family: tahoma, sans-serif;
+          box-sizing: border-box;
+     }
+
+     body{
+          background: white;
+     }
+
+     .chatbox{
+          width: 500px;
+          min-width: 390px;
+          height: 600px;
+          background: white;
+          padding: 25px;
+          margin: 20px auto;
+          box-shadow: 0 3px grey;
+
+     }
+
+
+     .chatlog{
+          padding: 10px;
+          width: 100%;
+          height: 450px;
+
+     }
+
+     .chat{
+          display: flex;
+          flex-flow: row wrap;
+          align-items: flex-start;
+          margin-bottom: 10px;
+     }
+
+     .chat .user-photo{
+          width: 60px;
+          height: 60px;
+          background: grey;
+          border-radius: 50%;
+
+     }
+
+     .chat .chat-message{
+          width:80%;
+          padding: 15px;
+          margin: 5px 10px 0;
+          background: blue;
+          border-radius: 10px;
+          color: white;
+          font-size: 18px;
+     }
+
+     .friend .chat-message{
+          background: blue;
+     }
+
+     .self .chat-message{
+          background: green;
+          order: -1;
+
+     }
+
+     p#losinfo {
+     font-size:20px;
+     }
+
+     p#losinfo span {
+     font-size:15px;
+     }
+</style>
+
+
+
+           <%= form_for :Message do |f| %>
+           <p>
+               Message
+               <br>
+               <%= f.text_field :message %>
+
+           </p>
+
+
+
+
+           <p>
+               <%= f.submit "Add message to the body" %>
+           </p>
+
+
+
+<%end%>

@@ -2,10 +2,10 @@ class ProfilesController < ApplicationController
     before_action :authenticate_user!, except: [:index]
     before_action :set_profile, only: [:show, :edit, :update]
 
-    def index        
-        @profiles = Profile.all  
+    def index
+        @profiles = Profile.all
     end
-    
+
     def new
         @profile = Profile.new
         # render 'profiles/new.html.erb'
@@ -39,6 +39,8 @@ class ProfilesController < ApplicationController
    end
 
     def show
+        @profile = Profile.find(params[:id])
+        @owner_ratings = OwnerRating.by_owner(@profile.user)
         #@profile = Profile.find(params[:id])
         #render 'profiles/show.html.erb'
     end
@@ -84,7 +86,7 @@ class ProfilesController < ApplicationController
     end
 
     private
-    
+
     def set_profile
         begin
             @profile = Profile.find(params[:id])

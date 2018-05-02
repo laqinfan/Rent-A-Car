@@ -1,6 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-<%= render 'form', contract:@contract %>
+        <h2 class="text-center">Select Rental Period</h2>
 
+        <%= render 'form', contract:@contract %>
 
+        <div class="links text-center">
+            <%= link_to 'Back', browse_vehicles_path %>
+        </div>
 
-<%= link_to 'Back', contracts_path %>
+    </div>
+  </div>
+</div>

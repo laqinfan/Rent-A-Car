@@ -25,9 +25,9 @@ class ContractsController < ApplicationController
   # GET /contracts/new
   def new
     @car = Car.find(params[:id])
-    @contract = @car.contracts.new
-    @renter_paypal = current_user.paypal
-    @owner_paypal = @car.owner.paypal
+    @contract = Contract.new(car_id: @car.id, owner_paypal_id: @car.owner.paypal.id, renter_paypal_id: current_user.paypal.id, price: @car.price_per_day)
+    # @renter_paypal = current_user.paypal
+    # @owner_paypal = @car.owner.paypal
   end
 
   # GET /contracts/1/edit
@@ -42,12 +42,15 @@ class ContractsController < ApplicationController
   # POST /contracts.json
   def create
     @contract = Contract.new(contract_params)
-
+    # @renter_email = current_user.email
+    @renter = current_user
     respond_to do |format|
       if @contract.save
-        # format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
-        # format.json { render :show, status: :created, location: @contract }
-        format.html { redirect_to browse_vehicles_path, notice: 'Contract was successfully created.' }
+
+        UserMailer.notify_email(@contract.car.owner, @contract, @renter, "notify_email.text.erb").deliver
+        UserMailer.notify_email(@renter, @contract, @contract.car.owner, "notify_renter.text.erb").deliver 
+
+        format.html { redirect_to @contract, notice: 'Contract was successfully created.' }
         format.json { render :show, status: :created, location: @contract }
       else
         format.html { render :new }
@@ -75,7 +78,7 @@ class ContractsController < ApplicationController
   def destroy
     @contract.destroy
     respond_to do |format|
-      format.html { redirect_to contracts_url, notice: 'Contract was successfully destroyed.' }
+      format.html { redirect_to my_contracts_path, notice: 'Contract was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -83,9 +86,20 @@ class ContractsController < ApplicationController
   def update_status
     @contract = Contract.find(params[:id])
     @contract.status = 'Executed'
-
+    @car = Car.find(@contract.car.id)
+    print @car.id
+    #@car.ratings << CarRating.create!(car_id: @car.id, user_id: @contract.renter_paypal.user.id)
+    CarRating.create!(car_id: @car.id, user_id: @contract.renter_paypal.user.id, contract_id:@contract.id)
+    #@owner = User.find(@contract.owner_paypal.user.id)
+    #@contract.owner_paypal.user.owner_ratings << OwnerRating.create!(user_id:@contract.renter_paypal.user.id)
+    OwnerRating.create!(owner_id: @contract.owner_paypal.user.id, user_id:@contract.renter_paypal.user.id, contract_id:@contract.id)
+    
     respond_to do |format|
       if @contract.save
+
+        ApproveMailer.approve_email(@contract.car.owner, @contract, @contract.renter_paypal.user, "approve_email_owner.text.erb").deliver
+        ApproveMailer.approve_email(@contract.renter_paypal.user, @contract, @contract.car.owner, "approve_email_renter.text.erb").deliver
+
         format.html { redirect_to @contract, notice: 'Contract was successfully executed.' }
         format.json { render :show, status: :created, location: @contract }
       end
@@ -102,4 +116,6 @@ class ContractsController < ApplicationController
     def contract_params
       params.require(:contract).permit(:start_date, :return_date, :price, :subtotal, :total, :status, :car_id, :owner_paypal_id, :renter_paypal_id)
     end
+    
+    
 end

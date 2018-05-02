@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+<p>
+      <strong>Owner:</strong>
+      <%= @owner_rating.owner.email %>
+    </p>
+<p>
+    <strong>User:</strong>
+    <%= @owner_rating.user.email %>
+  </p>
+
+<p>
+    <strong>Rating:</strong>
+    <%= @owner_rating.rating %>
+  </p>
+<p>
+  <strong>Comment:</strong>
+  <%= @owner_rating.comment %>
+</p>
+
+    <% if @owner_rating.user == current_user %> 
+    
+    
+
+   <%= link_to 'Edit', edit_owner_rating_path(@owner_rating) %> 
+<% end %>  
+<%= link_to 'Back', owner_ratings_path %>

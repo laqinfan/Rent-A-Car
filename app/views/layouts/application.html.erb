@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comp7012Project</title>
+  <title>Rent A Car</title>
   <%= csrf_meta_tags %>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -88,31 +88,33 @@ $(function(){
           <li class="nav-item <%= 'active' if current_page?(root_path) %>">
             <%= link_to 'Home', root_path, { class: "nav-link"} %>
           </li>
-
+          <li class="nav-item <%= 'active' if current_page?(about_us_path) %>">
+            <%= link_to 'About Us', about_us_path, { class: "nav-link"} %>
+          </li>
           <li class="nav-item <%= 'active' if current_page?(browse_vehicles_path) %>">
             <%= link_to 'Browse Vehicles', browse_vehicles_path, { class: "nav-link"} %>
           </li>
 
           <% if user_signed_in? %>
-                    <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Account
-                      </a>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
-                        <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
-                        <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
-                        <%= link_to 'View Conversations', conversations_path, class: "dropdown-item"  %>
-
-                      </div>
-                    </li>
-                    <li class="nav-item <%= 'active' if current_page?(root_path) %>">
-                      <%= link_to current_user.email, edit_user_registration_path, { class: "nav-link"} %>
-                    </li>
-                    <li class="nav-item <%= 'active' if current_page?(destroy_user_session_path) %>">
-                      <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-                    </li>
-
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to 'My Profile',  my_profile_path, class: "dropdown-item" %>
+              <%= link_to 'My Vehicles', cars_path, class: "dropdown-item" %>
+              <%= link_to 'My Contracts', my_contracts_path, class: "dropdown-item" %>
+              <%= link_to 'View Conversations', conversations_path, class: "dropdown-item"  %>
+              <%= link_to 'My Testimonial', my_testimonial_path, class: "dropdown-item"  %>
+              <%= link_to 'My Car Availability', my_carstatus_path, class: "dropdown-item"  %>
+            </div>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(root_path) %>">
+            <%= link_to current_user.email, edit_user_registration_path, { class: "nav-link"} %>
+          </li>
+          <li class="nav-item <%= 'active' if current_page?(destroy_user_session_path) %>">
+            <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+          </li>
           <% else %>
                     <li class="nav-item <%= 'active' if current_page?(new_user_session_path) %>">
                       <%= link_to 'Sign In', new_user_session_path, { class: "nav-link"} %>

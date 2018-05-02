@@ -1,0 +1,56 @@
+
+<style>
+.center {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #A2D9CE;
+    padding: 10px;
+}
+</style>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+    <div class="center">
+      <p id="notice"><%= notice %></p>
+
+      <h2 class="text-center" > Vehicle Availabilities</h1>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Car make</th>
+            <th>Car model</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Status</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @availabilities.each do |availability| %>
+            <tr>
+              <td><%= availability.car.make %></td>
+              <td><%= availability.car.model %></td>
+              <td><%= availability.start %></td>
+              <td><%= availability.end %></td>
+              <td><%= availability.status %></td>
+              <!--
+              <td><%= link_to 'Show', availability %></td>
+              <td><%= link_to 'Edit', edit_availability_path(availability) %></td>
+              <td><%= link_to 'Destroy', availability, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            -->
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="links text-center">
+       <%= link_to'Home', root_path %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

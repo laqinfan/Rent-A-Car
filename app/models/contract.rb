@@ -32,6 +32,9 @@ class Contract < ApplicationRecord
   belongs_to :owner_paypal, class_name: 'Paypal'
   belongs_to :renter_paypal, class_name: 'Paypal'
 
+  has_one :car_rating, class_name: 'CarRating'
+  has_one :owner_rating, class_name: 'OwnerRating'
+  
   validates :start_date, presence: true#, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}
   validates :return_date, presence: true#, format: { with: /\d{4}-[0-1]\d-[0-3]\d/, message: "must be of format  YYYY-MM-DD"}
   validates :price, numericality: { greater_than_or_equal_to: 0}, presence: true
@@ -47,9 +50,13 @@ class Contract < ApplicationRecord
   scope :by_owner, -> (user) { joins(:owner_paypal).merge(Paypal.by_user(user)) }
   scope :by_renter, -> (user) { joins(:renter_paypal).merge(Paypal.by_user(user)) }
 
-  before_save :calculate_subtotal
 
+  before_save :calculate_subtotal, :round_prices
   before_update :check
+
+  def short_form
+    "#{car.make_model} from #{start_date} to #{return_date}"
+  end
 
   private
     def calculate_subtotal
@@ -57,7 +64,7 @@ class Contract < ApplicationRecord
       enddate = Date.parse(self.return_date)
       begin
         if (enddate - startdate) >= 0
-          self.subtotal = (enddate - startdate).to_i*self.price
+          self.subtotal = ((enddate - startdate).to_i + 1)*self.price
           self.total = self.subtotal*(1.03).round(2)
         else
           raise "Return date should be greater and equal than start date"
@@ -71,6 +78,11 @@ class Contract < ApplicationRecord
         if status == 'Executed'
           readonly!
         end
+    end
+    def round_prices
+      self.price = price.to_f.round(2)
+      self.subtotal = subtotal.to_f.round(2)
+      self.total = total.to_f.round(2)
     end
 
 end
