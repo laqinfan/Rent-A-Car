@@ -13,10 +13,6 @@
 <li><%=link_to" Paypal", paypals_path %> </li>
 
 </ul>
-<p> 
-<b> Drivers License :</b>
-<%= current_user.profile.drivers_license %>
-</p>
 
 <p>
 <b> First Name :</b>
@@ -34,31 +30,19 @@
 </p>
 
 <p>
- <b> Backgroundcheck Status : </b>
+ <b> Reviews : </b>
  <%= current_user.profile.backgroundcheck_status%>
 </p>
 
-<p>
- <b> Phone : </b>
- <%= current_user.profile.phone%>
-</p>
-
-<p>
- <b> Social Security : </b>
- <%= current_user.profile.social_security%>
-</p>
 
 
 
-<p>
-   <%= link_to 'Edit', edit_profile_path(current_user.profile) %> 
-</p>
 
 <% else %>
 
 <p>
 <h3> You have not created a profile, create one new? </h3>
-<%= link_to 'New Profile', new_profile_path %> | 
+<%= link_to 'New Profile', new_profile_path %> 
 
 </p> 
 <% end %>

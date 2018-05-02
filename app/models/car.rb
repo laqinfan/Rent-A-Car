@@ -31,6 +31,7 @@ class Car < ApplicationRecord
     has_many :locations, as: :addressable
     has_many :addresses, through: :locations
     accepts_nested_attributes_for :locations
+    has_many :ratings , class_name: 'CarRating', foreign_key: 'car_rating_id'
 
     VEHICLE_CATEGORIES = ["SUV", "Truck", "Sedan", "Van", "Coupe", "Wagon", "Convertible", "Sports Car", "Diesal", "Crossover", "Luxury Car", "Hybrid/Electric", "Other"]
     

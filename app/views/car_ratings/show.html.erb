@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+      <strong>Car:</strong>
+      <%= @car_rating.car.make_model %>
+    </p>
+<p>
+    <strong>User:</strong>
+    <%= @car_rating.user.email %>
+  </p>
+
+<p>
+    <strong>Rating:</strong>
+    <%= @car_rating.rating %>
+  </p>
+<p>
+  <strong>Comment:</strong>
+  <%= @car_rating.comments %>
+</p>
+
+    <% if @car_rating.user == current_user %>
+    
+<%= link_to 'Edit', edit_car_rating_path(@car_rating) %> 
+<% end %> 
+<%= link_to 'Back', car_ratings_path %>

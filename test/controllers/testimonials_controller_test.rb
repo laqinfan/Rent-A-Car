@@ -2,6 +2,7 @@ require 'test_helper'
 
 class TestimonialsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    sign_in users(:one)
     @testimonial = testimonials(:one)
   end
 
@@ -12,15 +13,17 @@ class TestimonialsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get new_testimonial_url
-    assert_response :success
+    #assert_response :success
+    assert_redirected_to root_url
   end
 
   test "should create testimonial" do
     assert_difference('Testimonial.count') do
       post testimonials_url, params: { testimonial: { comment: @testimonial.comment } }
+      puts assigns(:testimonial).errors.full_messages
     end
 
-    assert_redirected_to testimonial_url(Testimonial.last)
+    assert_redirected_to root_url
   end
 
   test "should show testimonial" do
@@ -43,6 +46,6 @@ class TestimonialsControllerTest < ActionDispatch::IntegrationTest
       delete testimonial_url(@testimonial)
     end
 
-    assert_redirected_to testimonials_url
+    assert_redirected_to my_testimonial_url
   end
 end
