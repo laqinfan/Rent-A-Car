@@ -12,7 +12,8 @@ class ProfilesController < ApplicationController
     end
 
     def create
-        @profile = Profile.new(drivers_license: params[:profile][:drivers_license],
+        @profile = Profile.new(user_id: params[:profile][:user_id],
+            drivers_license: params[:profile][:drivers_license],
             first_name: params[:profile][:first_name],
             last_name: params[:profile][:last_name],
             middle_name: params[:profile][:middle_name],
@@ -69,7 +70,8 @@ class ProfilesController < ApplicationController
             flash[:alert] = "Profile could not be found"
             redirect_to my_profile_url and return
         end
-        if @profile.update(drivers_license: params[:profile][:drivers_license],
+        if @profile.update(user_id: params[:profile][:user_id],
+            drivers_license: params[:profile][:drivers_license],
             first_name: params[:profile][:first_name],
             last_name: params[:profile][:last_name],
             middle_name: params[:profile][:middle_name],

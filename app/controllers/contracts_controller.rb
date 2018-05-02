@@ -17,8 +17,6 @@ class ContractsController < ApplicationController
   # GET /contracts/1.json
   def show
     @contract_owner = @contract.owner_paypal.user
-    @rate_renter = RateRenter.find(params[:id])
-
 
   end
 

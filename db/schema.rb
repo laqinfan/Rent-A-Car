@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180415170700) do
+ActiveRecord::Schema.define(version: 20180502012146) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street1"
@@ -165,16 +165,13 @@ ActiveRecord::Schema.define(version: 20180415170700) do
     t.index ["contract_id"], name: "index_rate_renters_on_contract_id"
   end
 
-  create_table "rating_caches", force: :cascade do |t|
-    t.string "cacheable_type"
-    t.integer "cacheable_id"
-    t.float "avg", null: false
-    t.integer "qty", null: false
-    t.string "dimension"
+  create_table "testimonials", force: :cascade do |t|
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type"
-    t.index ["cacheable_type", "cacheable_id"], name: "index_rating_caches_on_cacheable_type_and_cacheable_id"
+    t.integer "rating"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_testimonials_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

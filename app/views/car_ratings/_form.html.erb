@@ -11,12 +11,24 @@
     </div>
   <% end %>
 
+
   <div class="container my-4">
     <h3>Rating for Car</h3>
-    <p>
-      <strong>Owner:</strong>
-      <%= @car_rating.car.make_model %>
-    </p>
+    <div class="form-group col-md-6">
+    <%= form.label :car_id %>
+    <%= form.text_field :car_id, id: :car_id, class: "form-control" %>
+  </div>
+
+    <div class="form-group col-md-6">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id, id: :user_id, class: "form-control" %>
+  </div>
+
+    <div class="form-group col-md-6">
+    <%= form.label :contract_id %>
+    <%= form.text_field :contract_id, id: :contract_id, class: "form-control" %>
+    </div>
+
     <div class="form-group col-md-6">
       <%= form.label :rating %>
       <%= form.text_field :rating, id: :rating, class: "form-control" %>
