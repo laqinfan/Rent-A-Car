@@ -1,49 +1,63 @@
-<h1> Editing Profile</h1>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
 
-<% if @profile.errors.any? %>
-    <div style="background-color: #FF0011">
-    <p>Fix the following error(s):</p>
-        <ul>
-        <%@profile.errors.full_messages.each do |msg|%>
-            <li>
-                <%= msg %>
-            </li>
+    <h2 class="text-center">Edit Profile Information</h2>
+
+    <%= form_for @profile do |f| %>
+        <% if @profile.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+
+            <ul>
+            <% @profile.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+            </div>
         <% end %>
-        </ul>
+        
+        <div class="form-group">
+          <%= f.label :drivers_license %><br />
+          <%= f.text_field :drivers_license, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :first_name %><br />
+          <%= f.text_field :first_name, class: "form-control" %>
+        </div>
+        
+        <div class="form-group">
+          <%= f.label :middle_name %><br />
+          <%= f.text_field :middle_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :last_name %><br />
+          <%= f.text_field :last_name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :phone %><br />
+          <%= f.text_field :phone, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :social_security %><br />
+          <%= f.text_field :social_security, class: "form-control" %>
+        </div>
+
+        <%= f.hidden_field :backgroundcheck_status, value: 'checked' %>
+        
+        <div class="actions">
+          <%= f.submit "Update Profile", { class: "btn btn-primary btn-block" } %>
+        </div>       
+        
+    <% end %>
+
+    <div class="links text-center">
+        <%= link_to 'Back', my_profile_path %>
     </div>
-<% end %>
-
-<%= form_for @profile do |p| %>
-    
-    Drivers License <br>
-    <%=p.text_field :drivers_license%>
-    <br>
-    First Name <br>
-    <%=p.text_field :first_name%>
-    <br>
-    Last Name <br>
-    <%=p.text_field :last_name%>
-    <br>
-    Middle Name <br>
-    <%=p.text_field :middle_name%>
-    <br>
-    Backgroundcheck Status <br>
-    <%=p.text_field :backgroundcheck_status%>
-    <br>
-     Phone <br>
-    <%=p.text_field :phone%>
-    <br>
-    Social Security <br>
-    <%=p.text_field :social_security%>
-    <br>
-    
-    
-    <%= p.submit "Update Profile"%>
-<% end %>
-
-<p>
-
-<%= link_to 'Show', profile_path(@profile) %> | 
-<%= link_to 'Back', my_profile_path %>
-</p>
-
+</div>
+</div>
+</div>
