@@ -49,7 +49,7 @@
   - Dependencies: None
   - Estimate: 8 hours (1½ days)
   - Priority: 1
-  - Status: Not started
+  - Status: Removed [Iteration 2]
   - Author: Laqin Fan
 
 
@@ -60,7 +60,7 @@
   - Dependencies: Add a Car
   - Estimate: 12 hours (2 days)
   - Priority: 8
-  - Status: Not started
+  - Status: Removed [Iteration 2]
   - Author: Sheldon
 
 - US Search a Car
@@ -84,7 +84,7 @@
   - Dependencies: Add a Car, Rental Contracts
   - Estimate: 16 hours (2½ days)
   - Priority: 3
-  - Status: Not started
+  - Status: Modified (add date period as (not) available), Modified story complete. [Iteration 2]
   - Author: Senjuti
 
 - US Send Private Message between Vendor and Renter
@@ -92,7 +92,7 @@
   - Dependencies: Register
   - Estimate: 24 hours (4 days)
   - Priority: 5
-  - Status: In Progress
+  - Status: In Progress [Iteration 2]
   - Author: Katie
 
 
@@ -119,7 +119,7 @@
   - Dependencies: Approve/agree a Rental Contract, Add PayPal information
   - Estimate: 2 hour (½ day)
   - Priority: 1
-  - Status: In progress
+  - Status: Removed (Combined into Approve/agree to Rental Contract) [Iteration 2]
   - Author: Sheldon
 
 - US Receive Payment for Rental
@@ -127,7 +127,7 @@
   - Dependencies: Approve/agree a Rental Contract, Add PayPal information
   - Estimate: 2 hour (½ day)
   - Priority: 1
-  - Status: In progress
+  - Status: Removed (Combined into Approve/agree to Rental Contract) [Iteration 2]
   - Author: Sheldon
 
 
@@ -138,7 +138,7 @@
   - Dependencies: Register
   - Estimate: 12 hours (2 days)
   - Priority: 7
-  - Status: Not started
+  - Status: Complete [Iteration 2]
   - Author: Katie
 
 - US Rate a Vendor
@@ -146,7 +146,7 @@
   - Dependencies: Rental Contracts
   - Estimate: 20 hours (3½ days)
   - Priority: 3
-  - Status: Not started
+  - Status: Complete [Iteration 2]
   - Author: Senjuti
 
 - US Rate a Car Renter
@@ -154,7 +154,7 @@
   - Dependencies: Rental Contracts
   - Estimate: 16 hours (2½ days)
   - Priority: 3
-  - Status: Not started
+  - Status: In Progress [Iteration 2]
   - Author: Laqin Fan
 
 - US See rental history
@@ -173,7 +173,7 @@
   - Dependencies: Rental Contracts
   - Estimate: 4 hours (½ Day)
   - Priority: 6
-  - Status: Not started
+  - Status: Complete (modified to alert on new pending contract and approved contract) [Iteration 2]
   - Author: Laqin Fan
 
 - US Notify User of Private Message
@@ -181,7 +181,7 @@
   - Dependencies: Private Messaging between Vendor and Renter
   - Estimate: 4 hours (½ day)
   - Priority: 6
-  - Status: Not started
+  - Status: Removed [Iteration 2]
   - Author: Katie
 
 - US Notify User of Mandatory Review
@@ -189,7 +189,7 @@
   - Dependencies: Rate a Vendor, Rate a Car Renter
   - Estimate: 4 hours (½ day)
   - Priority: 6
-  - Status: Not started
+  - Status: Removed (Combined into modified Notify the rental status) [Iteration 2]
   - Author: Katie
 
 - US Push Notification over SMS (Short Message Service)
@@ -197,7 +197,7 @@
   - Dependencies: Private Messaging between Vendor and Renter
   - Estimate: 12 hours (2 days)
   - Priority: 8
-  - Status: Not started
+  - Status: Removed [Iteration 2]
   - Author: Sheldon
 
 - US Push Notification over Email
@@ -205,6 +205,6 @@
   - Dependencies: Private Messaging between Vendor and Renter
   - Estimate: 12 hours (2 days)
   - Priority: 6
-  - Status: Not started
+  - Status: Complete [Iteration 2]
   - Author: Sheldon
 

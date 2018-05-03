@@ -8,20 +8,20 @@
 - Project Coordinator: Katie Bridson
 - Quality Assurance Czar: Sheldon Ebron
 - Video Demo Creators:
-- xxx, 999
-- xxx, 999 
-- Demo-Booth Operator: xxx
+  - Senjuti Dutta
+  - Laqin Fan
+- Demo-Booth Operator: Katie Bridson
 
 ## Tasks: Katie Bridson
 ### Task 1: Upload an Image
 - Description: Add Carrierwave gem to project and add image upload functionality to New/Edit Car pages and New/Edit Profile page. 
 - How to Evaluate: Navigate to the "New Vehicle" page (see instructions in Task: Add a Car). There should be a field to add an image. Fill in the vehicle information, upload an image from your computer, and click "Submit". Navigate to the "Details" page for the car you just created (see instructions in Task: Add a Car) and confirm the image you uploaded is displayed.
-- Outcome of Task: xxx
+- Outcome of Task: Although having an image of each car would be nice, with the time limitations, we decided to focus on making sure all the features we had were working and the entire site looked nice. We ended up having so much functionality it is hard to demo it all in 10 minutes. This task was moved out of the project scope.
 
 ### Task 2: Complete HTML styling using Bootstrap
 - Description: Finish adding bootstrap styling to all pages from Iteration 1 which did not have styling (all the show pages or pages with mostly text) and add styling to any new pages generated in Iteration 2 which do not have styles. 
 - How to Evaluate: All pages shown in the demo should have bootstrap styles which follow the same general styles as the pages that have already been styled.
-- Outcome of Task: xxx
+- Outcome of Task: All the pages from Iteration 1 tasks not previously styled (mostly show pages and index pages, but some forms of contracts, profile/paypal, car details) were styled using the Bootswatch Minty theme. Iteration 2 pages that were merged into the project by Tuesday night were styled in time for the final demo (related to reviews, availability, but not private messaging).
 
 ## Tasks:  Senjuti Dutta
 ### Task 1: Rate a Vendor
