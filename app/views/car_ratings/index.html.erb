@@ -11,26 +11,9 @@
 
   <tbody>
     <% @car_ratings.each do |car_rating| %>
-      <p>
-      <strong>Car:</strong>
-      <%= @car_rating.car.make_model %>
-    </p>
-<p>
-    <strong>User:</strong>
-    <%= @car_rating.user.email %>
-  </p>
-
-<p>
-    <strong>Rating:</strong>
-    <%= @car_rating.rating %>
-  </p>
-<p>
-  <strong>Comment:</strong>
-  <%= @car_rating.comments %>
-</p>
-
+      
       <tr>
-        <td><%= link_to 'Show', car_rating %></td>
+       <td><%= link_to 'Show', car_rating %></td>
         <td><%= link_to 'Edit', edit_car_rating_path(car_rating) %></td>
         <td><%= link_to 'Destroy', car_rating, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

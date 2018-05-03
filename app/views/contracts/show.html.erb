@@ -1,8 +1,21 @@
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
+<link rel= "stylesheet" href= "jquery.raty.css">
+<script src="jquery.raty.js"></script>
 
         <h2 class="text-center"><%= @contract.short_form %></h2>
+
+
+<style>
+.checked {
+    color: orange;
+}
+</style>
+
+
+
+
 
         <p>
           <strong>Owner's Email:</strong>
@@ -43,3 +56,65 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+  <!--In this secion I sheldon created a popup window for when a renter wants to rate a renter-->
+<%if current_user.email == @contract.car.owner.email %>
+
+
+ <%end%>
+
+
+
+
+
+
+ <script>
+           $('.star').raty({
+               path: '/assets',
+               scoreName: 'review[rating]',
+
+             click : function(score, evt) {
+               $(this).raty('cancel');
+               $('#result').raty('score', score);
+               document.getElementById("input").innerHTML = score;
+
+
+             }
+           });
+
+                $('#result').raty( {
+                     path: '/assets',
+                     scoreName: 'review[rating]',
+
+               });
+
+
+
+
+           $('#star-rating').raty(
+                {
+           	path: '/assets',
+           	scoreName: 'review[rating]',
+
+           });
+
+          var x =  $('#star-rating').raty('score');
+
+
+           $('.star-rating').raty({
+            path: '/assets/',
+            readOnly: true,
+            score: function() {
+                   return $(this).attr('data-score');
+          }
+          });
+
+ </script>

@@ -156,6 +156,15 @@ ActiveRecord::Schema.define(version: 20180502012146) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "rate_renters", force: :cascade do |t|
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "contract_id"
+    t.string "comment"
+    t.index ["contract_id"], name: "index_rate_renters_on_contract_id"
+  end
+
   create_table "testimonials", force: :cascade do |t|
     t.text "comment"
     t.datetime "created_at", null: false

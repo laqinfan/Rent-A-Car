@@ -2,17 +2,18 @@ class ProfilesController < ApplicationController
     before_action :authenticate_user!, except: [:index]
     before_action :set_profile, only: [:show, :edit, :update]
 
-    def index        
-        @profiles = Profile.all  
+    def index
+        @profiles = Profile.all
     end
-    
+
     def new
         @profile = Profile.new
         # render 'profiles/new.html.erb'
     end
 
     def create
-        @profile = Profile.new(drivers_license: params[:profile][:drivers_license],
+        @profile = Profile.new(user_id: params[:profile][:user_id],
+            drivers_license: params[:profile][:drivers_license],
             first_name: params[:profile][:first_name],
             last_name: params[:profile][:last_name],
             middle_name: params[:profile][:middle_name],
@@ -28,13 +29,23 @@ class ProfilesController < ApplicationController
         end
     end
 
+
+    def history
+         @ctr = 0
+         @p = 0
+         @profile = Profile.find(params[:id])
+         @contracts = Contract.all
+         @rate_renters = RateRenter.all
+
+   end
+
     def show
         @profile = Profile.find(params[:id])
         @owner_ratings = OwnerRating.by_owner(@profile.user)
         #@profile = Profile.find(params[:id])
         #render 'profiles/show.html.erb'
     end
-    
+
     def myprofile
         if user_signed_in?
             @profile = current_user.profile
@@ -59,16 +70,17 @@ class ProfilesController < ApplicationController
             flash[:alert] = "Profile could not be found"
             redirect_to my_profile_url and return
         end
-        if @profile.update(drivers_license: params[:profile][:drivers_license],
+        if @profile.update(user_id: params[:profile][:user_id],
+            drivers_license: params[:profile][:drivers_license],
             first_name: params[:profile][:first_name],
             last_name: params[:profile][:last_name],
             middle_name: params[:profile][:middle_name],
             backgroundcheck_status: params[:profile][:backgroundcheck_status],
             phone: params[:profile][:phone],
             social_security: params[:profile][:social_security])
-    
+
             flash[:notice] = "Profile updated successfully"
-            redirect_to my_profile_url 
+            redirect_to my_profile_url
         else
             flash.now[:alert] = "Profile could not be updated"
             render :edit
@@ -76,7 +88,7 @@ class ProfilesController < ApplicationController
     end
 
     private
-    
+
     def set_profile
         begin
             @profile = Profile.find(params[:id])

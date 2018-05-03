@@ -1,12 +1,12 @@
 <% if current_user %>
   <h2> Current LoggedIn  : <%= current_user.id %>, <%= current_user.email %> </h2>
 
- <% end %>    
+ <% end %>
 
 
 <h1> Profiles </h1>
 
-<% if current_user.profile.present? %> 
+<% if current_user.profile.present? %>
 
 <ul>
 <img src=<%= image_path('car_profile.jpg')%> width="500px" width="500px" align="right">
@@ -23,7 +23,7 @@
  <b> Last Name : </b>
  <%= current_user.profile.last_name%>
 </p>
- 
+
  <p>
  <b> Middle Name : </b>
  <%= current_user.profile.middle_name%>
@@ -38,11 +38,14 @@
 
 
 
+   <%= link_to "History", profile_history_path(id: current_user.profile.id) %>
+<p>
+</p>
 <% else %>
 
 <p>
 <h3> You have not created a profile, create one new? </h3>
 <%= link_to 'New Profile', new_profile_path %> 
 
-</p> 
+</p>
 <% end %>

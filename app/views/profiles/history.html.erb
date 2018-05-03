@@ -1,0 +1,57 @@
+<p id="notice"><%= notice %></p>
+
+<h1><center>User <%= @profile.first_name %>'s Review History</center></h1>
+
+<style>
+     table, th, td {
+         text-align: center;
+     }
+</style>
+
+
+<center>
+     <table>
+       <thead>
+          <tr bgcolor="#c1cdcd">
+               <th>Vender</th>
+              <th> Rating</th>
+              <th> Comment</th>
+
+         </tr>
+
+
+       </thead>
+       <tbody>
+
+         <% @contracts.each do |contract| %>
+          <tr bgcolor="#e0eeee" >
+
+               <%if @profile.user == contract.renter_paypal.user%>
+                    <% @rate_renters.each do |rate_renter|%>
+                         <% if rate_renter.contract.id == contract.id%>
+                              <td><%= rate_renter.contract.owner_paypal.user.profile.first_name%></td>
+                              <td> <div class='star-rating' data-score = <%= rate_renter.rating %>></div></td>
+                              <td><%= rate_renter.comment%></td>
+
+                         <%end%>
+
+                    <%end%>
+
+               <% end %>
+          </tr>
+         <% end %>
+       </tbody>
+     </table>
+
+</center>
+<br>
+
+<script>
+     $('.star-rating').raty({
+     path: '/assets/',
+     readOnly: true,
+     score: function() {
+            return $(this).attr('data-score');
+     }
+     });
+</script>

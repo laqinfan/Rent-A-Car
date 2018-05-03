@@ -11,30 +11,34 @@
      </style>
 
 
+<h1> Send Message </h1>
 
 
 
 
-
-<h1>Send a Message<%= @user.email %></h1>
 
 <%= form_for @communication do |f| %>
 
+
         <p>
             <b>Sender</b><br>
-            <%= f.collection_select(:sender_id, User.all, :id, :email, :value => @user.id)%>
+            <%= f.collection_select(:sender_id, User.all, :id, :email)%>
         </p>
+
 
         <p>
             <b>Reciver</b><br>
             <%= f.collection_select(:reciever_id, User.all, :id, :email)%>
         </p>
-
-
         <p>
-            <b>Choose A Message</b><br>
+            <b>Message</b><br>
+
             <%= f.collection_select(:message_id, Message.all, :id, :message)%>
-            <%=link_to "Create a New Messages", new_message_path %>
+            <%=link_to "New Message", new_message_path %>
+
+
+
+
 
         </p>
 
@@ -57,4 +61,21 @@
     <%=link_to "Back", conversations_path %>
 </p>
 
-</body>
+
+
+
+
+<!-- <%= form_for @message  do |f| %>
+
+        <p>
+            Message
+            <br>
+            <%= f.text_field :message %>
+
+        </p>
+
+        <p>
+            <%= f.submit "Add message to the body" %>
+        </p>
+
+    <% end %> -->

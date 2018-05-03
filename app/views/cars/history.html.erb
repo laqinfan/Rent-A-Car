@@ -1,0 +1,82 @@
+<p id="notice"><%= notice %></p>
+
+<h1><center>History</center></h1>
+
+
+<style>
+     table, th, td {
+         text-align: center;
+     }
+</style>
+
+
+<center>
+     <table>
+       <thead>
+          <tr bgcolor="#c1cdcd">
+               <th colspan="5"> Car: <%=@car.make_model%></th>
+               <th colspan="5"> Owner: <%=@car.owner.email%></th>
+            </tr>
+          <tr bgcolor="#c1cdcd">
+              <th>Contract ID </th>
+              <th>Rental Start Date</th>
+              <th>Rental Return Date</th>
+              <th>Price/Day</th>
+              <th>Owner Email</th>
+              <th>Rental Total</th>
+              <th>User Review</th>
+         </tr>
+
+
+       </thead>
+       <tbody>
+
+         <% @contracts.each do |contract| %>
+          <tr bgcolor="#e0eeee" >
+               <%if current_user == contract.car.owner %>
+                    <%if @car == contract.car%>
+                         <% @ctr = 1 %>
+                         <% @p = @p +1 %>
+                         <td><%= link_to contract.id, contract %></td>
+                         <td><%= contract.start_date %></td>
+                         <td><%= contract.return_date %></td>
+                         <td><%= contract.price %></td>
+                         <td><%= contract.car.owner.email %></td>
+                         <td><%= contract.total %></td>
+                         <% @rate_renter.each do |rate_renter|%>
+                              <% if rate_renter.contract.id == contract.id%>
+                                   <td> <div class='star-rating' data-score = <%= rate_renter.rating %>></div></td>
+                              <%end%>
+                         <%end%>
+
+
+                    <% elsif @ctr == 0 and  @p ==@contracts.length %>
+                         <% @ctr = 1 %>
+                         <td>N/A</td>
+                         <td>N/A</td>
+                         <td>N/A</td>
+                         <td>N/A</td>
+                         <td>N/A</td>
+                         <td>N/A</td>
+                         <td>N/A</td>
+
+                    <% end %>
+               <% end %>
+          </tr>
+         <% end %>
+       </tbody>
+     </table>
+
+</center>
+
+<br>
+
+<script>
+     $('.star-rating').raty({
+     path: '/assets/',
+     readOnly: true,
+     score: function() {
+            return $(this).attr('data-score');
+     }
+     });
+</script>
