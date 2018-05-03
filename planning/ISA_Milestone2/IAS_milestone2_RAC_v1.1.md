@@ -59,18 +59,20 @@
 ## Tasks: Laqin Fan
 ### Task 1: Show car availability using calendar
 - Description: Add car availability status by checking the calendar. 
-- How to Evaluate: Navigate to the "Browse Vehicle" page. There would be car status using a calendar tracking the avaliability status.
+- How to Evaluate: navigate to the "My Vehicles" page. There would be "Set Car Availability" button to check car availability status. Click "Set vehicle status", which helps to create owner's car availability. These car available information can be seen in "vehicle details". 
 - Outcome of Task: xxx
+
 
 ### Task 2: Notify by email
 - Description: Add a notification function to send contract generating info to both renter and car owner. 
-- How to Evaluate: Navigate to the contract page. Click generate congtract, our website will notify both renter and car owner by email.
+- How to Evaluate: Navigate to "Browse Vehicles" page, click one car and in the "vehicle details" page, after clicking "generate contract" button, our website will notify both renter and car owner by email. Navigate to "My contracts" page, click one contract and in the contract form, after clicking "approve" button, our website will notify both renter and car owner by email
 - Outcome of Task: xxx
+
 
 ### Task 3: Create a testimonial
 - Description:  Create a testimonial model, controller, _form.html.erb (+new/edit), show.html.erb, seeds, validations, validation tests. 
-- How to Evaluate: As a renter/car owner, navigate to the home page to leave a testimonial/comment on the homepage about  experiences with the Rent-A-Car service. This comment would be updated on the home page.
-- Outcome of Task: xxx
+- How to Evaluate: Navigate to the home page to leave a testimonial/comment on the homepage about experiences with the Rent-A-Car service. Click "Read More" button, naviagte to the testimonial index page to see all the testimonials about this website. The testimonial can be created only onece. After writing a testimonial, the testimonial will be showed imediatedly on the home page. 
+- Outcome of Task: xxx 
 
 
 

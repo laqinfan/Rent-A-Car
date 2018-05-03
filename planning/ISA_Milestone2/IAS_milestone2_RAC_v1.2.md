@@ -57,21 +57,20 @@
 - Outcome of Task: This functionalty was started but not completed. As of this iteration the user can only seed the information. 
 
 ## Tasks: Laqin Fan
+## Tasks: Laqin Fan
 ### Task 1: Show car availability using calendar
 - Description: Add car availability status by checking the calendar. 
-- How to Evaluate: Navigate to the "Browse Vehicle" page. There would be car status using a calendar tracking the avaliability staus.
-- Outcome of Task: generate availability model which has association with car, car can has many availabilities. Also create validates in the model for test. The pages for this feature are car availability page, add car available status page, update the car available status to vehicle details page.
+- How to Evaluate: navigate to the "My Vehicles" page. There would be "Set Car Availability" button to check car availability status. Click "Set vehicle status", which helps to create owner's car availability. These car available information can be seen in "vehicle details". 
+- Outcome of Task: generate availability model which has association with car, car has many availabilities. Also create validates in the model for test. The pages for this feature are car availability page, add car available status page, update the car available status to vehicle details page.
 
 
 ### Task 2: Notify by email
 - Description: Add a notification function to send contract generating info to both renter and car owner. 
-- How to Evaluate: Navigate to the contract page. Click generate congtract, our website will notify both renter and car owner by email.
+- How to Evaluate: Navigate to "Browse Vehicles" page, click one car and in the "vehicle details" page, after clicking "generate contract" button, our website will notify both renter and car owner by email. Navigate to "My contracts" page, click one contract and in the contract form, after clicking "approve" button, our website will notify both renter and car owner by email
 - Outcome of Task: generate rails mailer UserMailer, create method user_email(), call this method inside contract_controller.
+
 
 ### Task 3: Create a testimonial
 - Description:  Create a testimonial model, controller, _form.html.erb (+new/edit), show.html.erb, seeds, validations, validation tests. 
-- How to Evaluate: As a renter/car owner, navigate to the home page to leave a testimonial/comment on the homepage about  experiences with the Rent-A-Car service. This comment would be updated on the home page.
-- Outcome of Task: generate testimonial model which has association with user, user can has one testimonial. Use the Jquery.Raty to create the rating star, and show it on testimonial records. The pages for this feature are my testimonial page, Update tetimonial page, all the testimonials index page, only the latest five testimonials would be able to show on the homepage in a container. 
-
-
-
+- How to Evaluate: Navigate to the home page to leave a testimonial/comment on the homepage about experiences with the Rent-A-Car service. Click "Read More" button, naviagte to the testimonial index page to see all the testimonials about this website. The testimonial can be created only onece. After writing a testimonial, the testimonial will be showed imediatedly on the home page. 
+- Outcome of Task: generate testimonial model which has association with user, user has one testimonial. Use the Jquery.Raty to create the rating star, and show it on testimonial records. The pages for this feature are my testimonial page, Update tetimonial page, testimonials index page, only the latest five testimonials would be able to show on the homepage in a container. 
