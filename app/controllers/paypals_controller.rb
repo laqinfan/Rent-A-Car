@@ -14,7 +14,8 @@ class PaypalsController < ApplicationController
      end
 
     def create
-        @paypal = Paypal.new(paypal_id: params[:paypal][:paypal_id],
+        @paypal = Paypal.new(user_id: params[:paypal][:user_id],
+               paypal_id: params[:paypal][:paypal_id],
                paypal_username: params[:paypal][:paypal_username],
                paypal_account_routing_number: params[:paypal][:paypal_account_routing_number])
         if @paypal.save

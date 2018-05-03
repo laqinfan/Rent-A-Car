@@ -19,12 +19,12 @@
 
   <div class="form-group">
     <%= form.label :start %>
-    <%= form.date_field :start, id: :availability_start, class: "form-control" %>
+    <%= form.date_field :start, id: :availability_start, class: "form-control", min: Date.today %>
   </div>
 
   <div class="form-group">
     <%= form.label :end %>
-    <%= form.date_field :end, id: :availability_end, class: "form-control" %>
+    <%= form.date_field :end, id: :availability_end, class: "form-control" , min: Date.today%>
   </div>
 
   <div class="form-group">
